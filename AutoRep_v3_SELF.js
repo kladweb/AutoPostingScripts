@@ -317,22 +317,27 @@
         if (feedWs[0].querySelector('.feed-caption')) {
           t = 1
         }
-        var identD = [];
         var identImg = [];
-        for (var i = t; i <= t + 1; i++) {
-          identD[i] = feedWs[i].querySelector('.feed-user-avatar');
-          if (identD[i]) {
-            identImg[i] = identD[i].querySelector(`img.feed-avatar-img`);
-            if (identImg[i]) {
-              var checkIdAcc = parseInt(identImg[i].getAttribute('alt'));
-              if (checkIdAcc !== 586178183434) {
-                console.log(`Найден чужой пост по заходу в группу: ${numberGroup}`);
-                GroupsRepeat.push(numberGroup);
-                refreshInterval = 180000;
-                return;
-              }
-            }
+        var checkIdAcc = []
+        var identD = [];
+        identD[t] = feedWs[t].querySelector('.feed-user-avatar');
+        identD[t + 1] = feedWs[t + 1].querySelector('.feed-user-avatar');
+        if (identD[t]) {
+          identImg[t] = identD[t].querySelector(`img.feed-avatar-img`);
+          if (identImg[t]) {
+            checkIdAcc[0] = parseInt(identImg[t].getAttribute('alt'));
           }
+        }
+        if (identD[t + 1]) {
+          identImg[t + 1] = identD[t + 1].querySelector(`img.feed-avatar-img`);
+          if (identImg[t + 1]) {
+            checkIdAcc[1] = parseInt(identImg[t + 1].getAttribute('alt'));
+          }
+        }
+        if ((checkIdAcc[0] && checkIdAcc[0] !== 586178183434) || (checkIdAcc[1] && checkIdAcc[1] !== 586178183434)) {
+          console.log(`Найден чужой пост по заходу в группу: ${numberGroup}`);
+          GroupsRepeat.push(numberGroup);
+          refreshInterval = 180000;
         }
       }
       action250(action260);
