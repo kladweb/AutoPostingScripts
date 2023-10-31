@@ -275,7 +275,7 @@
         console.log('Ссылка "группы" на найдена');
         action250(nextAction);
       }
-    }, smallInterval);
+    }, smallInterval * 1.5);
   }
 
   //зайдем в каждую группу, где были посты
@@ -289,56 +289,68 @@
       if (kolIter >= currNumbGroups.length) {
         action280();
         kolIter = 0;
-        return;
       }
-    }, smallInterval);
+    }, smallInterval * 1.5);
   }
 
   var action270 = function (numberGroup) {
     console.log('action270');
     setTimeout(() => {
-      kolIter++;
       var linkCurGroup = document.querySelector(`div[data-group-id='${numberGroup}'] a`);
       if (linkCurGroup) {
+        kolIter++;
         linkCurGroup.click();
         action272(numberGroup);
       } else {
         action270(numberGroup);
       }
-    }, smallInterval);
+    }, smallInterval * 1.5);
   }
 
   var action272 = function (numberGroup) {
     console.log('action272');
     setTimeout(() => {
       var feedWs = document.querySelectorAll('.feed-w');
-      if (feedWs[0]) {
-        var t = 0;
-        if (feedWs[0].querySelector('.feed-caption')) {
-          t = 1
+      var feedPin = document.querySelector('.feed_pin');
+      var feedFeedCapt = document.querySelector('.feed-caption');
+      var t = 0;
+      if (feedPin || feedFeedCapt) {
+        t = 1;
+      }
+      var identImg = [];
+      var checkIdAcc = []
+      var identD = [];
+      if (feedWs[t]) {
+        identD[0] = feedWs[t].querySelector('.feed-user-avatar');
+      } else {
+        console.log('Ошибка в action272, пробуем повторить');
+        action272(numberGroup);
+        return;
+      }
+      if (feedWs[t + 1]) {
+        identD[1] = feedWs[t + 1].querySelector('.feed-user-avatar');
+      }
+      console.log('identD[0]: ', identD[0]);
+      console.log('identD[1]: ', identD[1]);
+      if (identD[0]) {
+        identImg[0] = identD[0].querySelector(`img`);
+        console.log('identImg[0]: ', identImg[0]);
+        if (identImg[0]) {
+          checkIdAcc[0] = parseInt(identImg[0].getAttribute('alt'));
+          console.log('checkIdAcc[0]: ', checkIdAcc[0]);
         }
-        var identImg = [];
-        var checkIdAcc = []
-        var identD = [];
-        identD[t] = feedWs[t].querySelector('.feed-user-avatar');
-        identD[t + 1] = feedWs[t + 1].querySelector('.feed-user-avatar');
-        if (identD[t]) {
-          identImg[t] = identD[t].querySelector(`img.feed-avatar-img`);
-          if (identImg[t]) {
-            checkIdAcc[0] = parseInt(identImg[t].getAttribute('alt'));
-          }
+      }
+      if (identD[1]) {
+        identImg[1] = identD[1].querySelector(`img`);
+        if (identImg[1]) {
+          checkIdAcc[1] = parseInt(identImg[1].getAttribute('alt'));
+          console.log('checkIdAcc[1]: ', checkIdAcc[1]);
         }
-        if (identD[t + 1]) {
-          identImg[t + 1] = identD[t + 1].querySelector(`img.feed-avatar-img`);
-          if (identImg[t + 1]) {
-            checkIdAcc[1] = parseInt(identImg[t + 1].getAttribute('alt'));
-          }
-        }
-        if ((checkIdAcc[0] && checkIdAcc[0] !== 586178183434) || (checkIdAcc[1] && checkIdAcc[1] !== 586178183434)) {
-          console.log(`Найден чужой пост по заходу в группу: ${numberGroup}`);
-          GroupsRepeat.push(numberGroup);
-          refreshInterval = 180000;
-        }
+      }
+      if ((checkIdAcc[0] && checkIdAcc[0] !== 586178183434) || (checkIdAcc[1] && checkIdAcc[1] !== 586178183434)) {
+        console.log(`Найден чужой пост по заходу в группу: ${numberGroup}`);
+        GroupsRepeat.push(numberGroup);
+        refreshInterval = 180000;
       }
       action250(action260);
     }, smallInterval);
@@ -347,6 +359,7 @@
   var action280 = function () {
     console.log('action280');
     var currDate = new Date;
+    console.log('Время последнего поста: ', dateFinishDoing.toTimeString());
     console.log('Текущее время: ', currDate.toTimeString());
     setTimeout(() => {
       var currDate = new Date;
