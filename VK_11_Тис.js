@@ -19,7 +19,7 @@
     173498496,//14 https://vk.com/my1ottnet
     155500362,//26 https://vk.com/i_ptv
     114119485,//11 https://vk.com/aurahdclub
-    // 106796170,//25 https://vk.com/club106796170
+    106796170,//25 https://vk.com/club106796170
     // 119600438,//23 https://vk.com/iptvzeus
     // 99770042, //17 https://vk.com/club99770042
     // 52218536,//21	https://vk.com/club52218536
