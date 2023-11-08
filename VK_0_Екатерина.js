@@ -13,14 +13,14 @@
 
   var groupsAll = [
     14875387,//Bel https://vk.com/club14875387
-    173498496,//14 https://vk.com/my1ottnet
+    // 173498496,//14 https://vk.com/my1ottnet
     130237472,//24 https://vk.com/club130237472
-    132944148,//27 https://vk.com/iptvlistok
+    // 132944148,//27 https://vk.com/iptvlistok
     18331470,//22	https://vk.com/marinaol
-    155500362,//26 https://vk.com/i_ptv
+    // 155500362,//26 https://vk.com/i_ptv
     114119485,//11 https://vk.com/aurahdclub
     119600438,//23 https://vk.com/iptvzeus
-    106796170,//25 https://vk.com/club106796170
+    // 106796170,//25 https://vk.com/club106796170
     52218536,//21	https://vk.com/club52218536
     99770042, //17 https://vk.com/club99770042
     65739319,//15 https://vk.com/iptvm3u
