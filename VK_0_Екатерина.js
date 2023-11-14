@@ -17,10 +17,10 @@
     130237472,//24 https://vk.com/club130237472
     // 132944148,//27 https://vk.com/iptvlistok
     18331470,//22	https://vk.com/marinaol
-    // 155500362,//26 https://vk.com/i_ptv
+    155500362,//26 https://vk.com/i_ptv
     114119485,//11 https://vk.com/aurahdclub
     119600438,//23 https://vk.com/iptvzeus
-    // 106796170,//25 https://vk.com/club106796170
+    106796170,//25 https://vk.com/club106796170
     52218536,//21	https://vk.com/club52218536
     99770042, //17 https://vk.com/club99770042
     65739319,//15 https://vk.com/iptvm3u
@@ -67,7 +67,11 @@
       //   butOpenFrameFull.click();
       // }
       var contPost = document.getElementById('submit_post_box');
-      var blockPost = contPost.querySelector('.medadd_c_linkimg_container');
+      if (contPost) {
+        var blockPost = contPost.querySelector('.medadd_c_linkimg_container');
+      } else {
+        action1();
+      }
       if (blockPost) {
         console.log('blockPost: YES');
         action12();
