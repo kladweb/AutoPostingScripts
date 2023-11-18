@@ -22,6 +22,8 @@
           console.log('Горит кнопка Подключить');
           actionClick(720000);
         }
+      } else {
+        action1();
       }
     }, 5000);
   }
@@ -34,6 +36,7 @@
         actionDialog();
       } else {
         console.log('кнопка подключить/отключить не найдена!')
+        actionClick();
       }
     }, timeout);
   }
@@ -47,6 +50,7 @@
           butEnter.click();
         } else {
           console.log('Кнопка вход не найдена');
+          location.reload();
         }
       } else {
         console.log('Мы уже залогинены!');
