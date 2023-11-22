@@ -80,19 +80,6 @@
         return;
       }
       linksPosts = [...linkPostsAll];
-      // linksPosts = [linkPostsAll[0]];
-      // if (countPosts > 3 || GroupsRepeat.length > 0) {
-      //   linksPosts = [...linkPostsAll];
-      //   currentState = 0;
-      // } else {
-      //   if (currentState === 1) {
-      //     currentState = 2;
-      //     linksPosts = linkPostsAll.slice(3);
-      //   } else {
-      //     currentState = 1;
-      //     linksPosts = linkPostsAll.slice(0, 3);
-      //   }
-      // }
       countMyPosts = countMyPosts + linksGroup.length * linksPosts.length;
       console.log('Предстоящие посты: ', countMyPosts);
       if (countMyPosts > 45) {
@@ -336,18 +323,18 @@
         identImg[0] = identD[0].querySelector(`img`);
         console.log('identImg[0]: ', identImg[0]);
         if (identImg[0]) {
-          checkIdAcc[0] = parseInt(identImg[0].getAttribute('alt'));
+          checkIdAcc[0] = identImg[0].getAttribute('alt');
           console.log('checkIdAcc[0]: ', checkIdAcc[0]);
         }
       }
       if (identD[1]) {
         identImg[1] = identD[1].querySelector(`img`);
         if (identImg[1]) {
-          checkIdAcc[1] = parseInt(identImg[1].getAttribute('alt'));
+          checkIdAcc[1] = identImg[1].getAttribute('alt');
           console.log('checkIdAcc[1]: ', checkIdAcc[1]);
         }
       }
-      if ((checkIdAcc[0] && checkIdAcc[0] !== 581088762021) || (checkIdAcc[1] && checkIdAcc[1] !== 581088762021)) {
+      if ((checkIdAcc[0] && checkIdAcc[0] !== '581088762021') || (checkIdAcc[1] && checkIdAcc[1] !== '581088762021')) {
         console.log(`Найден чужой пост по заходу в группу: ${numberGroup}`);
         GroupsRepeat.push(numberGroup);
         refreshInterval = 180000;
