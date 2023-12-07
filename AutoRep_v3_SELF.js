@@ -254,7 +254,7 @@
   var action250 = function (nextAction) {
     console.log('action250');
     setTimeout(() => {
-      var linkGroups = document.querySelector(`a[aria-label="Группы"]`);
+      var linkGroups = document.querySelector(`a[data-l="t,userAltGroup"]`);
       if (linkGroups) {
         linkGroups.click();
         nextAction();
