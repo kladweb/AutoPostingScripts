@@ -8,8 +8,8 @@
 
 (function () {
   var idAccount = 'wall_draft562935165_-';
-  var _apiName = 'VK11P1';
-  var _apiName2 = 'VK11P1';
+  var _apiName = 'VK11P2';
+  var _apiName2 = 'VK11P2';
 
   var groupsAll = [
     14875387,//Bel https://vk.com/club14875387
@@ -20,10 +20,10 @@
     155500362,//26 https://vk.com/i_ptv
     114119485,//11 https://vk.com/aurahdclub
     106796170,//25 https://vk.com/club106796170
-    119600438,//23 https://vk.com/iptvzeus
+    // 119600438,//23 https://vk.com/iptvzeus
     // 99770042, //17 https://vk.com/club99770042
-    52218536,//21	https://vk.com/club52218536
-    65739319,//15 https://vk.com/iptvm3u
+    // 52218536,//21	https://vk.com/club52218536
+    // 65739319,//15 https://vk.com/iptvm3u
     // 138553819,//16 https://vk.com/club138553819
     // 84120000, //18 https://vk.com/club84120000
   ]
@@ -61,10 +61,10 @@
 
   var action1 = function () {
     setTimeout(() => {
-      // var butOpenFrameFull = document.getElementById('medadd_ctrl_left');
-      // if (butOpenFrameFull) {
-      //   butOpenFrameFull.click();
-      // }
+      var butOpenFrameFull = document.getElementById('medadd_ctrl_left');
+      if (butOpenFrameFull) {
+        butOpenFrameFull.click();
+      }
       var contPost = document.getElementById('submit_post_box');
       if (contPost) {
         var blockPost = contPost.querySelector('.medadd_c_linkimg_container');
