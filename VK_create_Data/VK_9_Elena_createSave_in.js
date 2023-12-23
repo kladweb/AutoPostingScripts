@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         VK13_createStore_in
+// @name         VK9_createStore_in
 // @author       You
 // @match        https://vk.com/club14875387
 // @run-at       context-menu
@@ -119,12 +119,12 @@
       method: method,
       body: data
     })
-      .then(response => {
-        return response.json();
-      })
-      .catch(error => {
-        console.log('err!!!', error);
-      });
+    .then(response => {
+      return response.json();
+    })
+    .catch(error => {
+      console.log('err!!!', error);
+    });
   }
 
   async function saveData(dataForSave) {
@@ -164,11 +164,11 @@
   }
 
   saveData(dataVk)
-    .then(() => {
-      loadData().then((data) => {
-        console.log('res: ', data.result);
-      })
-    });
+  .then(() => {
+    loadData().then((data) => {
+      console.log('res: ', data.result);
+    })
+  });
 
   // Your code here...
 })();
