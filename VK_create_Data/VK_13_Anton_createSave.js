@@ -2,6 +2,7 @@
 // @name         VK13_createStore
 // @author       You
 // @match        https://vk.com/club14875387
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=vk.com
 // @run-at       context-menu
 // ==/UserScript==
 
@@ -18,12 +19,12 @@
       method: method,
       body: data
     })
-      .then(response => {
-        return response.json();
-      })
-      .catch(error => {
-        console.log('err!!!', error);
-      });
+    .then(response => {
+      return response.json();
+    })
+    .catch(error => {
+      console.log('err!!!', error);
+    });
   }
 
   async function saveData(dataForSave) {
@@ -63,11 +64,11 @@
   }
 
   saveData(storePost)
-    .then(() => {
-      loadData().then((data) => {
-        console.log('res: ', JSON.parse(data.result));
-      })
-    });
+  .then(() => {
+    loadData().then((data) => {
+      console.log('res: ', JSON.parse(data.result));
+    })
+  });
 
   // Your code here...
 })();

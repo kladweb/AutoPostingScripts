@@ -14,18 +14,18 @@
   var groupsAll = [
     14875387,//Bel https://vk.com/club14875387
     173498496,//14 https://vk.com/my1ottnet
-    // 130237472,//24 https://vk.com/club130237472
+    130237472,//24 https://vk.com/club130237472
     18331470,//22	https://vk.com/marinaol
-    // 132944148,//27 https://vk.com/iptvlistok
-    // 155500362,//26 https://vk.com/i_ptv
-    // 114119485,//11 https://vk.com/aurahdclub
-    // 106796170,//25 https://vk.com/club106796170
+    132944148,//27 https://vk.com/iptvlistok
+    155500362,//26 https://vk.com/i_ptv
+    114119485,//11 https://vk.com/aurahdclub
+    106796170,//25 https://vk.com/club106796170
     119600438,//23 https://vk.com/iptvzeus
-    // 99770042, //17 https://vk.com/club99770042
+    99770042, //17 https://vk.com/club99770042
     52218536,//21	https://vk.com/club52218536
     65739319,//15 https://vk.com/iptvm3u
-    // 138553819,//16 https://vk.com/club138553819
-    // 84120000, //18 https://vk.com/club84120000
+    138553819,//16 https://vk.com/club138553819
+    84120000, //18 https://vk.com/club84120000
   ];
 
   var numberGroups = groupsAll.length;
@@ -41,12 +41,12 @@
       method: method,
       body: data
     })
-      .then(response => {
-        return response.json();
-      })
-      .catch(error => {
-        console.log('err!!!', error);
-      });
+    .then(response => {
+      return response.json();
+    })
+    .catch(error => {
+      console.log('err!!!', error);
+    });
   }
 
   async function loadData() {
@@ -142,7 +142,7 @@
     console.log('Перешли в action3');
     setTimeout(() => {
       action32();
-    }, 51567);
+    }, 31567);
   }
 
   const action32 = function () {
@@ -169,15 +169,15 @@
 
   const action01 = function () {
     loadData()
-      .then((data) => {
-        console.log('res: ', JSON.parse(data.result));
-        storePost = JSON.parse(data.result);
-      })
-      .then(() => {
-        window.localStorage.setItem(idAccount + groupsAll[currentNumberGr], storePost);
-        action32();
-        // action1();
-      });
+    .then((data) => {
+      console.log('res: ', JSON.parse(data.result));
+      storePost = JSON.parse(data.result);
+    })
+    .then(() => {
+      window.localStorage.setItem(idAccount + groupsAll[currentNumberGr], storePost);
+      action32();
+      // action1();
+    });
   }
 
   var action5 = function () {
