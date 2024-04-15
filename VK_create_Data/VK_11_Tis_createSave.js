@@ -12,7 +12,7 @@
   console.log('POST:', storePost);
 
   var _apiBase = 'https://fe.it-academy.by/AjaxStringStorage2.php';
-  var _apiName = 'VK11P1';
+  var _apiName = 'VK11P3';
   function sendHttpRequest(method, url, data) {
     return fetch(url, {
       method: method,
