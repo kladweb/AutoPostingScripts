@@ -19,7 +19,7 @@
     132944148,//27 https://vk.com/iptvlistok
     155500362,//26 https://vk.com/i_ptv
     114119485,//11 https://vk.com/aurahdclub
-    140398176, //28 https://vk.com/oknotiviru
+    // 140398176, //28 https://vk.com/oknotiviru
     106796170,//25 https://vk.com/club106796170
     // 119600438,//23 https://vk.com/iptvzeus
     // 99770042, //17 https://vk.com/club99770042
