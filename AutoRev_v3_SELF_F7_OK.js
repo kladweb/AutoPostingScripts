@@ -300,12 +300,27 @@
     console.log('action272');
     setTimeout(() => {
       var feedWs = document.querySelectorAll('.feed-w');
-      var feedPin = document.querySelector('.feed_pin');
-      var feedFeedCapt = document.querySelector('.feed-caption');
-      var t = 0;
-      if (feedPin || feedFeedCapt) {
-        t = 1;
+
+      if (!feedWs) {
+        console.log('не найден feedWs, пробуем повторить');
+        action272(numberGroup);
+        return;
       }
+      if (feedWs[0]) {
+        var numFirstPost = feedWs[0].querySelector('.feed-avatar-img');
+      } else {
+        console.log('не найден feedWs[0], пробуем повторить');
+        action272(numberGroup);
+        return;
+      }
+
+      var t = 0;
+      if (numFirstPost.getAttribute('alt') === numberGroup.toString() ||
+        numFirstPost.getAttribute('alt') === "aleksandr.kotsur.millennium") {
+        t = 1;
+        console.log('Есть закрепленный пост!');
+      }
+
       var identImg = [];
       var checkIdAcc = [];
       var identD = [];
