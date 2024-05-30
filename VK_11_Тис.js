@@ -12,7 +12,6 @@
   var _apiName2 = 'VK11P2';
 
   var groupsAll = [
-    131638330, //33 https://vk.com/galaktik_iptv
     140398176, //28 https://vk.com/oknotiviru
     14875387,//Bel https://vk.com/club14875387
     18331470,//22	https://vk.com/marinaol
@@ -32,6 +31,7 @@
     167018774, //30 https://vk.com/club167018774
     171843329, //31 https://vk.com/ru_iptv
     120034509, //32 https://vk.com/club120034509
+    131638330, //33 https://vk.com/galaktik_iptv
   ]
 
   var numberGroups = groupsAll.length;

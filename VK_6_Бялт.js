@@ -8,7 +8,7 @@
 
 (function () {
   var idAccount = 'wall_draft463839444_-';
-  var _apiName = 'VK6P2';
+  var _apiName = 'VK6P1';
   var _apiName2 = 'VK6P2';
 
   var groupsAll = [
@@ -21,17 +21,17 @@
     155500362,//26 https://vk.com/i_ptv
     140398176, //28 https://vk.com/oknotiviru
     106796170,//25 https://vk.com/club106796170
-    119600438,//23 https://vk.com/iptvzeus
-    99770042, //17 https://vk.com/club99770042
+    // 119600438,//23 https://vk.com/iptvzeus
+    // 99770042, //17 https://vk.com/club99770042
     52218536,//21	https://vk.com/club52218536
-    65739319,//15 https://vk.com/iptvm3u
-    138553819,//16 https://vk.com/club138553819
-    84120000, //18 https://vk.com/club84120000
-    176994995, //29 https://vk.com/tvlisty
-    167018774, //30 https://vk.com/club167018774
+    // 65739319,//15 https://vk.com/iptvm3u
+    // // 138553819,//16 https://vk.com/club138553819
+    // 84120000, //18 https://vk.com/club84120000
+    // 176994995, //29 https://vk.com/tvlisty
+    // 167018774, //30 https://vk.com/club167018774
     171843329, //31 https://vk.com/ru_iptv
-    120034509, //32 https://vk.com/club120034509
-    131638330, //33 https://vk.com/galaktik_iptv
+    // 120034509, //32 https://vk.com/club120034509
+    // 131638330, //33 https://vk.com/galaktik_iptv
   ];
 
   var numberGroups = groupsAll.length;
