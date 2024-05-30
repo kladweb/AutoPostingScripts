@@ -8,7 +8,7 @@
 
 (function () {
   var idAccount = 'wall_draft806571200_-';
-  var _apiName = 'VK2P2';
+  var _apiName = 'VK2P1';
   var _apiName2 = 'VK2P2';
 
   var groupsAll = [
@@ -17,21 +17,21 @@
     130237472,//24 https://vk.com/club130237472
     18331470,//22	https://vk.com/marinaol
     132944148,//27 https://vk.com/iptvlistok
-    // 155500362,//26 https://vk.com/i_ptv
-    // 114119485,//11 https://vk.com/aurahdclub
-    // 140398176, //28 https://vk.com/oknotiviru
-    // 106796170,//25 https://vk.com/club106796170
-    // 119600438,//23 https://vk.com/iptvzeus
-    // 99770042, //17 https://vk.com/club99770042
-    // 52218536,//21 https://vk.com/club52218536
-    // 65739319,//15 https://vk.com/iptvm3u
-    // 138553819,//16 https://vk.com/club138553819
-    // 84120000, //18 https://vk.com/club84120000
-    // 176994995, //29 https://vk.com/tvlisty
-    // 167018774, //30 https://vk.com/club167018774
-    // 171843329, //31 https://vk.com/ru_iptv
-    // 120034509, //32 https://vk.com/club120034509
-    // 131638330, //33 https://vk.com/galaktik_iptv
+    155500362,//26 https://vk.com/i_ptv
+    114119485,//11 https://vk.com/aurahdclub
+    140398176, //28 https://vk.com/oknotiviru
+    106796170,//25 https://vk.com/club106796170
+    119600438,//23 https://vk.com/iptvzeus
+    99770042, //17 https://vk.com/club99770042
+    52218536,//21 https://vk.com/club52218536
+    65739319,//15 https://vk.com/iptvm3u
+    138553819,//16 https://vk.com/club138553819
+    84120000, //18 https://vk.com/club84120000
+    176994995, //29 https://vk.com/tvlisty
+    167018774, //30 https://vk.com/club167018774
+    171843329, //31 https://vk.com/ru_iptv
+    120034509, //32 https://vk.com/club120034509
+    131638330, //33 https://vk.com/galaktik_iptv
   ];
 
   var numberGroups = groupsAll.length;
@@ -47,12 +47,12 @@
       method: method,
       body: data
     })
-      .then(response => {
-        return response.json();
-      })
-      .catch(error => {
-        console.log('err!!!', error);
-      });
+    .then(response => {
+      return response.json();
+    })
+    .catch(error => {
+      console.log('err!!!', error);
+    });
   }
 
   async function loadData() {
@@ -149,7 +149,7 @@
     console.log('Перешли в action3');
     setTimeout(() => {
       action32();
-    }, 35567);
+    }, 31567);
   }
 
   var action32 = function () {
@@ -176,15 +176,15 @@
 
   var action01 = function () {
     loadData()
-      .then((data) => {
-        console.log('res: ', JSON.parse(data.result));
-        storePost = JSON.parse(data.result);
-      })
-      .then(() => {
-        window.localStorage.setItem(idAccount + groupsAll[currentNumberGr], storePost);
-        action32();
-        // action1();
-      });
+    .then((data) => {
+      console.log('res: ', JSON.parse(data.result));
+      storePost = JSON.parse(data.result);
+    })
+    .then(() => {
+      window.localStorage.setItem(idAccount + groupsAll[currentNumberGr], storePost);
+      action32();
+      // action1();
+    });
   }
 
   var action5 = function () {
