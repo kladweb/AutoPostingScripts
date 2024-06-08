@@ -27,7 +27,7 @@
     // 65739319,//15 https://vk.com/iptvm3u
     // 138553819,//16 https://vk.com/club138553819
     // 84120000, //18 https://vk.com/club84120000
-    // 176994995, //29 https://vk.com/tvlisty
+    176994995, //29 https://vk.com/tvlisty
     // 167018774, //30 https://vk.com/club167018774
     171843329, //31 https://vk.com/ru_iptv
     // 120034509, //32 https://vk.com/club120034509
@@ -111,14 +111,17 @@
     }, 3000);
   }
 
-  var action2 = function () {
+  const action2 = function () {
+    console.log('action2');
     setTimeout(() => {
-      var linkGroups = document.querySelector('.LeftMenuItem-module__item--XMcN9[href="/groups"]');
+      var linkGroups = document.querySelector('a[href="/groups"]');
       if (linkGroups) {
         linkGroups.click();
+        action21();
+      } else {
+        action2();
       }
-      action21();
-    }, 10000);
+    }, 5000);
   }
 
   var action21 = function () {
