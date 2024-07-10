@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         VK_13_AutoRep
+// @name         AutoRepVK_6_STORAGE
 // @author       You
 // @match        https://vk.com/groups
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=vk.com
@@ -7,9 +7,9 @@
 // ==/UserScript==
 
 (function () {
-  var idAccount = 'wall_draft591910410_-';
-  var _apiName = 'VK13P1';
-  var _apiName2 = 'VK13P1';
+  var idAccount = 'wall_draft463839444_-';
+  var _apiName = 'VK6P1';
+  var _apiName2 = 'VK6P1';
 
   var groupsAll = [
     14875387,//Bel https://vk.com/club14875387
@@ -17,64 +17,47 @@
     173498496,//14 https://vk.com/my1ottnet
     18331470,//22	https://vk.com/marinaol
     132944148,//27 https://vk.com/iptvlistok
-    155500362,//26 https://vk.com/i_ptv
     114119485,//11 https://vk.com/aurahdclub
+    155500362,//26 https://vk.com/i_ptv
     140398176, //28 https://vk.com/oknotiviru
     106796170,//25 https://vk.com/club106796170
     119600438,//23 https://vk.com/iptvzeus
     99770042, //17 https://vk.com/club99770042
-    65739319,//15 https://vk.com/iptvm3u
     52218536,//21	https://vk.com/club52218536
+    65739319,//15 https://vk.com/iptvm3u
     138553819,//16 https://vk.com/club138553819
     84120000, //18 https://vk.com/club84120000
     176994995, //29 https://vk.com/tvlisty
     167018774, //30 https://vk.com/club167018774
     171843329, //31 https://vk.com/ru_iptv
-    120034509, //32 https://vk.com/club120034509
+    // 120034509, //32 https://vk.com/club120034509
     131638330, //33 https://vk.com/galaktik_iptv
-    52509849, //https://vk.com/ss.iptv
+    52509849, //34 https://vk.com/ss.iptv
   ];
 
   var numberGroups = groupsAll.length;
   var currentNumberGr = 0;
-  const _apiBase = 'https://fe.it-academy.by/AjaxStringStorage2.php';
-
-  // var storePost = window.localStorage.getItem('wall_draft476124794_-14875387');
-  // var storePost = window.localStorage.getItem(idAccount + groupsAll[currentNumberGr]);
   var storePost = null;
-
-  function sendHttpRequest(method, url, data) {
-    return fetch(url, {
-      method: method,
-      body: data
-    })
-    .then(response => {
-      return response.json();
-    })
-    .catch(error => {
-      console.log('err!!!', error);
-    });
-  }
-
-  async function loadData() {
-    let fd = new FormData();
-    fd.append('f', 'READ');
-    fd.append('n', _apiName);
-    return await sendHttpRequest(
-      'POST',
-      _apiBase,
-      fd
-    );
-  }
 
   var action1 = function () {
     setTimeout(() => {
-      // var butOpenFrameFull = document.getElementById('medadd_ctrl_left');
-      // if (butOpenFrameFull) {
-      //   butOpenFrameFull.click();
-      // }
-      action12();
-    }, 12000);
+      var butOpenFrameFull = document.getElementById('medadd_ctrl_left');
+      if (butOpenFrameFull) {
+        butOpenFrameFull.click();
+      }
+      var contPost = document.getElementById('submit_post_box');
+      if (contPost) {
+        var blockPost = contPost.querySelector('.medadd_c_linkimg_container');
+      } else {
+        action1();
+      }
+      if (blockPost) {
+        console.log('blockPost: YES');
+        action12();
+      } else {
+        action1();
+      }
+    }, 3000);
   }
 
   const action12 = function () {
@@ -87,7 +70,7 @@
         console.log('Повтор клика отправки сообщения...')
         action12();
       }
-    }, 8000);
+    }, 3000);
   }
 
   var action13 = function () {
@@ -115,10 +98,13 @@
   }
 
   var action21 = function () {
+    console.log('action21');
     setTimeout(() => {
       var URLHash = window.location.href;
+      console.log(URLHash);
       if (URLHash !== 'https://vk.com/groups') {
         action2();
+        URLHash = '';
         return;
       }
       currentNumberGr++;
@@ -139,13 +125,14 @@
   }
 
   const action31 = function () {
-    console.log('Перешли в action3');
+    console.log('Перешли в action31');
     setTimeout(() => {
       action32();
-    }, 15567);
+    }, 15555);
   }
 
   const action32 = function () {
+    console.log('action32');
     setTimeout(() => {
       var linkGroup = document.querySelector(`#gl_groups${groupsAll[currentNumberGr]} a`);
       console.log('linkGroup: ', linkGroup);
@@ -157,6 +144,7 @@
   }
 
   const action33 = function () {
+    console.log('action33');
     setTimeout(() => {
       var URLHash = window.location.href;
       if (URLHash === 'https://vk.com/groups') {
@@ -168,19 +156,18 @@
   }
 
   const action01 = function () {
-    loadData()
-    .then((data) => {
-      console.log('res: ', JSON.parse(data.result));
-      storePost = JSON.parse(data.result);
-    })
-    .then(() => {
+    storePost = window.localStorage.getItem(_apiName);
+    console.log(storePost);
+    if (storePost) {
       window.localStorage.setItem(idAccount + groupsAll[currentNumberGr], storePost);
       action32();
-      // action1();
-    });
+    } else {
+      alert('Ошибка загрузки данных поста!');
+    }
   }
 
   var action5 = function () {
+    console.log('action5');
     setTimeout(() => {
       var buttonNews = document.querySelector('.LeftMenuItem-module__item--XMcN9[href="/feed"]');
       if (buttonNews) {
@@ -211,33 +198,7 @@
     }, timer);
   }
 
-  var action002 = (date) => {
-    console.log('Проверка таймера начнется через 5 мин.')
-    setTimeout(() => {
-      var currentDate = new Date;
-      if (date > currentDate) {
-        console.log('Время пришло! Приступаем к выполнению!');
-        action01();
-      } else {
-        console.log('Ещё не время выполнять! Следующая проверка через 5 мин.');
-        action002();
-      }
-    }, 300000);
-  }
-
-  var action001 = () => {
-    var date = '';
-    // var date = new Date(2024, 6, 28, 14, 37); // 6.28.2024, 02:03:04.567
-    if (date === '') {
-      console.log('Выполняем немедленно!');
-      action01();
-    } else {
-      console.log('Выполняем по таймеру:', date);
-      action002(date);
-    }
-  }
-
-  action001();
+  action01();
 
   // Your code here...
 })();
