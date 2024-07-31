@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name         Autorep3_SELF_F7_OK
+// @name         Autorep3_SELF
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  try to take over the world!
 // @author       You
-// @match        https://ok.ru/profile/581088762021/groups
+// @match        https://ok.ru/profile/575084661978/groups
 // @run-at       context-menu
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=ok.ru
 // @grant        none
@@ -12,13 +12,13 @@
 
 (function () {
   var linkPostsAll = [
-    "156599140670389",//Сравнение
-    "156599117994933",//cbilling
-    "156189772602293",//Szarovoz
-    "151891231824821",//VipLime
-    "156614064196887",//ILookTV
-    "155840892321852",//DOMA.VIP
-    // "155669662744636",//Сравнение New Year
+    // "153761736441916",//Сравнение
+    "153761735589948", //cbilling
+    "154501128273980", //Szarovoz
+    "153761735917628", //VipLime
+    "153761736245308", //ILookTV
+    "153761736441916",//Сравнение
+    // "155840892321852",//DOMA.VIP
   ];
   var linksPosts = [];
   var currentState = 0; //0 - все посты; 1 - первые три поста; 2 - последние два поста;
@@ -300,27 +300,12 @@
     console.log('action272');
     setTimeout(() => {
       var feedWs = document.querySelectorAll('.feed-w');
-
-      if (!feedWs) {
-        console.log('не найден feedWs, пробуем повторить');
-        action272(numberGroup);
-        return;
-      }
-      if (feedWs[0]) {
-        var numFirstPost = feedWs[0].querySelector('.feed-avatar-img');
-      } else {
-        console.log('не найден feedWs[0], пробуем повторить');
-        action272(numberGroup);
-        return;
-      }
-
+      var feedPin = document.querySelector('.feed_pin');
+      var feedFeedCapt = document.querySelector('.feed-caption');
       var t = 0;
-      if (numFirstPost.getAttribute('alt') === numberGroup.toString() ||
-        numFirstPost.getAttribute('alt') === "aleksandr.kotsur.millennium") {
+      if (feedPin || feedFeedCapt) {
         t = 1;
-        console.log('Есть закрепленный пост!');
       }
-
       var identImg = [];
       var checkIdAcc = [];
       var identD = [];
@@ -351,7 +336,7 @@
           console.log('checkIdAcc[1]: ', checkIdAcc[1]);
         }
       }
-      if ((checkIdAcc[0] && checkIdAcc[0] !== '581088762021') || (checkIdAcc[1] && checkIdAcc[1] !== '581088762021')) {
+      if ((checkIdAcc[0] && checkIdAcc[0] !== '575084661978') || (checkIdAcc[1] && checkIdAcc[1] !== '575084661978')) {
         console.log(`Найден чужой пост по заходу в группу: ${numberGroup}`);
         GroupsRepeat.push(numberGroup);
         refreshInterval = 180000;
