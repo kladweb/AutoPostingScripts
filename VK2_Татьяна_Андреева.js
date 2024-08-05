@@ -9,7 +9,7 @@
 (function () {
   var idAccount = 'wall_draft806571200_-';
   var _apiName = 'VK2P2';
-  var _apiName2 = 'VK2P2';
+  var _apiName2 = 'VK2P1';
 
   var groupsAll = [
     14875387,//Bel https://vk.com/club14875387
