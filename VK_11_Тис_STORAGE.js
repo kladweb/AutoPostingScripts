@@ -12,8 +12,8 @@
   var _apiName2 = 'VK11P2';
 
   var groupsAll = [
-    // 140398176, //28 https://vk.com/oknotiviru
-    // 14875387,//Bel https://vk.com/club14875387
+    140398176, //28 https://vk.com/oknotiviru
+    14875387,//Bel https://vk.com/club14875387
     18331470,//22	https://vk.com/marinaol
     130237472,//24 https://vk.com/club130237472
     132944148,//27 https://vk.com/iptvlistok
@@ -30,7 +30,7 @@
     176994995, //29 https://vk.com/tvlisty
     167018774, //30 https://vk.com/club167018774
     171843329, //31 https://vk.com/ru_iptv
-    // 120034509, //32 https://vk.com/club120034509
+    120034509, //32 https://vk.com/club120034509
     131638330, //33 https://vk.com/galaktik_iptv
     52509849, //34 https://vk.com/ss.iptv
   ]
