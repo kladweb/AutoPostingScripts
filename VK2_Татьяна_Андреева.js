@@ -8,10 +8,11 @@
 
 (function () {
   var idAccount = 'wall_draft806571200_-';
-  var _apiName = 'VK2P2';
-  var _apiName2 = 'VK2P1';
+  var _apiName = 'VK2P1';
+  var _apiName2 = 'VK2P2';
 
   var groupsAll = [
+    186442856, //35 https://vk.com/iptv_bt
     14875387,//Bel https://vk.com/club14875387
     173498496,//14 https://vk.com/my1ottnet
     130237472,//24 https://vk.com/club130237472
@@ -32,7 +33,7 @@
     171843329, //31 https://vk.com/ru_iptv
     120034509, //32 https://vk.com/club120034509
     131638330, //33 https://vk.com/galaktik_iptv
-    52509849, //34 https://vk.com/ss.iptv
+    // 52509849, //34 https://vk.com/ss.iptv
   ];
 
   var numberGroups = groupsAll.length;
