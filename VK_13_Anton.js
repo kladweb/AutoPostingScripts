@@ -25,14 +25,15 @@
     99770042, //17 https://vk.com/club99770042
     65739319,//15 https://vk.com/iptvm3u
     52218536,//21	https://vk.com/club52218536
-    138553819,//16 https://vk.com/club138553819
+    // 138553819,//16 https://vk.com/club138553819
     84120000, //18 https://vk.com/club84120000
     176994995, //29 https://vk.com/tvlisty
     167018774, //30 https://vk.com/club167018774
     171843329, //31 https://vk.com/ru_iptv
     120034509, //32 https://vk.com/club120034509
     131638330, //33 https://vk.com/galaktik_iptv
-    52509849, //34 https://vk.com/ss.iptv
+    // 52509849, //34 https://vk.com/ss.iptv
+    186442856, //35 https://vk.com/iptv_bt
   ];
 
   var numberGroups = groupsAll.length;
