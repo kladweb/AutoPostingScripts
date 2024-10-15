@@ -8,8 +8,8 @@
 
 (function () {
   var idAccount = 'wall_draft562935165_-';
-  var _apiName = 'VK11P2';
-  var _apiName2 = 'VK11P2';
+  var _apiName = 'VK11P3';
+  var _apiName2 = 'VK11P3';
 
   var groupsAll = [
     140398176, //28 https://vk.com/oknotiviru

@@ -15,25 +15,25 @@
     14875387,//Bel https://vk.com/club14875387
     130237472,//24 https://vk.com/club130237472
     173498496,//14 https://vk.com/my1ottnet
-    18331470,//22	https://vk.com/marinaol
-    132944148,//27 https://vk.com/iptvlistok
+    // 18331470,//22	https://vk.com/marinaol
+    // 132944148,//27 https://vk.com/iptvlistok
     114119485,//11 https://vk.com/aurahdclub
     155500362,//26 https://vk.com/i_ptv
-    140398176, //28 https://vk.com/oknotiviru
-    106796170,//25 https://vk.com/club106796170
+    // 140398176, //28 https://vk.com/oknotiviru
+    // 106796170,//25 https://vk.com/club106796170
     119600438,//23 https://vk.com/iptvzeus
-    99770042, //17 https://vk.com/club99770042
-    52218536,//21	https://vk.com/club52218536
-    65739319,//15 https://vk.com/iptvm3u
+    // 99770042, //17 https://vk.com/club99770042
+    // 52218536,//21	https://vk.com/club52218536
+    // 65739319,//15 https://vk.com/iptvm3u
     //138553819,//16 https://vk.com/club138553819
     84120000, //18 https://vk.com/club84120000
     176994995, //29 https://vk.com/tvlisty
-    167018774, //30 https://vk.com/club167018774
+    // 167018774, //30 https://vk.com/club167018774
     171843329, //31 https://vk.com/ru_iptv
-    120034509, //32 https://vk.com/club120034509
-    131638330, //33 https://vk.com/galaktik_iptv
-    //52509849, //34 https://vk.com/ss.iptv
-    186442856, //35 https://vk.com/iptv_bt
+    // 120034509, //32 https://vk.com/club120034509
+    // 131638330, //33 https://vk.com/galaktik_iptv
+    52509849, //34 https://vk.com/ss.iptv
+    // 186442856, //35 https://vk.com/iptv_bt
   ];
 
   var numberGroups = groupsAll.length;
@@ -202,7 +202,7 @@
   var action5 = function () {
     console.log('action5');
     setTimeout(() => {
-      var buttonNews = document.querySelector('.LeftMenuItem-module__item--XMcN9[href="/feed"]');
+      var buttonNews = document.querySelector('.LeftMenuItem-module__item--XGOpM[href="/feed"]');
       if (buttonNews) {
         buttonNews.click();
         setTimeout(() => {
