@@ -32,7 +32,7 @@
     171843329, //31 https://vk.com/ru_iptv
     120034509, //32 https://vk.com/club120034509
     131638330, //33 https://vk.com/galaktik_iptv
-    // 52509849, //34 https://vk.com/ss.iptv
+    52509849, //34 https://vk.com/ss.iptv
     186442856, //35 https://vk.com/iptv_bt
   ];
 
@@ -194,7 +194,7 @@
 
   var action5 = function () {
     setTimeout(() => {
-      var buttonNews = document.querySelector('.LeftMenuItem-module__item--XMcN9[href="/feed"]');
+      var buttonNews = document.querySelector('.LeftMenuItem-module__item--XGOpM[href="/feed"]');
       if (buttonNews) {
         buttonNews.click();
         setTimeout(() => {
