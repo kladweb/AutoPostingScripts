@@ -12,6 +12,7 @@
   var _apiName2 = 'VK13P1';
 
   var groupsAll = [
+    // 198518322, //https://vk.com/iptvstreamshub
     14875387,//Bel https://vk.com/club14875387
     130237472,//24 https://vk.com/club130237472
     173498496,//14 https://vk.com/my1ottnet
@@ -32,7 +33,7 @@
     171843329, //31 https://vk.com/ru_iptv
     120034509, //32 https://vk.com/club120034509
     131638330, //33 https://vk.com/galaktik_iptv
-    52509849, //34 https://vk.com/ss.iptv
+    // 52509849, //34 https://vk.com/ss.iptv
     186442856, //35 https://vk.com/iptv_bt
   ];
 
@@ -183,7 +184,7 @@
 
   var action5 = function () {
     setTimeout(() => {
-      var buttonNews = document.querySelector('.LeftMenuItem-module__item--XMcN9[href="/feed"]');
+      var buttonNews = document.querySelector('a[href="/feed"]');
       if (buttonNews) {
         buttonNews.click();
         setTimeout(() => {
