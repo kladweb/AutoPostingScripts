@@ -8,11 +8,11 @@
 
 (function () {
   var idAccount = 'wall_draft591910410_-';
-  var _apiName = 'VK13P1';
-  var _apiName2 = 'VK13P1';
+  var _apiName = 'VK13P3';
+  var _apiName2 = 'VK13P3';
 
   var groupsAll = [
-    // 198518322, //https://vk.com/iptvstreamshub
+    198518322, //https://vk.com/iptvstreamshub
     14875387,//Bel https://vk.com/club14875387
     130237472,//24 https://vk.com/club130237472
     173498496,//14 https://vk.com/my1ottnet
@@ -33,7 +33,6 @@
     171843329, //31 https://vk.com/ru_iptv
     120034509, //32 https://vk.com/club120034509
     131638330, //33 https://vk.com/galaktik_iptv
-    // 52509849, //34 https://vk.com/ss.iptv
     186442856, //35 https://vk.com/iptv_bt
   ];
 
@@ -144,7 +143,7 @@
     console.log('Перешли в action3');
     setTimeout(() => {
       action32();
-    }, 15567);
+    }, 10567);
   }
 
   const action32 = function () {
@@ -155,18 +154,18 @@
         linkGroup.click();
       }
       action33();
-    }, 3000);
+    }, 5000);
   }
 
   const action33 = function () {
     setTimeout(() => {
       var URLHash = window.location.href;
       if (URLHash === 'https://vk.com/groups') {
-        action32();
+        action33();
       } else {
         action1();
       }
-    }, 3000);
+    }, 5000);
   }
 
   const action01 = function () {

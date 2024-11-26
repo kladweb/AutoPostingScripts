@@ -14,7 +14,6 @@
   var groupsAll = [
     // 198518322, //https://vk.com/iptvstreamshub
     // 14875387,//Bel https://vk.com/club14875387
-    // 198518322, //https://vk.com/iptvstreamshub
     173498496,//14 https://vk.com/my1ottnet
     130237472,//24 https://vk.com/club130237472
     18331470,//22	https://vk.com/marinaol

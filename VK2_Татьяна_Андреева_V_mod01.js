@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         AutoRepVK_6
+// @name         AutoRepVK_2
 // @author       You
 // @match        https://vk.com/groups
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=vk.com
@@ -7,24 +7,24 @@
 // ==/UserScript==
 
 (function () {
-  var idAccount = 'wall_draft463839444_-';
-  var _apiName = 'VK6P2';
-  var _apiName2 = 'VK6P1';
+  var idAccount = 'wall_draft806571200_-';
+  var _apiName = 'VK2P2';
+  var _apiName2 = 'VK2P1';
 
   var groupsAll = [
     198518322, //https://vk.com/iptvstreamshub
     14875387,//Bel https://vk.com/club14875387
-    130237472,//24 https://vk.com/club130237472
     173498496,//14 https://vk.com/my1ottnet
+    130237472,//24 https://vk.com/club130237472
     18331470,//22	https://vk.com/marinaol
     132944148,//27 https://vk.com/iptvlistok
-    114119485,//11 https://vk.com/aurahdclub
     155500362,//26 https://vk.com/i_ptv
+    114119485,//11 https://vk.com/aurahdclub
     140398176, //28 https://vk.com/oknotiviru
     106796170,//25 https://vk.com/club106796170
     119600438,//23 https://vk.com/iptvzeus
     99770042, //17 https://vk.com/club99770042
-    52218536,//21	https://vk.com/club52218536
+    52218536,//21 https://vk.com/club52218536
     65739319,//15 https://vk.com/iptvm3u
     // 138553819,//16 https://vk.com/club138553819
     84120000, //18 https://vk.com/club84120000
@@ -33,12 +33,14 @@
     171843329, //31 https://vk.com/ru_iptv
     120034509, //32 https://vk.com/club120034509
     131638330, //33 https://vk.com/galaktik_iptv
+    52509849, //34 https://vk.com/ss.iptv
     186442856, //35 https://vk.com/iptv_bt
+
   ];
 
   var numberGroups = groupsAll.length;
   var currentNumberGr = 0;
-  const _apiBase = 'https://fe.it-academy.by/AjaxStringStorage2.php';
+  var _apiBase = 'https://fe.it-academy.by/AjaxStringStorage2.php';
 
   // var storePost = window.localStorage.getItem('wall_draft476124794_-14875387');
   // var storePost = window.localStorage.getItem(idAccount + groupsAll[currentNumberGr]);
@@ -70,43 +72,52 @@
 
   var action1 = function () {
     setTimeout(() => {
-      // var butOpenFrameFull = document.getElementById('medadd_ctrl_left');
-      // if (butOpenFrameFull) {
-      //   butOpenFrameFull.click();
-      // }
-      var contPost = document.getElementById('submit_post_box');
-      if (contPost) {
-        var blockPost = contPost.querySelector('.medadd_c_linkimg_container');
-      } else {
+      var contPost = document.querySelector('[data-testid="posting_create_post_button"]');
+      console.log(contPost);
+      if (!contPost) {
         action1();
-      }
-      if (blockPost) {
-        console.log('blockPost: YES');
+      } else {
+        contPost.click();
         action12();
-      } else {
-        action1();
       }
+      // if (contPost) {
+      //   var blockPost = contPost.querySelector('.medadd_c_linkimg_container');
+      // } else {
+      //   action1();
+      // }
+      // if (blockPost) {
+      //   console.log('blockPost: YES');
+      //   action12();
+      // } else {
+      //   action1();
+      // }
     }, 3000);
   }
 
   const action12 = function () {
     setTimeout(() => {
-      var butSend = document.getElementById('send_post');
-      if (butSend) {
-        butSend.click();
-        action13();
-      } else {
-        console.log('Повтор клика отправки сообщения...')
+      var addPict = document.querySelector('[data-testid="posting_base_screen_select_from_vk"]');
+      if (!addPict) {
         action12();
+      } else {
+        addPict.click();
+        action13();
       }
-    }, 3000);
+      // var butSend = document.getElementById('send_post');
+      // if (butSend) {
+      //   butSend.click();
+      //   action13();
+      // } else {
+      //   console.log('Повтор клика отправки сообщения...')
+      //   action12();
+      // }
+    }, 5000);
   }
 
   var action13 = function () {
     setTimeout(() => {
       var fieldInput = document.getElementById('post_field');
-      console.log('act13: ', fieldInput);
-      if (fieldInput.innerText === "[object Object]") {
+      if (fieldInput.innerText) {
         action12();
       } else {
         action2();
@@ -128,13 +139,10 @@
   }
 
   var action21 = function () {
-    console.log('action21');
     setTimeout(() => {
       var URLHash = window.location.href;
-      console.log(URLHash);
       if (URLHash !== 'https://vk.com/groups') {
         action2();
-        URLHash = '';
         return;
       }
       currentNumberGr++;
@@ -154,15 +162,14 @@
     }, 5000);
   }
 
-  const action31 = function () {
-    console.log('Перешли в action31');
+  var action31 = function () {
+    console.log('Перешли в action3');
     setTimeout(() => {
       action32();
-    }, 10555);
+    }, 15567);
   }
 
-  const action32 = function () {
-    console.log('action32');
+  var action32 = function () {
     setTimeout(() => {
       var linkGroup = document.querySelector(`#gl_groups${groupsAll[currentNumberGr]} a`);
       console.log('linkGroup: ', linkGroup);
@@ -170,37 +177,26 @@
         linkGroup.click();
       }
       action33();
-    }, 10000);
+    }, 3000);
   }
 
-  const action33 = function () {
-    console.log('action33');
+  var action33 = function () {
     setTimeout(() => {
       var URLHash = window.location.href;
       if (URLHash === 'https://vk.com/groups') {
-          action33();
+        action33();
       } else {
         action1();
       }
     }, 5000);
   }
 
-  const action01 = function () {
-    console.log('action01');
-    loadData()
-    .then((data) => {
-      console.log('res: ', JSON.parse(data.result));
-      storePost = JSON.parse(data.result);
-    })
-    .then(() => {
-      window.localStorage.setItem(idAccount + groupsAll[currentNumberGr], storePost);
+  var action01 = function () {
+    // old actions
       action32();
-      // action1();
-    });
   }
 
   var action5 = function () {
-    console.log('action5');
     setTimeout(() => {
       var buttonNews = document.querySelector('a[href="/feed"]');
       if (buttonNews) {
