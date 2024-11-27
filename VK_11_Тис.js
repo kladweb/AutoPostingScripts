@@ -12,7 +12,7 @@
   var _apiName2 = 'VK11P3';
 
   var groupsAll = [
-    // 198518322, //https://vk.com/iptvstreamshub
+    198518322, //https://vk.com/iptvstreamshub
     140398176, //28 https://vk.com/oknotiviru
     14875387,//Bel https://vk.com/club14875387
     18331470,//22	https://vk.com/marinaol
@@ -33,7 +33,6 @@
     171843329, //31 https://vk.com/ru_iptv
     120034509, //32 https://vk.com/club120034509
     131638330, //33 https://vk.com/galaktik_iptv
-    // 52509849, //34 https://vk.com/ss.iptv
     186442856, //35 https://vk.com/iptv_bt
   ]
 
@@ -169,7 +168,7 @@
         linkGroup.click();
       }
       action33();
-    }, 3000);
+    }, 10000);
   }
 
   const action33 = function () {
@@ -177,7 +176,7 @@
     setTimeout(() => {
       var URLHash = window.location.href;
       if (URLHash === 'https://vk.com/groups') {
-        action32();
+        action33();
       } else {
         action1();
       }
