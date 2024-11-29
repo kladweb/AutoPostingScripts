@@ -12,8 +12,8 @@
   var _apiName2 = 'VK2P1';
 
   var groupsAll = [
-    198518322, //https://vk.com/iptvstreamshub
-    14875387,//Bel https://vk.com/club14875387
+    // 198518322, //https://vk.com/iptvstreamshub
+    // 14875387,//Bel https://vk.com/club14875387
     173498496,//14 https://vk.com/my1ottnet
     130237472,//24 https://vk.com/club130237472
     18331470,//22	https://vk.com/marinaol
@@ -23,17 +23,17 @@
     140398176, //28 https://vk.com/oknotiviru
     106796170,//25 https://vk.com/club106796170
     119600438,//23 https://vk.com/iptvzeus
-    99770042, //17 https://vk.com/club99770042
-    52218536,//21 https://vk.com/club52218536
-    65739319,//15 https://vk.com/iptvm3u
+    // 99770042, //17 https://vk.com/club99770042
+    // 52218536,//21 https://vk.com/club52218536
+    // 65739319,//15 https://vk.com/iptvm3u
     // 138553819,//16 https://vk.com/club138553819
-    84120000, //18 https://vk.com/club84120000
-    176994995, //29 https://vk.com/tvlisty
-    167018774, //30 https://vk.com/club167018774
+    // 84120000, //18 https://vk.com/club84120000
+    // 176994995, //29 https://vk.com/tvlisty
+    // 167018774, //30 https://vk.com/club167018774
     171843329, //31 https://vk.com/ru_iptv
-    120034509, //32 https://vk.com/club120034509
-    131638330, //33 https://vk.com/galaktik_iptv
-    52509849, //34 https://vk.com/ss.iptv
+    // 120034509, //32 https://vk.com/club120034509
+    // 131638330, //33 https://vk.com/galaktik_iptv
+    // 52509849, //34 https://vk.com/ss.iptv
     186442856, //35 https://vk.com/iptv_bt
 
   ];
@@ -72,46 +72,36 @@
 
   var action1 = function () {
     setTimeout(() => {
-      var contPost = document.querySelector('[data-testid="posting_create_post_button"]');
-      console.log(contPost);
-      if (!contPost) {
-        action1();
+      // var butOpenFrameFull = document.getElementById('medadd_ctrl_left');
+      // if (butOpenFrameFull) {
+      //   butOpenFrameFull.click();
+      // }
+      var contPost = document.getElementById('submit_post_box');
+      if (contPost) {
+        var blockPost = contPost.querySelector('.medadd_c_linkimg_container');
       } else {
-        contPost.click();
-        action12();
+        action1();
       }
-      // if (contPost) {
-      //   var blockPost = contPost.querySelector('.medadd_c_linkimg_container');
-      // } else {
-      //   action1();
-      // }
-      // if (blockPost) {
-      //   console.log('blockPost: YES');
-      //   action12();
-      // } else {
-      //   action1();
-      // }
+      if (blockPost) {
+        console.log('blockPost: YES');
+        action12();
+      } else {
+        action1();
+      }
     }, 3000);
   }
 
   const action12 = function () {
     setTimeout(() => {
-      var addPict = document.querySelector('[data-testid="posting_base_screen_select_from_vk"]');
-      if (!addPict) {
-        action12();
-      } else {
-        addPict.click();
+      var butSend = document.getElementById('send_post');
+      if (butSend) {
+        butSend.click();
         action13();
+      } else {
+        console.log('Повтор клика отправки сообщения...')
+        action12();
       }
-      // var butSend = document.getElementById('send_post');
-      // if (butSend) {
-      //   butSend.click();
-      //   action13();
-      // } else {
-      //   console.log('Повтор клика отправки сообщения...')
-      //   action12();
-      // }
-    }, 5000);
+    }, 8000);
   }
 
   var action13 = function () {
@@ -188,12 +178,20 @@
       } else {
         action1();
       }
-    }, 5000);
+    }, 3000);
   }
 
   var action01 = function () {
-    // old actions
+    loadData()
+    .then((data) => {
+      console.log('res: ', JSON.parse(data.result));
+      storePost = JSON.parse(data.result);
+    })
+    .then(() => {
+      window.localStorage.setItem(idAccount + groupsAll[currentNumberGr], storePost);
       action32();
+      // action1();
+    });
   }
 
   var action5 = function () {
