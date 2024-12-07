@@ -12,7 +12,7 @@
   // postObjectP1 - VipDrive
   // postObjectP2 - ILookTV
 
-  var groupsAll = [
+  const groupsAll = [
     14875387,//Bel https://vk.com/club14875387
     198518322, //https://vk.com/iptvstreamshub
     173498496,//14 https://vk.com/my1ottnet
@@ -40,7 +40,7 @@
   var numberGroups = groupsAll.length;
   var currentNumberGr = 0;
 
-  postObjectP1 = {
+  const postObjectP1 = {
     "inner_type": "wall_wallpost",
     "attachments": [
       {
@@ -147,7 +147,7 @@
   };
 
   //https://vk2-ilook.netlify.app/
-  postObjectP2 = {
+  const postObjectP2 = {
     "inner_type": "wall_wallpost",
     "attachments": [
       {
@@ -256,7 +256,7 @@
   const postObjects = [
     postObjectP1, //VipDrive
     // postObjectP2, //ILookTV
-  ]
+  ];
 
   const cyclesNumber = postObjects.length;
   let currentCycle = 1;

@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         AutoRepVK_9_mod01
+// @name         AutoRepVK_13_mod01
 // @author       You
 // @match        https://vk.com/groups
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=vk.com
@@ -7,11 +7,11 @@
 // ==/UserScript==
 
 (function () {
-  const idUser = '550973432';
+  const idUser = '591910410';
 
   const groupsAll = [
-    14875387,//Bel https://vk.com/club14875387
-    198518322, //https://vk.com/iptvstreamshub
+    14875387,// Bel https://vk.com/club14875387
+    198518322, // https://vk.com/iptvstreamshub
     173498496,//14 https://vk.com/my1ottnet
     130237472,//24 https://vk.com/club130237472
     18331470,//22	https://vk.com/marinaol
@@ -24,7 +24,7 @@
     99770042, //17 https://vk.com/club99770042
     52218536,//21 https://vk.com/club52218536
     65739319,//15 https://vk.com/iptvm3u
-    // 138553819,//16 https://vk.com/club138553819
+    138553819,//16 https://vk.com/club138553819
     84120000, //18 https://vk.com/club84120000
     176994995, //29 https://vk.com/tvlisty
     167018774, //30 https://vk.com/club167018774
@@ -37,10 +37,123 @@
   var numberGroups = groupsAll.length;
   var currentNumberGr = 0;
 
-  //postObjectP1 - cbilling: Онлайн ТВ - бесплатный тестовый период | cBilling
-
-  //https://vk9elena.netlify.app/
   const postObjectP1 = {
+    "inner_type": "wall_wallpost",
+    "attachments": [
+      {
+        "type": "article",
+        "source_url": "https://vk.com/@-194378541-luchshie-provaidery-iptv",
+        "article": {
+          "access_key": "d8bdbcb513c372ea57",
+          "id": 42869,
+          "is_favorite": false,
+          "owner_id": -194378541,
+          "owner_name": "IPTV. Лучшие платные сервисы",
+          "owner_photo": "https://sun6-22.userapi.com/s/v1/ig2/WChopTRB3bge4AxaElRWjLb1ks-Vh8dm2mrORNXF3eFBK0x2Tbbi-bViKiaqVbD1faiRfIK3zS0MbeYB0gtiy096.jpg?quality=96&crop=214,214,1272,1272&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080&ava=1&u=XTRXM6P1rYvkDzpRodjUUEcq0pxGcXC5NXZgQ-3nph8&cs=200x200",
+          "photo": {
+            "album_id": -66,
+            "date": 1588243650,
+            "id": 457239036,
+            "owner_id": -194378541,
+            "sizes": [
+              {
+                "height": 81,
+                "type": "m",
+                "width": 130,
+                "url": "https://sun6-21.userapi.com/s/v1/ig2/-IwceZg5CqZuoOGvy8Kuj7wEzlR0Wve2TIB_4Zqe5ULDkU7-Lrihs9Kcy0JMBIGxVG8r0jvfwCCle8dzK3Yi3kSp.jpg?quality=96&as=32x20,48x30,72x45,108x67,160x100,240x150,360x225,480x300,540x337,640x400,720x450,1080x675,1280x800,1440x900,2560x1600&from=bu&u=gbBRyzV1QuvAMO9g-4K39LyBdJxfwYqbXf4k5enkMhA&cs=130x81"
+              },
+              {
+                "height": 87,
+                "type": "o",
+                "width": 130,
+                "url": "https://sun6-21.userapi.com/s/v1/ig2/-IwceZg5CqZuoOGvy8Kuj7wEzlR0Wve2TIB_4Zqe5ULDkU7-Lrihs9Kcy0JMBIGxVG8r0jvfwCCle8dzK3Yi3kSp.jpg?quality=96&as=32x20,48x30,72x45,108x67,160x100,240x150,360x225,480x300,540x337,640x400,720x450,1080x675,1280x800,1440x900,2560x1600&from=bu&u=gbBRyzV1QuvAMO9g-4K39LyBdJxfwYqbXf4k5enkMhA&cs=130x87"
+              },
+              {
+                "height": 133,
+                "type": "p",
+                "width": 200,
+                "url": "https://sun6-21.userapi.com/s/v1/ig2/-IwceZg5CqZuoOGvy8Kuj7wEzlR0Wve2TIB_4Zqe5ULDkU7-Lrihs9Kcy0JMBIGxVG8r0jvfwCCle8dzK3Yi3kSp.jpg?quality=96&as=32x20,48x30,72x45,108x67,160x100,240x150,360x225,480x300,540x337,640x400,720x450,1080x675,1280x800,1440x900,2560x1600&from=bu&u=gbBRyzV1QuvAMO9g-4K39LyBdJxfwYqbXf4k5enkMhA&cs=200x133"
+              },
+              {
+                "height": 213,
+                "type": "q",
+                "width": 320,
+                "url": "https://sun6-21.userapi.com/s/v1/ig2/-IwceZg5CqZuoOGvy8Kuj7wEzlR0Wve2TIB_4Zqe5ULDkU7-Lrihs9Kcy0JMBIGxVG8r0jvfwCCle8dzK3Yi3kSp.jpg?quality=96&as=32x20,48x30,72x45,108x67,160x100,240x150,360x225,480x300,540x337,640x400,720x450,1080x675,1280x800,1440x900,2560x1600&from=bu&u=gbBRyzV1QuvAMO9g-4K39LyBdJxfwYqbXf4k5enkMhA&cs=320x213"
+              },
+              {
+                "height": 340,
+                "type": "r",
+                "width": 510,
+                "url": "https://sun6-21.userapi.com/s/v1/ig2/-IwceZg5CqZuoOGvy8Kuj7wEzlR0Wve2TIB_4Zqe5ULDkU7-Lrihs9Kcy0JMBIGxVG8r0jvfwCCle8dzK3Yi3kSp.jpg?quality=96&as=32x20,48x30,72x45,108x67,160x100,240x150,360x225,480x300,540x337,640x400,720x450,1080x675,1280x800,1440x900,2560x1600&from=bu&u=gbBRyzV1QuvAMO9g-4K39LyBdJxfwYqbXf4k5enkMhA&cs=510x340"
+              },
+              {
+                "height": 47,
+                "type": "s",
+                "width": 75,
+                "url": "https://sun6-21.userapi.com/s/v1/ig2/-IwceZg5CqZuoOGvy8Kuj7wEzlR0Wve2TIB_4Zqe5ULDkU7-Lrihs9Kcy0JMBIGxVG8r0jvfwCCle8dzK3Yi3kSp.jpg?quality=96&as=32x20,48x30,72x45,108x67,160x100,240x150,360x225,480x300,540x337,640x400,720x450,1080x675,1280x800,1440x900,2560x1600&from=bu&u=gbBRyzV1QuvAMO9g-4K39LyBdJxfwYqbXf4k5enkMhA&cs=75x47"
+              },
+              {
+                "height": 1600,
+                "type": "w",
+                "width": 2560,
+                "url": "https://sun6-21.userapi.com/s/v1/ig2/-IwceZg5CqZuoOGvy8Kuj7wEzlR0Wve2TIB_4Zqe5ULDkU7-Lrihs9Kcy0JMBIGxVG8r0jvfwCCle8dzK3Yi3kSp.jpg?quality=96&as=32x20,48x30,72x45,108x67,160x100,240x150,360x225,480x300,540x337,640x400,720x450,1080x675,1280x800,1440x900,2560x1600&from=bu&u=gbBRyzV1QuvAMO9g-4K39LyBdJxfwYqbXf4k5enkMhA&cs=2560x1600"
+              },
+              {
+                "height": 377,
+                "type": "x",
+                "width": 604,
+                "url": "https://sun6-21.userapi.com/s/v1/ig2/-IwceZg5CqZuoOGvy8Kuj7wEzlR0Wve2TIB_4Zqe5ULDkU7-Lrihs9Kcy0JMBIGxVG8r0jvfwCCle8dzK3Yi3kSp.jpg?quality=96&as=32x20,48x30,72x45,108x67,160x100,240x150,360x225,480x300,540x337,640x400,720x450,1080x675,1280x800,1440x900,2560x1600&from=bu&u=gbBRyzV1QuvAMO9g-4K39LyBdJxfwYqbXf4k5enkMhA&cs=604x377"
+              },
+              {
+                "height": 504,
+                "type": "y",
+                "width": 807,
+                "url": "https://sun6-21.userapi.com/s/v1/ig2/-IwceZg5CqZuoOGvy8Kuj7wEzlR0Wve2TIB_4Zqe5ULDkU7-Lrihs9Kcy0JMBIGxVG8r0jvfwCCle8dzK3Yi3kSp.jpg?quality=96&as=32x20,48x30,72x45,108x67,160x100,240x150,360x225,480x300,540x337,640x400,720x450,1080x675,1280x800,1440x900,2560x1600&from=bu&u=gbBRyzV1QuvAMO9g-4K39LyBdJxfwYqbXf4k5enkMhA&cs=807x504"
+              },
+              {
+                "height": 800,
+                "type": "z",
+                "width": 1280,
+                "url": "https://sun6-21.userapi.com/s/v1/ig2/-IwceZg5CqZuoOGvy8Kuj7wEzlR0Wve2TIB_4Zqe5ULDkU7-Lrihs9Kcy0JMBIGxVG8r0jvfwCCle8dzK3Yi3kSp.jpg?quality=96&as=32x20,48x30,72x45,108x67,160x100,240x150,360x225,480x300,540x337,640x400,720x450,1080x675,1280x800,1440x900,2560x1600&from=bu&u=gbBRyzV1QuvAMO9g-4K39LyBdJxfwYqbXf4k5enkMhA&cs=1280x800"
+              }
+            ],
+            "user_id": 100,
+            "web_view_token": "70df186c75db77de94",
+            "has_tags": false,
+            "orig_photo": {
+              "height": 1600,
+              "type": "base",
+              "url": "https://sun6-21.userapi.com/s/v1/ig2/-IwceZg5CqZuoOGvy8Kuj7wEzlR0Wve2TIB_4Zqe5ULDkU7-Lrihs9Kcy0JMBIGxVG8r0jvfwCCle8dzK3Yi3kSp.jpg?quality=96&as=32x20,48x30,72x45,108x67,160x100,240x150,360x225,480x300,540x337,640x400,720x450,1080x675,1280x800,1440x900,2560x1600&from=bu&u=gbBRyzV1QuvAMO9g-4K39LyBdJxfwYqbXf4k5enkMhA",
+              "width": 2560
+            }
+          },
+          "published_date": 1587191553,
+          "state": "available",
+          "subtitle": "(платные сервисы)",
+          "title": "ЛУЧШИЕ ПРОВАЙДЕРЫ IPTV",
+          "url": "https://vk.com/@iptveasy-luchshie-provaidery-iptv",
+          "view_url": "https://m.vk.com/@iptveasy-luchshie-provaidery-iptv",
+          "views": 4380,
+          "shares": 4,
+          "can_report": true,
+          "time_to_read": 65,
+          "lead_description": "(платные сервисы)\n На всех, рассмотренных ниже сервисах присутствуют архивы (записи телепередач) от 3 до 7 дней.\nУслуга мультирум (просмотр на нескольких устройств) также присутствует у многих рассмотренных операторов. Она бесплатна. У некоторых её нужно дополнительно включить в настройках после покупки пакета каналов.\n Списки каналов мы не приводим, так как у многих они постоянно меняются и пополняются, актуальные списки можно найти у каждого оператора на сайте.\nПроверяйте, тестируйте, выбор..",
+          "can_edit": true
+        },
+        "parsed": true
+      }
+    ],
+    "text": "Какое телевидение выбрать ?\nТолько лучшие и стабильные IPTV сервисы !\nВыбирайте и подключайте !\n",
+    "_attachments_list": [],
+    "_commentsEnabled": true,
+    "_notificationsEnabled": true,
+    "_attachmentsViewKey": "CAROUSEL",
+    "_photoAttachmentsCrop": {},
+    "_signed": false,
+    "_coOwnersIds": []
+  };
+
+  const postObjectP2 = {
     "inner_type": "wall_wallpost",
     "attachments": [
       {
@@ -147,9 +260,9 @@
   };
 
   const postObjects = [
-    postObjectP1, //cbilling: Онлайн ТВ - бесплатный тестовый период | cBilling
-    // postObjectP2, //ILookTV
-  ];
+    // postObjectP1, //The best operators
+    postObjectP2, //cbilling proba
+  ]
 
   const cyclesNumber = postObjects.length;
   let currentCycle = 1;
@@ -172,7 +285,6 @@
     console.log('action2');
     setTimeout(() => {
       var openDraft = document.querySelector('.box_controls_buttons .FlatButton--primary');
-      console.log(openDraft);
       if (openDraft) {
         console.log('action2 openDraft');
         openDraft.click();
