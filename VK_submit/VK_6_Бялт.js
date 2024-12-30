@@ -12,14 +12,14 @@
   var _apiName2 = 'VK6P1';
 
   var groupsAll = [
-    198518322, //https://vk.com/iptvstreamshub
+    // 198518322, // https://vk.com/iptvstreamshub
     14875387,//Bel https://vk.com/club14875387
-    130237472,//24 https://vk.com/club130237472
+    // 130237472,//24 https://vk.com/club130237472
     173498496,//14 https://vk.com/my1ottnet
-    18331470,//22	https://vk.com/marinaol
-    132944148,//27 https://vk.com/iptvlistok
+    // 18331470,//22	https://vk.com/marinaol
+    // 132944148,//27 https://vk.com/iptvlistok
     114119485,//11 https://vk.com/aurahdclub
-    155500362,//26 https://vk.com/i_ptv
+    // 155500362,//26 https://vk.com/i_ptv
     140398176, //28 https://vk.com/oknotiviru
     106796170,//25 https://vk.com/club106796170
     119600438,//23 https://vk.com/iptvzeus
