@@ -11,7 +11,7 @@
 
   const groupsAll = [
     14875387,//Bel https://vk.com/club14875387
-    198518322, //https://vk.com/iptvstreamshub
+    198518322, // https://vk.com/iptvstreamshub
     173498496,//14 https://vk.com/my1ottnet
     130237472,//24 https://vk.com/club130237472
     18331470,//22	https://vk.com/marinaol
@@ -39,8 +39,120 @@
 
   //postObjectP1 - cbilling: Онлайн ТВ - бесплатный тестовый период | cBilling
 
-  //https://vk9elena.netlify.app/
+  //https://vk9elena4.netlify.app/
   const postObjectP1 = {
+    "inner_type": "wall_wallpost",
+    "attachments": [
+      {
+        "type": "link",
+        "source_url": "https://ott-iptv-connect.com/?pp=23417",
+        "link": {
+          "url": "https://ott-iptv-connect.com/?pp=23417",
+          "caption": "Онлайн ТВ - бесплатный тестовый период | cBilling",
+          "id": "",
+          "is_favorite": false,
+          "photo": {
+            "album_id": -28,
+            "date": 1735021315,
+            "id": 457529216,
+            "owner_id": 2000045465,
+            "sizes": [
+              {
+                "height": 35,
+                "type": "s",
+                "width": 75,
+                "url": "https://sun9-54.userapi.com/impg/gdDGzyA6m_5-8m2SWGRhBk6JqFUOD38Aqdj5sw/_iLWlPdgpMs.jpg?size=75x35&quality=96&crop=22,0,1029,480&sign=a41dbda4f0b39e6f1aeb6ee4b3c6b500&c_uniq_tag=8CKgLVo7b_0i7XDXlc5--U020QqUP3GaV2qh00Jcl70&type=share"
+              },
+              {
+                "height": 80,
+                "type": "m",
+                "width": 130,
+                "url": "https://sun9-54.userapi.com/impg/gdDGzyA6m_5-8m2SWGRhBk6JqFUOD38Aqdj5sw/_iLWlPdgpMs.jpg?size=130x80&quality=96&crop=147,0,780,480&sign=86bdde00252f77427e3e44e5a15be4d3&c_uniq_tag=5RCpdvN9MPOpSmYTtJ70T-Qb0R6MekJbJiLCosbtDVk&type=share"
+              },
+              {
+                "height": 80,
+                "type": "x",
+                "width": 150,
+                "url": "https://sun9-54.userapi.com/impg/gdDGzyA6m_5-8m2SWGRhBk6JqFUOD38Aqdj5sw/_iLWlPdgpMs.jpg?size=150x80&quality=96&crop=87,0,900,480&sign=bd906f060b47674a80a571fe95be4f92&c_uniq_tag=IdkWsSXTKjtFC9zAvFEz7O4z2HXsSZSysXJEFPRzxzk&type=share"
+              },
+              {
+                "height": 402,
+                "type": "y",
+                "width": 807,
+                "url": "https://sun9-24.userapi.com/AD4PqT91jTE9r9Poj5Lxtt3VxS1I0P2sNicXGA/-w_mIuR0X6o.jpg"
+              },
+              {
+                "height": 637,
+                "type": "z",
+                "width": 1280,
+                "url": "https://sun9-29.userapi.com/RpikImLUS5hHQ6kwpS4tg936i5RwcaExRuYouw/GxUd8NYDF2k.jpg"
+              },
+              {
+                "height": 781,
+                "type": "w",
+                "width": 1570,
+                "url": "https://sun9-7.userapi.com/2f-hBZaIwmQdERw6FT0yJwn1SnXJ2kmApRZrHA/6KKRMTQHYNg.jpg"
+              },
+              {
+                "height": 87,
+                "type": "o",
+                "width": 130,
+                "url": "https://sun9-64.userapi.com/LQQKiiTiWTL_BM7qFBiXok2kRp1M-g_NXvycAQ/SPEztspW_Y0.jpg"
+              },
+              {
+                "height": 140,
+                "type": "p",
+                "width": 260,
+                "url": "https://sun9-54.userapi.com/impg/gdDGzyA6m_5-8m2SWGRhBk6JqFUOD38Aqdj5sw/_iLWlPdgpMs.jpg?size=260x140&quality=96&crop=91,0,891,480&sign=0c80e36db2bef995a5a948b366798347&c_uniq_tag=4NsSNsoBObq2FrDcfVXtry50QRaKtXzkB-v_R6SSPx0&type=share"
+              },
+              {
+                "height": 213,
+                "type": "q",
+                "width": 320,
+                "url": "https://sun9-44.userapi.com/Uzt0AwfHQgeVqyQUa8ORko-XXKJ5Vl-UJSKjIw/IfEWySm0LO0.jpg"
+              },
+              {
+                "height": 340,
+                "type": "r",
+                "width": 510,
+                "url": "https://sun9-80.userapi.com/2gJRmcjR1r4PCp9qQUpsI7okArzbR8IfsXsw3Q/ZmtZbihqy7w.jpg"
+              },
+              {
+                "height": 240,
+                "type": "l",
+                "width": 537,
+                "url": "https://sun9-54.userapi.com/impg/gdDGzyA6m_5-8m2SWGRhBk6JqFUOD38Aqdj5sw/_iLWlPdgpMs.jpg?size=537x240&quality=96&sign=c297904c07399209c7af46b93a8ff839&c_uniq_tag=fksMANpe7Sv_OAecTiRWDbjMUGm_z-z6sHuTtPWiMnw&type=share"
+              },
+              {
+                "height": 480,
+                "type": "k",
+                "width": 1074,
+                "url": "https://sun9-54.userapi.com/impg/gdDGzyA6m_5-8m2SWGRhBk6JqFUOD38Aqdj5sw/_iLWlPdgpMs.jpg?size=1074x480&quality=96&sign=b5d07aed0c0ad54ae8313e6a21235b7d&c_uniq_tag=23muT_By8duETNEUsOuMdEdmGUKyv2sp28cr5mudtCQ&type=share"
+              }
+            ],
+            "text": "",
+            "web_view_token": "079738a6013fff059a",
+            "has_tags": false
+          },
+          "preview_page": "",
+          "preview_url": "",
+          "title": "Онлайн ТВ - бесплатный тестовый период | cBilling",
+          "target": "internal"
+        },
+        "parsed": true
+      }
+    ],
+    "text": "Отлично зарекомендовавшее себя IPTV !\nОтсутствие тормозов и буферизаций !\nПакеты на любой вкус в т.ч. позапросный тариф.\nАрхив за 7 суток !\nСомневаетесь ? Попробуйте бесплатный тест на 24 часа !\nhttps://ott-iptv-connect.com/?pp=23417",
+    "_attachments_list": [],
+    "_commentsEnabled": true,
+    "_notificationsEnabled": true,
+    "_attachmentsViewKey": "CAROUSEL",
+    "_photoAttachmentsCrop": {},
+    "_coOwnersIds": []
+  };
+
+  //https://vk9elena.netlify.app/
+  const postObjectP2old = {
     "inner_type": "wall_wallpost",
     "attachments": [
       {
