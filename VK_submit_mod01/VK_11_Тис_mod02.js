@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         AutoRepVK_11_mod01
+// @name         AutoRepVK_11_mod02
 // @author       You
 // @match        https://vk.com/groups
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=vk.com
@@ -10,33 +10,82 @@
   const idUser = '562935165';
 
   var groupsAll = [
-    14875387,//Bel https://vk.com/club14875387
-    198518322, // https://vk.com/iptvstreamshub
-    173498496,//14 https://vk.com/my1ottnet
-    130237472,//24 https://vk.com/club130237472
-    18331470,//22	https://vk.com/marinaol
-    132944148,//27 https://vk.com/iptvlistok
-    155500362,//26 https://vk.com/i_ptv
-    114119485,//11 https://vk.com/aurahdclub
-    140398176, //28 https://vk.com/oknotiviru
-    106796170,//25 https://vk.com/club106796170
-    119600438,//23 https://vk.com/iptvzeus
-    99770042, //17 https://vk.com/club99770042
-    52218536,//21 https://vk.com/club52218536
-    65739319,//15 https://vk.com/iptvm3u
-    138553819,//16 https://vk.com/club138553819
-    84120000, //18 https://vk.com/club84120000
-    176994995, //29 https://vk.com/tvlisty
-    167018774, //30 https://vk.com/club167018774
-    171843329, //31 https://vk.com/ru_iptv
-    120034509, //32 https://vk.com/club120034509
-    131638330, //33 https://vk.com/galaktik_iptv
-    186442856, //35 https://vk.com/iptv_bt
+    ["14875387", "club14875387"], //Bel https://vk.com/club14875387
+    ["198518322", "iptvstreamshub"], // https://vk.com/iptvstreamshub
+    ["173498496", "my1ottnet"], //14 https://vk.com/my1ottnet
+    ["130237472", "club130237472"], //24 https://vk.com/club130237472
+    ["18331470", "marinaol"], //22	https://vk.com/marinaol
+    ["132944148", "iptvlistok"], //27 https://vk.com/iptvlistok
+    ["155500362", "i_ptv"], //26 https://vk.com/i_ptv
+    ["114119485", "aurahdclub"], //11 https://vk.com/aurahdclub
+    ["140398176", "oknotiviru"], //28 https://vk.com/oknotiviru
+    ["106796170", "club106796170"],//25 https://vk.com/club106796170
+    ["119600438", "iptvzeus"],//23 https://vk.com/iptvzeus
+    ["99770042", "club99770042"], //17 https://vk.com/club99770042
+    ["52218536", "club52218536"],//21 https://vk.com/club52218536
+    ["65739319", "iptvm3u"],//15 https://vk.com/iptvm3u
+    ["138553819", "club138553819"],//16 https://vk.com/club138553819
+    ["84120000", "club84120000"], //18 https://vk.com/club84120000
+    ["176994995", "tvlisty"], //29 https://vk.com/tvlisty
+    ["167018774", "club167018774"], //30 https://vk.com/club167018774
+    ["171843329", "ru_iptv"], //31 https://vk.com/ru_iptv
+    ["120034509", "club120034509"], //32 https://vk.com/club120034509
+    ["131638330", "galaktik_iptv"], //33 https://vk.com/galaktik_iptv
+    ["186442856", "iptv_bt"], //35 https://vk.com/iptv_bt
   ];
+
+  // var groupsAll3 = [
+  //   "club14875387", //Bel https://vk.com/club14875387
+  //   "iptvstreamshub", // https://vk.com/iptvstreamshub
+  //   "my1ottnet",//14 https://vk.com/my1ottnet
+  //   "club130237472",//24 https://vk.com/club130237472
+  //   "marinaol",//22	https://vk.com/marinaol
+  //   "iptvlistok",//27 https://vk.com/iptvlistok
+  //   "i_ptv",//26 https://vk.com/i_ptv
+  //   "aurahdclub",//11 https://vk.com/aurahdclub
+  //   "oknotiviru", //28 https://vk.com/oknotiviru
+  //   "club106796170",//25 https://vk.com/club106796170
+  //   "iptvzeus",//23 https://vk.com/iptvzeus
+  //   "club99770042", //17 https://vk.com/club99770042
+  //   "club52218536",//21 https://vk.com/club52218536
+  //   "iptvm3u",//15 https://vk.com/iptvm3u
+  //   "club138553819",//16 https://vk.com/club138553819
+  //   "club84120000", //18 https://vk.com/club84120000
+  //   "tvlisty", //29 https://vk.com/tvlisty
+  //   "club167018774", //30 https://vk.com/club167018774
+  //   "ru_iptv", //31 https://vk.com/ru_iptv
+  //   "club120034509", //32 https://vk.com/club120034509
+  //   "galaktik_iptv", //33 https://vk.com/galaktik_iptv
+  //   "iptv_bt", //35 https://vk.com/iptv_bt
+  // ];
+  //
+  // var groupsAll2 = [
+  //   14875387, //Bel https://vk.com/club14875387
+  //   198518322, // https://vk.com/iptvstreamshub
+  //   173498496,//14 https://vk.com/my1ottnet
+  //   130237472,//24 https://vk.com/club130237472
+  //   18331470,//22	https://vk.com/marinaol
+  //   132944148,//27 https://vk.com/iptvlistok
+  //   155500362,//26 https://vk.com/i_ptv
+  //   114119485,//11 https://vk.com/aurahdclub
+  //   140398176, //28 https://vk.com/oknotiviru
+  //   106796170,//25 https://vk.com/club106796170
+  //   119600438,//23 https://vk.com/iptvzeus
+  //   99770042, //17 https://vk.com/club99770042
+  //   52218536,//21 https://vk.com/club52218536
+  //   65739319,//15 https://vk.com/iptvm3u
+  //   138553819,//16 https://vk.com/club138553819
+  //   84120000, //18 https://vk.com/club84120000
+  //   176994995, //29 https://vk.com/tvlisty
+  //   167018774, //30 https://vk.com/club167018774
+  //   171843329, //31 https://vk.com/ru_iptv
+  //   120034509, //32 https://vk.com/club120034509
+  //   131638330, //33 https://vk.com/galaktik_iptv
+  //   186442856, //35 https://vk.com/iptv_bt
+  // ];
 
   var numberGroups = groupsAll.length;
   var currentNumberGr = 0;
-
 
   //https://vk11tis.netlify.app/
   const postObjectP1 = {
@@ -361,8 +410,8 @@
 
   const postObjects = [
     // postObjectP1, //сравнение, лушчие операторы IPTV
-    // postObjectP2, //MEDIABOX
-    postObjectP3, //сравнение, лушчие операторы IPTV New Year
+    postObjectP2, //MEDIABOX
+    // postObjectP3, //сравнение, лушчие операторы IPTV New Year
   ]
 
   const cyclesNumber = postObjects.length;
@@ -379,7 +428,7 @@
       } else {
         action1();
       }
-    }, 5000);
+    }, 15000);
   }
 
   const action2 = () => {
@@ -478,7 +527,7 @@
     console.log('action72');
     setTimeout(() => {
       action01(n);
-    }, 10000);
+    }, 5000);
   }
   const action7 = () => {
     console.log('action7');
@@ -516,7 +565,7 @@
     console.log('action03');
     setTimeout(() => {
       var URLHash = window.location.href;
-      if (URLHash === 'https://vk.com/groups') {
+      if (URLHash === 'https://vk.com/groups/my_all_groups') {
         action03();
       } else {
         action1();
@@ -527,13 +576,35 @@
   const action02 = () => {
     console.log('action02');
     setTimeout(() => {
-      var linkGroup = document.querySelector(`#gl_groups${groupsAll[currentNumberGr]} .group_row_title`);
+      var groupHref = `/${groupsAll[currentNumberGr][1]}`
+      // console.log('LINK: ', groupHref);
+      // var linkGroup = document.querySelector(`a[href^="${groupHref}"]`);
+      var linkGroup = document.querySelector(`.vkuiLink[href^="${groupHref}"]`);
+
+      // var linkGroupG = document.querySelector(`#gl_groups${groupsAll[currentNumberGr]}`);
+      // var linkGroup = linkGroupG.querySelector('.group_row_title');
+
       console.log('linkGroup: ', linkGroup);
       if (linkGroup) {
         linkGroup.click();
         action03();
       } else {
+        window.scrollBy(0, 1500);
         action02();
+      }
+    }, 5000);
+  }
+
+  const action015 = () => {
+    console.log('action015');
+    setTimeout(() => {
+      var linkGroups = document.querySelector('a[href="https://vk.com/groups/my_all_groups"]');
+      console.log('linkGroups: ', linkGroups);
+      if (linkGroups) {
+        linkGroups.click();
+        action02();
+      } else {
+        action015();
       }
     }, 5000);
   }
@@ -550,14 +621,14 @@
       const db = request.result;
       const transaction = db.transaction("posting-draft", "readwrite");
       const store = transaction.objectStore("posting-draft");
-      const keyStore = `${idUser}--${groupsAll[currentGroup]}`;
+      const keyStore = `${idUser}--${groupsAll[currentGroup][0]}`;
       const idQuery = store.get(keyStore);
 
       idQuery.onsuccess = function () {
         console.log(idQuery.result);
         store.put(postObjects[currentCycle - 1], keyStore);
         console.log('YESSS');
-        action02()
+        action015();
       };
     };
   }

@@ -168,8 +168,11 @@
       console.log('linkGroup: ', linkGroup);
       if (linkGroup) {
         linkGroup.click();
+        action33();
+      } else {
+        window.scrollBy(0, 3000);
+        action32();
       }
-      action33();
     }, 7000);
   }
 
