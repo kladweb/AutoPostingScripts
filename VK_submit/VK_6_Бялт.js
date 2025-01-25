@@ -79,6 +79,7 @@
         var blockPost = contPost.querySelector('.medadd_c_linkimg_container');
       } else {
         action1();
+        return;
       }
       if (blockPost) {
         console.log('blockPost: YES');
@@ -181,6 +182,7 @@
     setTimeout(() => {
       var URLHash = window.location.href;
       if (URLHash === 'https://vk.com/groups') {
+        console.log("GROUP: ", groupsAll[currentNumberGr]);
         action33();
       } else {
         action1();
