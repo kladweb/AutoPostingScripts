@@ -77,12 +77,12 @@
       var contPost = document.getElementById('submit_post_box');
       if (contPost) {
         var blockPost = contPost.querySelector('.medadd_c_linkimg_container');
-      } else {
-        action1();
-      }
-      if (blockPost) {
-        console.log('blockPost: YES');
-        action12();
+        if (blockPost) {
+          console.log('blockPost: YES');
+          action12();
+        } else {
+          action1();
+        }
       } else {
         action1();
       }
@@ -181,6 +181,7 @@
     setTimeout(() => {
       var URLHash = window.location.href;
       if (URLHash === 'https://vk.com/groups') {
+        console.log("GROUP: ", groupsAll[currentNumberGr]);
         action33();
       } else {
         action1();
@@ -192,8 +193,8 @@
     console.log('action01');
     loadData()
     .then((data) => {
-      console.log('res: ', JSON.parse(data.result));
       storePost = JSON.parse(data.result);
+      console.log('res: ', storePost);
     })
     .then(() => {
       window.localStorage.setItem(idAccount + groupsAll[currentNumberGr], storePost);

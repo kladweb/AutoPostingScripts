@@ -314,6 +314,7 @@
         linkGroup.click();
         action03();
       } else {
+        window.scrollBy(0, 3000);
         action02();
       }
     }, 5000);
