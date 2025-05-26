@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         AutoRepVK_13_mod01
+// @name         AutoRepVK_9_mod02
 // @author       You
 // @match        https://vk.com/groups
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=vk.com
@@ -7,150 +7,197 @@
 // ==/UserScript==
 
 (function () {
-  const idUser = '591910410';
+  const idUser = '550973432';
 
-  const groupsAll = [
-    14875387,//Bel https://vk.com/club14875387
-    198518322, // https://vk.com/iptvstreamshub
-    130237472,//24 https://vk.com/club130237472
-    18331470,//22	https://vk.com/marinaol
-    132944148,//27 https://vk.com/iptvlistok
-    114119485,//11 https://vk.com/aurahdclub
-    140398176, //28 https://vk.com/oknotiviru
-    106796170,//25 https://vk.com/club106796170
-    119600438,//23 https://vk.com/iptvzeus
-    // 99770042, //17 https://vk.com/club99770042
-    52218536,//21 https://vk.com/club52218536
-    138553819,//16 https://vk.com/club138553819
-    // 84120000, //18 https://vk.com/club84120000
-    176994995, //29 https://vk.com/tvlisty
-    167018774, //30 https://vk.com/club167018774
-    171843329, //31 https://vk.com/ru_iptv
-    120034509, //32 https://vk.com/club120034509
-    131638330, //33 https://vk.com/galaktik_iptv
-    186442856, //35 https://vk.com/iptv_bt
+  var groupsAll = [
+    ["14875387", "club14875387"], //Bel https://vk.com/club14875387
+    ["198518322", "iptvstreamshub"], // https://vk.com/iptvstreamshub
+    ["130237472", "club130237472"], //24 https://vk.com/club130237472
+    ["18331470", "marinaol"], //22	https://vk.com/marinaol
+    ["132944148", "iptvlistok"], //27 https://vk.com/iptvlistok
+    ["114119485", "aurahdclub"], //11 https://vk.com/aurahdclub
+    ["140398176", "oknotiviru"], //28 https://vk.com/oknotiviru
+    ["106796170", "club106796170"],//25 https://vk.com/club106796170
+    ["119600438", "iptvzeus"],//23 https://vk.com/iptvzeus
+    ["99770042", "club99770042"], //17 https://vk.com/club99770042
+    ["52218536", "club52218536"],//21 https://vk.com/club52218536
+    // ["138553819", "club138553819"],//16 https://vk.com/club138553819
+    ["84120000", "club84120000"], //18 https://vk.com/club84120000
+    ["176994995", "tvlisty"], //29 https://vk.com/tvlisty
+    ["167018774", "club167018774"], //30 https://vk.com/club167018774
+    ["171843329", "ru_iptv"], //31 https://vk.com/ru_iptv
+    ["120034509", "club120034509"], //32 https://vk.com/club120034509
+    ["131638330", "galaktik_iptv"], //33 https://vk.com/galaktik_iptv
+    ["186442856", "iptv_bt"], //35 https://vk.com/iptv_bt
   ];
+
+  // var groupsAll3 = [
+  //   "club14875387", //Bel https://vk.com/club14875387
+  //   "iptvstreamshub", // https://vk.com/iptvstreamshub
+  //   "my1ottnet",//14 https://vk.com/my1ottnet
+  //   "club130237472",//24 https://vk.com/club130237472
+  //   "marinaol",//22	https://vk.com/marinaol
+  //   "iptvlistok",//27 https://vk.com/iptvlistok
+  //   "i_ptv",//26 https://vk.com/i_ptv
+  //   "aurahdclub",//11 https://vk.com/aurahdclub
+  //   "oknotiviru", //28 https://vk.com/oknotiviru
+  //   "club106796170",//25 https://vk.com/club106796170
+  //   "iptvzeus",//23 https://vk.com/iptvzeus
+  //   "club99770042", //17 https://vk.com/club99770042
+  //   "club52218536",//21 https://vk.com/club52218536
+  //   "iptvm3u",//15 https://vk.com/iptvm3u
+  //   "club138553819",//16 https://vk.com/club138553819
+  //   "club84120000", //18 https://vk.com/club84120000
+  //   "tvlisty", //29 https://vk.com/tvlisty
+  //   "club167018774", //30 https://vk.com/club167018774
+  //   "ru_iptv", //31 https://vk.com/ru_iptv
+  //   "club120034509", //32 https://vk.com/club120034509
+  //   "galaktik_iptv", //33 https://vk.com/galaktik_iptv
+  //   "iptv_bt", //35 https://vk.com/iptv_bt
+  // ];
+  //
+  // var groupsAll2 = [
+  //   14875387, //Bel https://vk.com/club14875387
+  //   198518322, // https://vk.com/iptvstreamshub
+  //   173498496,//14 https://vk.com/my1ottnet
+  //   130237472,//24 https://vk.com/club130237472
+  //   18331470,//22	https://vk.com/marinaol
+  //   132944148,//27 https://vk.com/iptvlistok
+  //   155500362,//26 https://vk.com/i_ptv
+  //   114119485,//11 https://vk.com/aurahdclub
+  //   140398176, //28 https://vk.com/oknotiviru
+  //   106796170,//25 https://vk.com/club106796170
+  //   119600438,//23 https://vk.com/iptvzeus
+  //   99770042, //17 https://vk.com/club99770042
+  //   52218536,//21 https://vk.com/club52218536
+  //   65739319,//15 https://vk.com/iptvm3u
+  //   138553819,//16 https://vk.com/club138553819
+  //   84120000, //18 https://vk.com/club84120000
+  //   176994995, //29 https://vk.com/tvlisty
+  //   167018774, //30 https://vk.com/club167018774
+  //   171843329, //31 https://vk.com/ru_iptv
+  //   120034509, //32 https://vk.com/club120034509
+  //   131638330, //33 https://vk.com/galaktik_iptv
+  //   186442856, //35 https://vk.com/iptv_bt
+  // ];
 
   var numberGroups = groupsAll.length;
   var currentNumberGr = 0;
 
+  //https://vk9elena4.netlify.app/
   const postObjectP1 = {
     "inner_type": "wall_wallpost",
     "attachments": [
       {
-        "type": "article",
-        "source_url": "https://vk.com/@-194378541-luchshie-provaidery-iptv",
-        "article": {
-          "access_key": "d8bdbcb513c372ea57",
-          "id": 42869,
+        "type": "link",
+        "source_url": "https://ott-iptv-connect.com/?pp=23417",
+        "link": {
+          "url": "https://ott-iptv-connect.com/?pp=23417",
+          "caption": "Онлайн ТВ - бесплатный тестовый период | cBilling",
+          "id": "",
           "is_favorite": false,
-          "owner_id": -194378541,
-          "owner_name": "IPTV. Лучшие платные сервисы",
-          "owner_photo": "https://sun6-22.userapi.com/s/v1/ig2/WChopTRB3bge4AxaElRWjLb1ks-Vh8dm2mrORNXF3eFBK0x2Tbbi-bViKiaqVbD1faiRfIK3zS0MbeYB0gtiy096.jpg?quality=96&crop=214,214,1272,1272&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080&ava=1&u=XTRXM6P1rYvkDzpRodjUUEcq0pxGcXC5NXZgQ-3nph8&cs=200x200",
           "photo": {
-            "album_id": -66,
-            "date": 1588243650,
-            "id": 457239036,
-            "owner_id": -194378541,
+            "album_id": -28,
+            "date": 1735021315,
+            "id": 457529216,
+            "owner_id": 2000045465,
             "sizes": [
               {
-                "height": 81,
+                "height": 35,
+                "type": "s",
+                "width": 75,
+                "url": "https://sun9-54.userapi.com/impg/gdDGzyA6m_5-8m2SWGRhBk6JqFUOD38Aqdj5sw/_iLWlPdgpMs.jpg?size=75x35&quality=96&crop=22,0,1029,480&sign=a41dbda4f0b39e6f1aeb6ee4b3c6b500&c_uniq_tag=8CKgLVo7b_0i7XDXlc5--U020QqUP3GaV2qh00Jcl70&type=share"
+              },
+              {
+                "height": 80,
                 "type": "m",
                 "width": 130,
-                "url": "https://sun6-21.userapi.com/s/v1/ig2/-IwceZg5CqZuoOGvy8Kuj7wEzlR0Wve2TIB_4Zqe5ULDkU7-Lrihs9Kcy0JMBIGxVG8r0jvfwCCle8dzK3Yi3kSp.jpg?quality=96&as=32x20,48x30,72x45,108x67,160x100,240x150,360x225,480x300,540x337,640x400,720x450,1080x675,1280x800,1440x900,2560x1600&from=bu&u=gbBRyzV1QuvAMO9g-4K39LyBdJxfwYqbXf4k5enkMhA&cs=130x81"
+                "url": "https://sun9-54.userapi.com/impg/gdDGzyA6m_5-8m2SWGRhBk6JqFUOD38Aqdj5sw/_iLWlPdgpMs.jpg?size=130x80&quality=96&crop=147,0,780,480&sign=86bdde00252f77427e3e44e5a15be4d3&c_uniq_tag=5RCpdvN9MPOpSmYTtJ70T-Qb0R6MekJbJiLCosbtDVk&type=share"
+              },
+              {
+                "height": 80,
+                "type": "x",
+                "width": 150,
+                "url": "https://sun9-54.userapi.com/impg/gdDGzyA6m_5-8m2SWGRhBk6JqFUOD38Aqdj5sw/_iLWlPdgpMs.jpg?size=150x80&quality=96&crop=87,0,900,480&sign=bd906f060b47674a80a571fe95be4f92&c_uniq_tag=IdkWsSXTKjtFC9zAvFEz7O4z2HXsSZSysXJEFPRzxzk&type=share"
+              },
+              {
+                "height": 402,
+                "type": "y",
+                "width": 807,
+                "url": "https://sun9-24.userapi.com/AD4PqT91jTE9r9Poj5Lxtt3VxS1I0P2sNicXGA/-w_mIuR0X6o.jpg"
+              },
+              {
+                "height": 637,
+                "type": "z",
+                "width": 1280,
+                "url": "https://sun9-29.userapi.com/RpikImLUS5hHQ6kwpS4tg936i5RwcaExRuYouw/GxUd8NYDF2k.jpg"
+              },
+              {
+                "height": 781,
+                "type": "w",
+                "width": 1570,
+                "url": "https://sun9-7.userapi.com/2f-hBZaIwmQdERw6FT0yJwn1SnXJ2kmApRZrHA/6KKRMTQHYNg.jpg"
               },
               {
                 "height": 87,
                 "type": "o",
                 "width": 130,
-                "url": "https://sun6-21.userapi.com/s/v1/ig2/-IwceZg5CqZuoOGvy8Kuj7wEzlR0Wve2TIB_4Zqe5ULDkU7-Lrihs9Kcy0JMBIGxVG8r0jvfwCCle8dzK3Yi3kSp.jpg?quality=96&as=32x20,48x30,72x45,108x67,160x100,240x150,360x225,480x300,540x337,640x400,720x450,1080x675,1280x800,1440x900,2560x1600&from=bu&u=gbBRyzV1QuvAMO9g-4K39LyBdJxfwYqbXf4k5enkMhA&cs=130x87"
+                "url": "https://sun9-64.userapi.com/LQQKiiTiWTL_BM7qFBiXok2kRp1M-g_NXvycAQ/SPEztspW_Y0.jpg"
               },
               {
-                "height": 133,
+                "height": 140,
                 "type": "p",
-                "width": 200,
-                "url": "https://sun6-21.userapi.com/s/v1/ig2/-IwceZg5CqZuoOGvy8Kuj7wEzlR0Wve2TIB_4Zqe5ULDkU7-Lrihs9Kcy0JMBIGxVG8r0jvfwCCle8dzK3Yi3kSp.jpg?quality=96&as=32x20,48x30,72x45,108x67,160x100,240x150,360x225,480x300,540x337,640x400,720x450,1080x675,1280x800,1440x900,2560x1600&from=bu&u=gbBRyzV1QuvAMO9g-4K39LyBdJxfwYqbXf4k5enkMhA&cs=200x133"
+                "width": 260,
+                "url": "https://sun9-54.userapi.com/impg/gdDGzyA6m_5-8m2SWGRhBk6JqFUOD38Aqdj5sw/_iLWlPdgpMs.jpg?size=260x140&quality=96&crop=91,0,891,480&sign=0c80e36db2bef995a5a948b366798347&c_uniq_tag=4NsSNsoBObq2FrDcfVXtry50QRaKtXzkB-v_R6SSPx0&type=share"
               },
               {
                 "height": 213,
                 "type": "q",
                 "width": 320,
-                "url": "https://sun6-21.userapi.com/s/v1/ig2/-IwceZg5CqZuoOGvy8Kuj7wEzlR0Wve2TIB_4Zqe5ULDkU7-Lrihs9Kcy0JMBIGxVG8r0jvfwCCle8dzK3Yi3kSp.jpg?quality=96&as=32x20,48x30,72x45,108x67,160x100,240x150,360x225,480x300,540x337,640x400,720x450,1080x675,1280x800,1440x900,2560x1600&from=bu&u=gbBRyzV1QuvAMO9g-4K39LyBdJxfwYqbXf4k5enkMhA&cs=320x213"
+                "url": "https://sun9-44.userapi.com/Uzt0AwfHQgeVqyQUa8ORko-XXKJ5Vl-UJSKjIw/IfEWySm0LO0.jpg"
               },
               {
                 "height": 340,
                 "type": "r",
                 "width": 510,
-                "url": "https://sun6-21.userapi.com/s/v1/ig2/-IwceZg5CqZuoOGvy8Kuj7wEzlR0Wve2TIB_4Zqe5ULDkU7-Lrihs9Kcy0JMBIGxVG8r0jvfwCCle8dzK3Yi3kSp.jpg?quality=96&as=32x20,48x30,72x45,108x67,160x100,240x150,360x225,480x300,540x337,640x400,720x450,1080x675,1280x800,1440x900,2560x1600&from=bu&u=gbBRyzV1QuvAMO9g-4K39LyBdJxfwYqbXf4k5enkMhA&cs=510x340"
+                "url": "https://sun9-80.userapi.com/2gJRmcjR1r4PCp9qQUpsI7okArzbR8IfsXsw3Q/ZmtZbihqy7w.jpg"
               },
               {
-                "height": 47,
-                "type": "s",
-                "width": 75,
-                "url": "https://sun6-21.userapi.com/s/v1/ig2/-IwceZg5CqZuoOGvy8Kuj7wEzlR0Wve2TIB_4Zqe5ULDkU7-Lrihs9Kcy0JMBIGxVG8r0jvfwCCle8dzK3Yi3kSp.jpg?quality=96&as=32x20,48x30,72x45,108x67,160x100,240x150,360x225,480x300,540x337,640x400,720x450,1080x675,1280x800,1440x900,2560x1600&from=bu&u=gbBRyzV1QuvAMO9g-4K39LyBdJxfwYqbXf4k5enkMhA&cs=75x47"
+                "height": 240,
+                "type": "l",
+                "width": 537,
+                "url": "https://sun9-54.userapi.com/impg/gdDGzyA6m_5-8m2SWGRhBk6JqFUOD38Aqdj5sw/_iLWlPdgpMs.jpg?size=537x240&quality=96&sign=c297904c07399209c7af46b93a8ff839&c_uniq_tag=fksMANpe7Sv_OAecTiRWDbjMUGm_z-z6sHuTtPWiMnw&type=share"
               },
               {
-                "height": 1600,
-                "type": "w",
-                "width": 2560,
-                "url": "https://sun6-21.userapi.com/s/v1/ig2/-IwceZg5CqZuoOGvy8Kuj7wEzlR0Wve2TIB_4Zqe5ULDkU7-Lrihs9Kcy0JMBIGxVG8r0jvfwCCle8dzK3Yi3kSp.jpg?quality=96&as=32x20,48x30,72x45,108x67,160x100,240x150,360x225,480x300,540x337,640x400,720x450,1080x675,1280x800,1440x900,2560x1600&from=bu&u=gbBRyzV1QuvAMO9g-4K39LyBdJxfwYqbXf4k5enkMhA&cs=2560x1600"
-              },
-              {
-                "height": 377,
-                "type": "x",
-                "width": 604,
-                "url": "https://sun6-21.userapi.com/s/v1/ig2/-IwceZg5CqZuoOGvy8Kuj7wEzlR0Wve2TIB_4Zqe5ULDkU7-Lrihs9Kcy0JMBIGxVG8r0jvfwCCle8dzK3Yi3kSp.jpg?quality=96&as=32x20,48x30,72x45,108x67,160x100,240x150,360x225,480x300,540x337,640x400,720x450,1080x675,1280x800,1440x900,2560x1600&from=bu&u=gbBRyzV1QuvAMO9g-4K39LyBdJxfwYqbXf4k5enkMhA&cs=604x377"
-              },
-              {
-                "height": 504,
-                "type": "y",
-                "width": 807,
-                "url": "https://sun6-21.userapi.com/s/v1/ig2/-IwceZg5CqZuoOGvy8Kuj7wEzlR0Wve2TIB_4Zqe5ULDkU7-Lrihs9Kcy0JMBIGxVG8r0jvfwCCle8dzK3Yi3kSp.jpg?quality=96&as=32x20,48x30,72x45,108x67,160x100,240x150,360x225,480x300,540x337,640x400,720x450,1080x675,1280x800,1440x900,2560x1600&from=bu&u=gbBRyzV1QuvAMO9g-4K39LyBdJxfwYqbXf4k5enkMhA&cs=807x504"
-              },
-              {
-                "height": 800,
-                "type": "z",
-                "width": 1280,
-                "url": "https://sun6-21.userapi.com/s/v1/ig2/-IwceZg5CqZuoOGvy8Kuj7wEzlR0Wve2TIB_4Zqe5ULDkU7-Lrihs9Kcy0JMBIGxVG8r0jvfwCCle8dzK3Yi3kSp.jpg?quality=96&as=32x20,48x30,72x45,108x67,160x100,240x150,360x225,480x300,540x337,640x400,720x450,1080x675,1280x800,1440x900,2560x1600&from=bu&u=gbBRyzV1QuvAMO9g-4K39LyBdJxfwYqbXf4k5enkMhA&cs=1280x800"
+                "height": 480,
+                "type": "k",
+                "width": 1074,
+                "url": "https://sun9-54.userapi.com/impg/gdDGzyA6m_5-8m2SWGRhBk6JqFUOD38Aqdj5sw/_iLWlPdgpMs.jpg?size=1074x480&quality=96&sign=b5d07aed0c0ad54ae8313e6a21235b7d&c_uniq_tag=23muT_By8duETNEUsOuMdEdmGUKyv2sp28cr5mudtCQ&type=share"
               }
             ],
-            "user_id": 100,
-            "web_view_token": "70df186c75db77de94",
-            "has_tags": false,
-            "orig_photo": {
-              "height": 1600,
-              "type": "base",
-              "url": "https://sun6-21.userapi.com/s/v1/ig2/-IwceZg5CqZuoOGvy8Kuj7wEzlR0Wve2TIB_4Zqe5ULDkU7-Lrihs9Kcy0JMBIGxVG8r0jvfwCCle8dzK3Yi3kSp.jpg?quality=96&as=32x20,48x30,72x45,108x67,160x100,240x150,360x225,480x300,540x337,640x400,720x450,1080x675,1280x800,1440x900,2560x1600&from=bu&u=gbBRyzV1QuvAMO9g-4K39LyBdJxfwYqbXf4k5enkMhA",
-              "width": 2560
-            }
+            "text": "",
+            "web_view_token": "079738a6013fff059a",
+            "has_tags": false
           },
-          "published_date": 1587191553,
-          "state": "available",
-          "subtitle": "(платные сервисы)",
-          "title": "ЛУЧШИЕ ПРОВАЙДЕРЫ IPTV",
-          "url": "https://vk.com/@iptveasy-luchshie-provaidery-iptv",
-          "view_url": "https://m.vk.com/@iptveasy-luchshie-provaidery-iptv",
-          "views": 4380,
-          "shares": 4,
-          "can_report": true,
-          "time_to_read": 65,
-          "lead_description": "(платные сервисы)\n На всех, рассмотренных ниже сервисах присутствуют архивы (записи телепередач) от 3 до 7 дней.\nУслуга мультирум (просмотр на нескольких устройств) также присутствует у многих рассмотренных операторов. Она бесплатна. У некоторых её нужно дополнительно включить в настройках после покупки пакета каналов.\n Списки каналов мы не приводим, так как у многих они постоянно меняются и пополняются, актуальные списки можно найти у каждого оператора на сайте.\nПроверяйте, тестируйте, выбор..",
-          "can_edit": true
+          "preview_page": "",
+          "preview_url": "",
+          "title": "Онлайн ТВ - бесплатный тестовый период | cBilling",
+          "target": "internal"
         },
         "parsed": true
       }
     ],
-    "text": "Какое телевидение выбрать ?\nТолько лучшие и стабильные IPTV сервисы !\nВыбирайте и подключайте !\n",
+    "text": "Отлично зарекомендовавшее себя IPTV !\nОтсутствие тормозов и буферизаций !\nПакеты на любой вкус в т.ч. позапросный тариф.\nАрхив за 7 суток !\nСомневаетесь ? Попробуйте бесплатный тест на 24 часа !\nhttps://ott-iptv-connect.com/?pp=23417",
     "_attachments_list": [],
     "_commentsEnabled": true,
     "_notificationsEnabled": true,
     "_attachmentsViewKey": "CAROUSEL",
     "_photoAttachmentsCrop": {},
-    "_signed": false,
     "_coOwnersIds": []
   };
 
-  const postObjectP2 = {
+  //https://vk9elena.netlify.app/
+  const postObjectP2old = {
     "inner_type": "wall_wallpost",
     "attachments": [
       {
@@ -257,9 +304,9 @@
   };
 
   const postObjects = [
-    // postObjectP1, //The best operators
-    postObjectP2, //cbilling proba
-  ]
+    postObjectP1, //cbilling: Онлайн ТВ - бесплатный тестовый период | cBilling
+    // postObjectP2, //ILookTV
+  ];
 
   const cyclesNumber = postObjects.length;
   let currentCycle = 1;
@@ -282,6 +329,7 @@
     console.log('action2');
     setTimeout(() => {
       var openDraft = document.querySelector('.box_controls_buttons .FlatButton--primary');
+      console.log(openDraft);
       if (openDraft) {
         console.log('action2 openDraft');
         openDraft.click();
@@ -373,7 +421,7 @@
     console.log('action72');
     setTimeout(() => {
       action01(n);
-    }, 10000);
+    }, 5000);
   }
   const action7 = () => {
     console.log('action7');
@@ -411,24 +459,47 @@
     console.log('action03');
     setTimeout(() => {
       var URLHash = window.location.href;
-      if (URLHash === 'https://vk.com/groups') {
+      console.log(window.location.href);
+      if (URLHash === 'https://vk.com/groups/my_all_groups') {
         action03();
       } else {
-        action1();
       }
-    }, 5000);
+      action1();
+    }, 15000);
   }
 
   const action02 = () => {
     console.log('action02');
     setTimeout(() => {
-      var linkGroup = document.querySelector(`#gl_groups${groupsAll[currentNumberGr]} .group_row_title`);
+      var groupHref = `/${groupsAll[currentNumberGr][1]}`
+      // console.log('LINK: ', groupHref);
+      var linkGroup = document.querySelectorAll(`a[href^="${groupHref}"]`);
+      // var linkGroup = document.querySelector(`.vkuiLink[href^="${groupHref}"]`);
+
+      // var linkGroupG = document.querySelector(`#gl_groups${groupsAll[currentNumberGr]}`);
+      // var linkGroup = linkGroupG.querySelector('.group_row_title');
+
       console.log('linkGroup: ', linkGroup);
-      if (linkGroup) {
-        linkGroup.click();
+      if (linkGroup && linkGroup.length >= 2) {
+        linkGroup[1].click();
         action03();
       } else {
+        window.scrollBy(0, 1500);
         action02();
+      }
+    }, 5000);
+  }
+
+  const action015 = () => {
+    console.log('action015');
+    setTimeout(() => {
+      var linkGroups = document.querySelector('a[href="https://vk.com/groups/my_all_groups"]');
+      console.log('linkGroups: ', linkGroups);
+      if (linkGroups) {
+        linkGroups.click();
+        action02();
+      } else {
+        action015();
       }
     }, 5000);
   }
@@ -445,14 +516,14 @@
       const db = request.result;
       const transaction = db.transaction("posting-draft", "readwrite");
       const store = transaction.objectStore("posting-draft");
-      const keyStore = `${idUser}--${groupsAll[currentGroup]}`;
+      const keyStore = `${idUser}--${groupsAll[currentGroup][0]}`;
       const idQuery = store.get(keyStore);
 
       idQuery.onsuccess = function () {
         console.log(idQuery.result);
         store.put(postObjects[currentCycle - 1], keyStore);
         console.log('YESSS');
-        action02()
+        action015();
       };
     };
   }

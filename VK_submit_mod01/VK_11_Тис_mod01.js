@@ -44,9 +44,9 @@
     "attachments": [
       {
         "type": "link",
-        "source_url": "https://telegra.ph/Luchshie-provajdery-IPTV-02-27",
+        "source_url": "https://telegra.ph/Luchshie-provajdery-IPTV-05-17",
         "link": {
-          "url": "https://telegra.ph/Luchshie-provajdery-IPTV-02-27",
+          "url": "https://telegra.ph/Luchshie-provajdery-IPTV-05-17",
           "caption": "Лучшие провайдеры IPTV",
           "id": "",
           "is_favorite": false,
@@ -135,7 +135,7 @@
         "parsed": true
       }
     ],
-    "text": "Что предлагают нам сегодня различные сервисы IPTV ?\nКраткий обзор лучших провайдеров.\nhttps://telegra.ph/Luchshie-provajdery-IPTV-02-27\n\n",
+    "text": "Что предлагают нам сегодня различные сервисы IPTV ?\nКраткий обзор лучших провайдеров.\nhttps://telegra.ph/Luchshie-provajdery-IPTV-05-17\n\n",
     "_attachments_list": [],
     "_commentsEnabled": true,
     "_notificationsEnabled": true,
@@ -256,9 +256,9 @@
     "attachments": [
       {
         "type": "link",
-        "source_url": "https://telegra.ph/Luchshie-provajdery-IPTV-02-27",
+        "source_url": "https://telegra.ph/Luchshie-provajdery-IPTV-05-17",
         "link": {
-          "url": "https://telegra.ph/Luchshie-provajdery-IPTV-02-27",
+          "url": "https://telegra.ph/Luchshie-provajdery-IPTV-05-17",
           "caption": "Лучшие провайдеры IPTV",
           "id": "",
           "is_favorite": false,
@@ -347,7 +347,7 @@
         "parsed": true
       }
     ],
-    "text": "Что предлагают нам сегодня различные сервисы IPTV ?\nКраткий обзор лучших провайдеров.\nhttps://telegra.ph/Luchshie-provajdery-IPTV-02-27",
+    "text": "Что предлагают нам сегодня различные сервисы IPTV ?\nКраткий обзор лучших провайдеров.\nhttps://telegra.ph/Luchshie-provajdery-IPTV-05-17",
     "_attachments_list": [],
     "_commentsEnabled": true,
     "_notificationsEnabled": true,
