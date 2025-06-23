@@ -21,7 +21,6 @@
     ["119600438", "iptvzeus"],//23 https://vk.com/iptvzeus
     ["99770042", "club99770042"], //17 https://vk.com/club99770042
     ["52218536", "club52218536"],//21 https://vk.com/club52218536
-    ["138553819", "club138553819"],//16 https://vk.com/club138553819
     ["84120000", "club84120000"], //18 https://vk.com/club84120000
     ["176994995", "tvlisty"], //29 https://vk.com/tvlisty
     ["167018774", "club167018774"], //30 https://vk.com/club167018774
@@ -29,6 +28,7 @@
     ["120034509", "club120034509"], //32 https://vk.com/club120034509
     ["131638330", "galaktik_iptv"], //33 https://vk.com/galaktik_iptv
     ["186442856", "iptv_bt"], //35 https://vk.com/iptv_bt
+    // ["138553819", "club138553819"],//16 https://vk.com/club138553819
   ];
 
   // var groupsAll3 = [
