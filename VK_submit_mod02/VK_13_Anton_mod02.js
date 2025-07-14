@@ -28,7 +28,7 @@
     ["120034509", "club120034509"], //32 https://vk.com/club120034509
     ["131638330", "galaktik_iptv"], //33 https://vk.com/galaktik_iptv
     ["186442856", "iptv_bt"], //35 https://vk.com/iptv_bt
-    // ["138553819", "club138553819"],//16 https://vk.com/club138553819
+    ["138553819", "club138553819"],//16 https://vk.com/club138553819
   ];
 
   // var groupsAll3 = [
@@ -205,9 +205,9 @@
     "attachments": [
       {
         "type": "link",
-        "source_url": "http://cbillingtv.com/pl/23417",
+        "source_url": "https://smotrivip.com/?pp=23417",
         "link": {
-          "url": "http://cbillingtv.com/pl/23417",
+          "url": "https://smotrivip.com/?pp=23417",
           "caption": "Онлайн ТВ - бесплатный тестовый период | cBilling",
           "id": "",
           "is_favorite": false,
@@ -296,7 +296,7 @@
         "parsed": true
       }
     ],
-    "text": "Отлично зарекомендовавшее себя IPTV !\nОтсутствие тормозов и буферизаций !\nПакеты на любой вкус в т.ч. позапросный тариф.\nАрхив за 7 суток !\nСомневаетесь ? Попробуйте бесплатный тест на 24 часа !\nhttp://cbillingtv.com/pl/23417",
+    "text": "Отлично зарекомендовавшее себя IPTV !\nОтсутствие тормозов и буферизаций !\nПакеты на любой вкус в т.ч. позапросный тариф.\nАрхив за 7 суток !\nСомневаетесь ? Попробуйте бесплатный тест на 24 часа !\nhttps://smotrivip.com/?pp=23417",
     "_attachments_list": [],
     "_commentsEnabled": true,
     "_notificationsEnabled": true,
