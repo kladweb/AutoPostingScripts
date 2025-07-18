@@ -18,7 +18,6 @@
       ["114119485", "aurahdclub"], //11 https://vk.com/aurahdclub
       ["140398176", "oknotiviru"], //28 https://vk.com/oknotiviru
       ["106796170", "club106796170"],//25 https://vk.com/club106796170
-      ["119600438", "iptvzeus"],//23 https://vk.com/iptvzeus
       ["52218536", "club52218536"],//21 https://vk.com/club52218536
       ["176994995", "tvlisty"], //29 https://vk.com/tvlisty
       ["167018774", "club167018774"], //30 https://vk.com/club167018774
@@ -143,8 +142,115 @@
       "_coOwnersIds": []
     };
 
+    //vk0russkoetv01.netlify.app
+    const postObjectP2 = {
+      "inner_type": "wall_wallpost",
+      "attachments": [
+        {
+          "type": "link",
+          "source_url": "https://russkoetv.netlify.app/",
+          "link": {
+            "url": "https://russkoetv.netlify.app/",
+            "caption": "Русское ТВ | ВСЕ русскоязычные каналы",
+            "id": "",
+            "is_favorite": false,
+            "photo": {
+              "album_id": -28,
+              "date": 1752320915,
+              "id": 457528457,
+              "owner_id": 2000017246,
+              "sizes": [
+                {
+                  "height": 35,
+                  "type": "s",
+                  "width": 75,
+                  "url": "https://sun9-2.userapi.com/impg/llb3VhQ3MY1zIssZx0fDeKWJRbdhW12CLzGGRg/Hht_Vv3yXiE.jpg?size=75x35&quality=96&sign=f72e3cd3d7ebaf89b3d794ab9562a3ac&c_uniq_tag=whKEwxZzb0WbY1S_Wk-iMWXBUSPuwAxd2MJpmLpDGhU&type=share"
+                },
+                {
+                  "height": 61,
+                  "type": "m",
+                  "width": 130,
+                  "url": "https://sun9-2.userapi.com/impg/llb3VhQ3MY1zIssZx0fDeKWJRbdhW12CLzGGRg/Hht_Vv3yXiE.jpg?size=130x61&quality=96&sign=a26e4a35867c63a11e111786b7dd8ca3&c_uniq_tag=pJ1WL0HsmHWBg6LR6zyWGb7eysI5gC_NxZa1G7MMfXo&type=share"
+                },
+                {
+                  "height": 70,
+                  "type": "x",
+                  "width": 150,
+                  "url": "https://sun9-2.userapi.com/impg/llb3VhQ3MY1zIssZx0fDeKWJRbdhW12CLzGGRg/Hht_Vv3yXiE.jpg?size=150x70&quality=96&sign=1e24cc9506981a112c582b3e55315ed7&c_uniq_tag=jhgyoHiB3Ow7ebbmZ7qryLe3iMBK6kLFDC2nc7pEEwk&type=share"
+                },
+                {
+                  "height": 500,
+                  "type": "y",
+                  "width": 807,
+                  "url": "https://sun9-41.userapi.com/En9Fi4bHWBrzKMR64zYd30K4lbIvFVGmyPwXzw/3kFcjHCyORU.jpg"
+                },
+                {
+                  "height": 634,
+                  "type": "z",
+                  "width": 1024,
+                  "url": "https://sun9-83.userapi.com/ScmfSNpnuhhoH0mNv3X1Bbs1oZ7KSIif3P_kCw/PffDxaHSpNo.jpg"
+                },
+                {
+                  "height": 87,
+                  "type": "o",
+                  "width": 130,
+                  "url": "https://sun9-44.userapi.com/lIk--akfvd6C9cRJwzAH4Sik5lwXyDevoEQVCQ/3x0qnVB40Xo.jpg"
+                },
+                {
+                  "height": 140,
+                  "type": "p",
+                  "width": 260,
+                  "url": "https://sun9-2.userapi.com/impg/llb3VhQ3MY1zIssZx0fDeKWJRbdhW12CLzGGRg/Hht_Vv3yXiE.jpg?size=260x140&quality=96&crop=66,0,891,480&sign=ebd67f8523b5f6fccce4a2b80f115fef&c_uniq_tag=dhXNwj5EeNU1yh9QvW5EuvYniuDpB6trRPTdeP5zEl0&type=share"
+                },
+                {
+                  "height": 213,
+                  "type": "q",
+                  "width": 320,
+                  "url": "https://sun9-72.userapi.com/BXXnY8KoG__OsZQMRmJqVOPsaBsD5DypkY5Psw/fIArtQ6I_wE.jpg"
+                },
+                {
+                  "height": 340,
+                  "type": "r",
+                  "width": 510,
+                  "url": "https://sun9-65.userapi.com/EnWKpURV4jsHBn1QWSXwJhyO5PzVX33GglkrDQ/9bEUQl4O1Do.jpg"
+                },
+                {
+                  "height": 240,
+                  "type": "l",
+                  "width": 537,
+                  "url": "https://sun9-2.userapi.com/impg/llb3VhQ3MY1zIssZx0fDeKWJRbdhW12CLzGGRg/Hht_Vv3yXiE.jpg?size=537x240&quality=96&crop=0,0,1024,458&sign=d242e048ad2d658efcd694d8e9085941&c_uniq_tag=bp9tcpW4qGz-taeue0bcaZGDGp0QFlVzpiBg-Pji0tk&type=share"
+                },
+                {
+                  "height": 480,
+                  "type": "k",
+                  "width": 1024,
+                  "url": "https://sun9-2.userapi.com/impg/llb3VhQ3MY1zIssZx0fDeKWJRbdhW12CLzGGRg/Hht_Vv3yXiE.jpg?size=1024x480&quality=96&sign=a2d6c75569bfb62e15200d683ebb0d4a&c_uniq_tag=-7f5p8VdWXq1RxenZ4HvAv2F02WpPkzmogBLQ6ypGvY&type=share"
+                }
+              ],
+              "text": "",
+              "web_view_token": "f782b9d1abc51dcbf5",
+              "has_tags": false
+            },
+            "preview_page": "",
+            "preview_url": "",
+            "title": "Русское ТВ | ВСЕ русскоязычные каналы",
+            "target": "internal"
+          },
+          "parsed": true
+        }
+      ],
+      "text": "Русское ТВ - мы собрали ВСЕ русскоязычные каналы в наших пакетах.\nПодключите пакеты IPTV или Спутникового ТВ в любой точке мира.\nЗарегистрируйтесь для бесплатного теста на 72 часа.\nБазовый пакет - 1$ / мес.\nПремиум пакет - 4$ / мес. (если нужны каналы 4K).\nАрхив за 7 дней включен даже в базовый пакет.\nhttps://russkoetv.netlify.app/",
+      "_attachments_list": [],
+      "_commentsEnabled": true,
+      "_notificationsEnabled": true,
+      "_attachmentsViewKey": "CAROUSEL",
+      "_photoAttachmentsCrop": {},
+      "_coOwnersIds": []
+    }
+
     const postObjects = [
       postObjectP1,
+      postObjectP2
     ];
     const cyclesNumber = postObjects.length;
     let currentCycle = 1;
