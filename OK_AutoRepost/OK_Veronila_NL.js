@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name         Autorep3_SELF
+// @name         Autorep3_Veronika_NL
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  try to take over the world!
 // @author       You
-// @match        https://ok.ru/profile/586178183434/groups
+// @match        https://ok.ru/profile/575084661978/groups
 // @run-at       context-menu
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=ok.ru
 // @grant        none
@@ -12,17 +12,16 @@
 
 (function () {
   var linkPostsAll = [
+    "153761735917628",//VipLime
+    // "153761736245308", //ILookTV
+    "160051053714357",//russkoetv
     "153761736441916",//Сравнение
-    "153761735917628", //VipLime
+    "159968378543029",//kineskop
+    "153761735589948",//cbilling
+    "154501128273980",//Szarovoz
+    "160051053714357",//russkoetv
+    "153761735917628",//VipLime
     // "153761736245308", //ILookTV
-    "153761735589948", //cbilling
-    "154501128273980", //Szarovoz
-    "160051053714357", //RUSSKOETV
-    "159968378543029", //Kineskop
-    // "153761736441916", //Сравнение
-    "153761735917628", //VipLime
-    // "153761736245308", //ILookTV
-    // "155669662744636",//Сравнение NY
   ];
   var linksPosts = [];
   var currentState = 0; //0 - все посты; 1 - первые три поста; 2 - последние два поста;
@@ -42,7 +41,7 @@
   var linksGroup = []; //массив со ссылками групп, в которых есть новые посты.
   var smallInterval = 2500;
   var globalInterval = 0;
-  var refreshInterval = 900000;
+  var refreshInterval = 600000;
   var currentNumberPost = 0;
   var currentNumberGr = 0;
   var dateFinishDoing = new Date;
@@ -56,6 +55,7 @@
   //Проверяем в каких группах новые посты
   var action100 = function () {
     console.log('action100');
+    refreshInterval = 600000;
     setTimeout(() => {
       countPosts = 0;
       linksGroup = [];
@@ -85,6 +85,19 @@
         return;
       }
       linksPosts = [...linkPostsAll];
+      // linksPosts = [linkPostsAll[0]];
+      // if (countPosts > 3 || GroupsRepeat.length > 0) {
+      //   linksPosts = [...linkPostsAll];
+      //   currentState = 0;
+      // } else {
+      //   if (currentState === 1) {
+      //     currentState = 2;
+      //     linksPosts = linkPostsAll.slice(3);
+      //   } else {
+      //     currentState = 1;
+      //     linksPosts = linkPostsAll.slice(0, 3);
+      //   }
+      // }
       countMyPosts = countMyPosts + linksGroup.length * linksPosts.length;
       console.log('Предстоящие посты: ', countMyPosts);
       if (countMyPosts > 45) {
@@ -310,7 +323,7 @@
         t = 1;
       }
       var identImg = [];
-      var checkIdAcc = [];
+      var checkIdAcc = []
       var identD = [];
       if (feedWs[t]) {
         identD[0] = feedWs[t].querySelector('.feed-user-avatar');
@@ -328,18 +341,18 @@
         identImg[0] = identD[0].querySelector(`img`);
         console.log('identImg[0]: ', identImg[0]);
         if (identImg[0]) {
-          checkIdAcc[0] = identImg[0].getAttribute('alt');
+          checkIdAcc[0] = parseInt(identImg[0].getAttribute('alt'));
           console.log('checkIdAcc[0]: ', checkIdAcc[0]);
         }
       }
       if (identD[1]) {
         identImg[1] = identD[1].querySelector(`img`);
         if (identImg[1]) {
-          checkIdAcc[1] = identImg[1].getAttribute('alt');
+          checkIdAcc[1] = parseInt(identImg[1].getAttribute('alt'));
           console.log('checkIdAcc[1]: ', checkIdAcc[1]);
         }
       }
-      if ((checkIdAcc[0] && checkIdAcc[0] !== '586178183434') || (checkIdAcc[1] && checkIdAcc[1] !== '586178183434')) {
+      if ((checkIdAcc[0] && checkIdAcc[0] !== 575084661978) || (checkIdAcc[1] && checkIdAcc[1] !== 575084661978)) {
         console.log(`Найден чужой пост по заходу в группу: ${numberGroup}`);
         GroupsRepeat.push(numberGroup);
         refreshInterval = 180000;
