@@ -34,6 +34,7 @@
   var currentNumberGr = 0;
 
   const postObjectP1 = {
+    "id": "vk13-01",
     "inner_type": "wall_wallpost",
     "attachments": [
       {
@@ -367,7 +368,7 @@
           action8_Scrolling(20);
         }, 2500);
       } else {
-        action5();
+        action7();
       }
     }, 3000);
   }
@@ -459,3 +460,13 @@
 
   // Your code here...
 })();
+
+// let openDraft = null;
+// const openDrafts = document.querySelectorAll('.FlatButton');
+// buttonsFar.forEach((button) => {
+//   if (button.innerText === 'Открыть черновик') {
+//     openDraft = button;
+//   }
+// })
+
+// @match        https://vk.com/bookmarks?type=group

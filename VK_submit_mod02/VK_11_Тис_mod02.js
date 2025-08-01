@@ -18,7 +18,6 @@
     ["114119485", "aurahdclub"], //11 https://vk.com/aurahdclub
     ["140398176", "oknotiviru"], //28 https://vk.com/oknotiviru
     ["106796170", "club106796170"],//25 https://vk.com/club106796170
-    ["119600438", "iptvzeus"],//23 https://vk.com/iptvzeus
     ["52218536", "club52218536"],//21 https://vk.com/club52218536
     ["176994995", "tvlisty"], //29 https://vk.com/tvlisty
     ["167018774", "club167018774"], //30 https://vk.com/club167018774
@@ -26,9 +25,9 @@
     ["120034509", "club120034509"], //32 https://vk.com/club120034509
     ["131638330", "galaktik_iptv"], //33 https://vk.com/galaktik_iptv
     ["186442856", "iptv_bt"], //35 https://vk.com/iptv_bt
-    ["84120000", "club84120000"], //18 https://vk.com/club84120000
-    ["99770042", "club99770042"], //17 https://vk.com/club99770042
-    ["138553819", "club138553819"],//16 https://vk.com/club138553819
+    // ["84120000", "club84120000"], //18 https://vk.com/club84120000
+    // ["99770042", "club99770042"], //17 https://vk.com/club99770042
+    // ["138553819", "club138553819"],//16 https://vk.com/club138553819
   ];
 
   // var groupsAll3 = [
@@ -182,6 +181,112 @@
       }
     ],
     "text": "Что предлагают нам сегодня различные сервисы IPTV ?\nКраткий обзор лучших провайдеров.\nhttps://telegra.ph/Luchshie-provajdery-IPTV-07-07\n\n",
+    "_attachments_list": [],
+    "_commentsEnabled": true,
+    "_notificationsEnabled": true,
+    "_attachmentsViewKey": "CAROUSEL",
+    "_photoAttachmentsCrop": {},
+    "_signed": false,
+    "_coOwnersIds": []
+  };
+
+  const postObjectP1_v2 = {
+    "inner_type": "wall_wallpost",
+    "attachments": [
+      {
+        "type": "link",
+        "source_url": "https://mediabox.netlify.app/choose",
+        "link": {
+          "url": "https://mediabox.netlify.app/choose",
+          "caption": "Лучшие провайдеры IPTV",
+          "id": "",
+          "is_favorite": false,
+          "photo": {
+            "album_id": -26,
+            "date": 1732731079,
+            "id": 457507696,
+            "owner_id": 2000032357,
+            "sizes": [
+              {
+                "height": 35,
+                "type": "s",
+                "width": 75,
+                "url": "https://sun9-24.userapi.com/impg/9SeDtJeqMxRFU5vj2GnePXB-10ZeBuphqc5iQA/lXB2v5aqeIU.jpg?size=75x35&quality=96&crop=20,0,900,420&sign=40421260b0113548f675a38d81394003&c_uniq_tag=agbDwErTHMivKE9ELAB-n2LcdjXV0OHJVzQG8XKGGj0&type=share"
+              },
+              {
+                "height": 80,
+                "type": "m",
+                "width": 130,
+                "url": "https://sun9-24.userapi.com/impg/9SeDtJeqMxRFU5vj2GnePXB-10ZeBuphqc5iQA/lXB2v5aqeIU.jpg?size=130x80&quality=96&crop=129,0,682,420&sign=2b0b7b8e878ba478d13d5f383b446234&c_uniq_tag=KL8NxlxVLwL2HVr-glYucg90lnv1jlcv1GdTjB4RiQU&type=share"
+              },
+              {
+                "height": 80,
+                "type": "x",
+                "width": 150,
+                "url": "https://sun9-24.userapi.com/impg/9SeDtJeqMxRFU5vj2GnePXB-10ZeBuphqc5iQA/lXB2v5aqeIU.jpg?size=150x80&quality=96&crop=76,0,787,420&sign=0b7274ac8f4b42e78c46917326328db9&c_uniq_tag=YKXsovQ9Glk8exOLyL-KO_YCdTIa2naz1j11H4lmYQ4&type=share"
+              },
+              {
+                "height": 361,
+                "type": "y",
+                "width": 807,
+                "url": "https://sun9-28.userapi.com/iBU_s5KJ0UPayQYozMPWOkeP0XtH_zWvNHx3kw/c_rG1-THchs.jpg"
+              },
+              {
+                "height": 420,
+                "type": "z",
+                "width": 940,
+                "url": "https://sun9-79.userapi.com/9nfdoMLFMg2jnMGvYYZCGzYvRehR4RCeRNtt1g/SO44sdk02jA.jpg"
+              },
+              {
+                "height": 87,
+                "type": "o",
+                "width": 130,
+                "url": "https://sun9-76.userapi.com/e7hJAKpp0zXMyeHKovS6IuxD_iyeRzF6LUeFZw/aePLZm24wG0.jpg"
+              },
+              {
+                "height": 140,
+                "type": "p",
+                "width": 260,
+                "url": "https://sun9-24.userapi.com/impg/9SeDtJeqMxRFU5vj2GnePXB-10ZeBuphqc5iQA/lXB2v5aqeIU.jpg?size=260x140&quality=96&crop=80,0,780,420&sign=ed9d6930074852859d26b47d659d4c94&c_uniq_tag=aVYDZOHZ9n0f_GrVrWBksmquPcLs3H3cVdwCC8yMxYI&type=share"
+              },
+              {
+                "height": 213,
+                "type": "q",
+                "width": 320,
+                "url": "https://sun9-4.userapi.com/bpKbocV_IVBTg_tMLrryhUgoSV1ulhwxSqMC0A/vl4nA7HlwAU.jpg"
+              },
+              {
+                "height": 340,
+                "type": "r",
+                "width": 510,
+                "url": "https://sun9-18.userapi.com/vghsLJ3vILQNgwwFKDWlSX2ORWlwh7sOawgN2A/S3eyLSTwFYM.jpg"
+              },
+              {
+                "height": 240,
+                "type": "l",
+                "width": 537,
+                "url": "https://sun9-24.userapi.com/impg/9SeDtJeqMxRFU5vj2GnePXB-10ZeBuphqc5iQA/lXB2v5aqeIU.jpg?size=537x240&quality=96&sign=a259e5d02571f4632af9fbc1bd2ff0cf&c_uniq_tag=22s1fZZk7NO263mzwgxFsY0i7H4CEQHqoX0Wxghu7nY&type=share"
+              },
+              {
+                "height": 420,
+                "type": "k",
+                "width": 940,
+                "url": "https://sun9-24.userapi.com/impg/9SeDtJeqMxRFU5vj2GnePXB-10ZeBuphqc5iQA/lXB2v5aqeIU.jpg?size=940x420&quality=96&sign=241b18e2f1de1435604fa9b23d5e0232&c_uniq_tag=EUNx6Znvom1a76OiyOSKwg4A0LAGCbkzS6pOWKnNpjE&type=share"
+              }
+            ],
+            "text": "",
+            "web_view_token": "018009354bc02ff2d3",
+            "has_tags": false
+          },
+          "preview_page": "",
+          "preview_url": "",
+          "title": "Лучшие провайдеры IPTV",
+          "target": "internal"
+        },
+        "parsed": true
+      }
+    ],
+    "text": "Что предлагают нам сегодня различные сервисы IPTV ?\nКраткий обзор лучших провайдеров.\nhttps://mediabox.netlify.app/choose\n\n",
     "_attachments_list": [],
     "_commentsEnabled": true,
     "_notificationsEnabled": true,
@@ -406,7 +511,8 @@
   //https://vk11tisny.netlify.app/
 
   const postObjects = [
-    postObjectP1, //сравнение, лушчие операторы IPTV
+    // postObjectP1, //сравнение, лушчие операторы IPTV ссылка telegra.ph
+    postObjectP1_v2, //сравнение, лушчие операторы IPTV ссылка mediabox-choose
     // postObjectP2, //MEDIABOX
     // postObjectP3, //сравнение, лушчие операторы IPTV New Year
   ]
