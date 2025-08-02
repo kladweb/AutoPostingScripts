@@ -246,7 +246,7 @@
       "_attachmentsViewKey": "CAROUSEL",
       "_photoAttachmentsCrop": {},
       "_coOwnersIds": []
-    }
+    };
 
     const postObjects = [
       postObjectP1,
