@@ -10,14 +10,17 @@
   'use strict';
   const idUser = '806571200';
   const posts = {viplime: "VipLime", ilooktv: 'ILookTV'};
+  const VKName = "vk2";
+
   const postingAfter = {
     all: "all groups",
     my: "Skip my posts",
     id358923511: "Анна Егорова",
     id620542842: "Иван Смирнов",
     satiptv: "Людвиг Ванбетховен"
-  }
+  };
   const delays = {15: "15 sec", 10: "10 sec", 7: "7 sec"};
+  const deeps = {1: 1, 2: 2, 3: 3};
   const [delayM, delayL] = [2000, 3000];
   let delayXL = 10000;
   let subMenu02posting = [];
@@ -25,6 +28,8 @@
   let currentNumberGr = 0;
   let currentPost = null;
   let isSkipCurrPost = false;
+  let buttonStart = null;
+  let buttonStop = null;
 
   const groupsAll = [
     ["14875387", "club14875387"], //Bel https://vk.com/club14875387
@@ -57,9 +62,12 @@
   const menuVK = document.createElement('div');
   menuVK.style.cssText = `
   position: fixed;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   bottom: 50px;
   left: 10px;
-  width: 200px;
+  max-width: 500px;
   padding: 10px 0;
   font-size: 14px;
   text-align: center;
@@ -69,14 +77,15 @@
   border-radius: 3px;
   z-index: 5000;
   `;
-  menuVK.append(document.createTextNode('MENU'));
 
-  function createMenuBlock(menuType, items, name) {
+  function createMenuBlock(menuType, items, name, styleInput) {
     const subMenu = document.createElement('div');
-    subMenu.style.cssText = `margin: 4px 10px; border: 1px solid ${colors.border01};`;
-    subMenu.append(document.createTextNode(name));
+    subMenu.style.cssText = `width: 45%; margin: 4px 10px; border: 1px solid ${colors.border01};`;
+    const head = document.createElement('div');
+    head.append(document.createTextNode(name));
+    subMenu.append(head);
     const subMenuItems = Object.keys(items);
-    if (/^\d+$/.test(subMenuItems[0])) {
+    if (/^\d+$/.test(subMenuItems[0]) && name !== "deep") {
       subMenuItems.reverse();
     }
     subMenuItems.forEach((item, index) => {
@@ -92,28 +101,47 @@
       inputLabel.setAttribute('for', item);
       inputLabel.append(document.createTextNode(items[item]));
       inputBlock.append(inputEl, inputLabel);
-      inputBlock.style.cssText = 'text-align: left; padding: 4px;';
+      inputBlock.style.cssText = styleInput;
       subMenu.append(inputBlock);
     });
     return subMenu;
   }
 
-  const subMenu01 = createMenuBlock('radio', postingAfter, 'after');
-  const subMenu02 = createMenuBlock('checkbox', posts, 'posts');
-  const subMenu03 = createMenuBlock('radio', delays, 'delay');
-  const buttonStart = document.createElement('button');
-  const buttonStyles = `display: block; margin: 10px auto; color: ${colors.color01};`;
-  buttonStart.style.cssText = buttonStyles;
-  buttonStart.append(document.createTextNode("START POSTING"));
-  const buttonStop = document.createElement('button');
-  buttonStop.style.cssText = buttonStyles;
-  buttonStop.append(document.createTextNode("SKIP"));
-  menuVK.append(subMenu01, subMenu02, subMenu03, buttonStart, buttonStop);
+  const buttonsSet = [
+    {name: "START POSTING", handler: startScript},
+    {name: "SKIP", handler: skipCurrPost},
+  ]
+
+  function createButtonsBlock(buttons) {
+    const buttonsBlock = document.createElement('div');
+    buttonsBlock.style.cssText = `width: 45%; margin: 4px 10px;`
+    buttons.forEach((btn) => {
+      const buttonAct = document.createElement('button');
+      buttonAct.style.cssText = `display: block; margin: 20px auto; color: ${colors.color01};`;
+      buttonAct.append(document.createTextNode(btn.name));
+      buttonAct.addEventListener('click', btn.handler);
+      buttonsBlock.append(buttonAct);
+      if (btn.name === 'START POSTING') {
+        buttonStart = buttonAct;
+      }
+      if (btn.name === 'SKIP') {
+        buttonStop = buttonAct;
+      }
+    });
+    return buttonsBlock;
+  }
+
+  const stylesInpType1 = "text-align: left; padding: 4px;";
+  const stylesInpType2 = "display: inline-block; padding: 4px;";
+
+  const subMenu01 = createMenuBlock('radio', postingAfter, 'after', stylesInpType1);
+  const subMenu02 = createMenuBlock('checkbox', posts, 'posts', stylesInpType1);
+  const subMenu03 = createMenuBlock('radio', delays, 'delay', stylesInpType1);
+  const subMenu04 = createMenuBlock('radio', deeps, 'deep', stylesInpType2);
+  const buttonsBlock = createButtonsBlock(buttonsSet);
+  menuVK.append(subMenu01, subMenu02, subMenu03, subMenu04, buttonsBlock);
   const bodyVK = document.querySelector(`body`);
   bodyVK.append(menuVK);
-
-  buttonStart.addEventListener('click', startScript);
-  buttonStop.addEventListener('click', skipCurrPost);
 
   function skipCurrPost() {
     isSkipCurrPost = true;
@@ -139,6 +167,7 @@
     });
     if (isAllowStarting) {
       console.log('Запускаем скрипты: ', subMenu02posting);
+      console.log('buttonStart: ', buttonStart);
       buttonStart.setAttribute('disabled', '');
       loadPost();
     } else {
@@ -147,7 +176,7 @@
   }
 
   async function loadPost() {
-    fetch(`https://642dd59966a20ec9cea70c6c.mockapi.io/tasks/vk2_${subMenu02posting[currentNumberPost]}`, {
+    fetch(`https://642dd59966a20ec9cea70c6c.mockapi.io/tasks/${VKName}_${subMenu02posting[currentNumberPost]}`, {
       method: 'GET',
       headers: {'content-type': 'application/json'},
     })
@@ -181,7 +210,7 @@
       const idQuery = store.get(keyStore);
       idQuery.onsuccess = function () {
         store.put(currentPost, keyStore);
-        enterToBookMarks();
+        checkEnterToBookMarks();
       };
     };
   }
@@ -191,12 +220,23 @@
     return (setTimeout(action, delay));
   }
 
-  function enterToBookMarks() {
+  function checkEnterToBookMarks() {
     const URLHash = window.location.href;
     if (URLHash === 'https://vk.com/bookmarks?type=group') {
       enterToCurrentGroup();
     } else {
-      startNewCycle();
+      enterToBookMarks();
+    }
+  }
+
+  function enterToBookMarks() {
+    const linkGroups = document.querySelector('a[href="/bookmarks?from_menu=1"]');
+    console.log('linkGroups0: ', linkGroups);
+    if (linkGroups) {
+      linkGroups.click();
+      delayAct(enterToCurrentGroup, delayM);
+    } else {
+      delayAct(enterToBookMarks, delayM);
     }
   }
 
@@ -236,26 +276,51 @@
         postingAfterItem = element.id;
       }
     });
-    console.log("postingAfterItem: ", postingAfterItem);
+
     if (postingAfterItem === "all") {
       delayAct(clickCreatePost, delayM);
       return;
     }
-    const firstPosts = document.querySelectorAll('.post');
-    const numberPost = (groupsAll[currentNumberGr][2]) ? 1 : 0;
-    const avatarRich = firstPosts[numberPost].querySelector('.AvatarRich');
-    const postUserId = avatarRich.getAttribute('href');
-    console.log("postUserId: ", `${postUserId}`);
-    if (postingAfterItem === "my") {
-      if (postUserId.substring(3) === idUser) {
-        startNewCycle(delayM);
-        return;
-      } else {
-        delayAct(clickCreatePost, delayM);
-        return;
+
+    let deepAmount = 0;
+    const subMenu04elements = subMenu04.querySelectorAll('input');
+    subMenu04elements.forEach((element) => {
+      if (element.checked) {
+        deepAmount = +element.id;
+      }
+    });
+    const checkingPostsNode = document.querySelectorAll('.post');
+    const checkingPosts = Array.from(checkingPostsNode);
+    //проверяем наличие "pinned" в группе, если да, то deep увеличиваем на 1;
+    if (groupsAll[currentNumberGr][2]) {
+      deepAmount++;
+    }
+    checkingPosts.splice(deepAmount);
+
+    let isThereMyPost = false;
+    let isThereStrangePost = false;
+    for (let i = 0; i < checkingPosts.length; i++) {
+      const avatarRich = checkingPosts[i].querySelector('.AvatarRich');
+      if (!avatarRich) {
+        console.log("Не найден AvatarRich. checkingPosts: ", checkingPosts);
+        continue;
+      }
+      const postUserId = avatarRich.getAttribute('href');
+      console.log("postUserId: ", postUserId);
+      if (postingAfterItem === "my") {
+        console.log("01 Сравниваем ", postUserId.substring(3), " и ", idUser);
+        if (postUserId.substring(3) === idUser) {
+          isThereMyPost = true;
+          break;
+        }
+      }
+      console.log("02 Сравниваем ", postingAfterItem, " и ", postUserId.substring(1));
+      if (postingAfterItem === postUserId.substring(1)) {
+        isThereStrangePost = true;
+        break;
       }
     }
-    if (postingAfterItem === postUserId.substring(1)) {
+    if (!isThereMyPost || isThereStrangePost) {
       delayAct(clickCreatePost, delayM);
     } else {
       startNewCycle(delayM);
@@ -331,19 +396,21 @@
   }
 
   function updateCycleData() {
-    if (currentNumberGr >= groupsAll.length - 1) {
-      if (currentNumberPost >= subMenu02posting.length - 1) {
-        buttonStart.removeAttribute('disabled');
-        delayAct(enterNews, delayM);
-      } else {
-        currentNumberPost++;
-        currentNumberGr = 0;
-        loadPost();
-      }
-    } else {
-      currentNumberGr++;
-      delayAct(savePostToDb, delayM);
+    const isLastSmallCycle = currentNumberPost >= subMenu02posting.length - 1;
+    const isLastBigCycle = currentNumberGr >= groupsAll.length - 1;
+    if (isLastSmallCycle && isLastBigCycle) {
+      // buttonStart.removeAttribute('disabled');
+      delayAct(enterNews, delayM);
+      return;
     }
+    if (isLastBigCycle) {
+      currentNumberPost++;
+      currentNumberGr = 0;
+      loadPost();
+      return;
+    }
+    currentNumberGr++;
+    delayAct(savePostToDb, delayM);
   }
 
   function enterNews() {
