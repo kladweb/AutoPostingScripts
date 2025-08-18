@@ -49,7 +49,7 @@
     ["186442856", "iptv_bt"], //35 https://vk.com/iptv_bt
     ["120034509", "club120034509", "pinned"], //32 https://vk.com/club120034509
     ["99770042", "club99770042"], //17 https://vk.com/club99770042
-    // ["138553819", "club138553819"],//16 https://vk.com/club138553819
+    ["138553819", "club138553819"],//16 https://vk.com/club138553819
   ];
 
   //Color Palette #4694

@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         AutoRepVK_13_mod04
+// @name         AutoRepVK_11_mod04
 // @author       You
 // @match        https://vk.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=vk.com
@@ -8,9 +8,9 @@
 
 (function () {
   'use strict';
-  const idUser = '591910410';
-  const posts = {cbilling: "cbilling", best: 'The best operators'};
-  const VKName = "vk13";
+  const idUser = '562935165';
+  const posts = {best: "The best operators", mediabox: "MEDIABOX"};
+  const VKName = "vk11";
 
   const postingAfter = {
     all: "all groups",
@@ -48,8 +48,8 @@
     ["131638330", "galaktik_iptv", "pinned"], //33 https://vk.com/galaktik_iptv
     ["186442856", "iptv_bt"], //35 https://vk.com/iptv_bt
     ["120034509", "club120034509", "pinned"], //32 https://vk.com/club120034509
-    ["99770042", "club99770042"], //17 https://vk.com/club99770042
-    // ["138553819", "club138553819"],//16 https://vk.com/club138553819
+    // ["99770042", "club99770042"], //17 https://vk.com/club99770042
+    ["138553819", "club138553819"],//16 https://vk.com/club138553819
   ];
 
   //Color Palette #4694
