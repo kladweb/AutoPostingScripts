@@ -37,7 +37,7 @@
   ];
   var currNumbGroups = [];
 
-  var scrollHeight = document.documentElement.clientHeight;
+  // var scrollHeight = document.documentElement.clientHeight;
   var linksGroup = []; //массив со ссылками групп, в которых есть новые посты.
   var smallInterval = 2500;
   var globalInterval = 0;
@@ -46,7 +46,7 @@
   var currentNumberGr = 0;
   var dateFinishDoing = new Date;
   var kolIter = 0; //количество раз зайти в группу (вместо цикла for);
-  var loopAct = 0; //количество зацикливаний;
+  // var loopAct = 0; //количество зацикливаний;
   var countPosts = 0; // максимальное кол-во чужих новых постов
   var countMyPosts = 0; // количество предстоящих моих постов и уже опубликованных последние пол-часа;
   var GroupsRepeat = []; //группы, в которых уже не мои посты по приходу в них;
@@ -72,10 +72,6 @@
           var linkGr = elemGroup.querySelector(`a`);
           linksGroup.push(linkGr);
           currNumbGroups.push(numberGroups[i]);
-          // var curCountPost = parseInt(printPost.innerText);
-          // if (curCountPost > countPosts) {
-          //   countPosts = curCountPost;
-          // }
         }
       }
       console.log('Количество групп для постинга: ', linksGroup.length);
