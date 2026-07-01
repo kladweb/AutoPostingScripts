@@ -37,7 +37,7 @@
 
   var scrollHeight = document.documentElement.clientHeight;
   var linksGroup = []; //массив со ссылками групп, в которых есть новые посты.
-  var smallInterval = 2500;
+  var smallInterval = 3000;
   var globalInterval = 0;
   var refreshInterval = 600000;
   var currentNumberPost = 0;
@@ -85,7 +85,7 @@
       linksPosts = [...linkPostsAll];
       countMyPosts = countMyPosts + linksGroup.length * linksPosts.length;
       console.log('Предстоящие посты: ', countMyPosts);
-      if (countMyPosts > 45) {
+      if (countMyPosts > 60) {
         globalInterval = 1920000;
       }
       action110();
@@ -126,6 +126,7 @@
     console.log('action200');
     setTimeout(() => {
       var linkPost1 = document.querySelector(`button[data-id1="${activePostP}"]`);
+      console.log(linkPost1);
       if (linkPost1) {
         linkPost1.click();
         action210();
