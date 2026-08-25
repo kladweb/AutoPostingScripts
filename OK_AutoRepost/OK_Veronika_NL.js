@@ -12,23 +12,20 @@
 
 (function () {
   var linkPostsAll = [
-    "153761735917628",//VipLime
-    // "153761736245308", //ILookTV
-    "160051053714357",//russkoetv
-    "153761736441916",//Сравнение
-    "159968378543029",//kineskop
     "153761735589948",//cbilling
     "154501128273980",//Szarovoz
+    "159968378543029",//kineskop
     "160051053714357",//russkoetv
     "153761735917628",//VipLime
-    // "153761736245308", //ILookTV
+    "153761736245308", //ILookTV
+    "153761736441916",//Сравнение
   ];
   var linksPosts = [];
   var currentState = 0; //0 - все посты; 1 - первые три поста; 2 - последние два поста;
 
   var numberGroups = [
-    52669309649077,
-    52904782069848,
+    // 52669309649077,
+    // 52904782069848,
     57075167199265,
     55384665227287,
     51627757338786,
@@ -81,19 +78,6 @@
         return;
       }
       linksPosts = [...linkPostsAll];
-      // linksPosts = [linkPostsAll[0]];
-      // if (countPosts > 3 || GroupsRepeat.length > 0) {
-      //   linksPosts = [...linkPostsAll];
-      //   currentState = 0;
-      // } else {
-      //   if (currentState === 1) {
-      //     currentState = 2;
-      //     linksPosts = linkPostsAll.slice(3);
-      //   } else {
-      //     currentState = 1;
-      //     linksPosts = linkPostsAll.slice(0, 3);
-      //   }
-      // }
       countMyPosts = countMyPosts + linksGroup.length * linksPosts.length;
       console.log('Предстоящие посты: ', countMyPosts);
       if (countMyPosts > 45) {
@@ -115,7 +99,7 @@
         console.log('action110: не найдена ссылка на кнопку Закладки. Повторная попытка поиска...');
         action110();
       }
-    }, smallInterval * 0.4);
+    }, smallInterval);
   }
 
   //Переходим в раздел Темы.
@@ -130,21 +114,43 @@
         console.log('action110: не найдена ссылка на кнопку Темы. Повторная попытка поиска...');
         action120();
       }
-    }, smallInterval * 0.4);
+    }, smallInterval);
   }
 
   var action200 = function (activePostP) {
     console.log('action200');
     setTimeout(() => {
-      var linkPost1 = document.querySelector(`button[data-id1="${activePostP}"]`);
-      if (linkPost1) {
-        linkPost1.click();
-        action210();
-      } else {
-        console.log(`Кнопка репоста элемента ${activePostP} не найдена !!!`);
+      var linkPost1Container = document.querySelector(`div[data-bookmark-ref-id="${activePostP}"]`);
+      if (!linkPost1Container) {
+        console.log(`Контейнер ${activePostP} не найден !!!`);
         action200(linksPosts[currentNumberPost]);
+        return;
       }
+      var linkPost1 = linkPost1Container.querySelector("button.widget_cnt");
+      if (!linkPost1) {
+        console.log(`Button в контейнере ${activePostP} не найден !!!`);
+        action200(linksPosts[currentNumberPost]);
+        return;
+      }
+      linkPost1.click();
+      action210();
+
     }, smallInterval * 1.5);
+  }
+
+  var action205 = function () {
+    console.log('action205');
+    setTimeout(() => {
+      var linkSend = document.querySelector(`button[data-l="t,group"]`);
+      if (linkSend) {
+        linkSend.click();
+        action220();
+      } else {
+        console.log("И здесь пусто...");
+        action205();
+      }
+
+    }, smallInterval);
   }
 
   var action210 = function () {
@@ -156,7 +162,7 @@
         action220(currNumbGroups[currentNumberGr]);
       } else {
         console.log(`Кнопка ПОДЕЛИТСЯ В ГРУППЕ ${currNumbGroups[currentNumberGr]} не найдена !!!`);
-        action200(linksPosts[currentNumberPost]);
+        action205(linksPosts[currentNumberPost]);
       }
     }, smallInterval);
   }
@@ -171,7 +177,7 @@
       } else {
         console.log(`Кнопка группы ${linkGroup} не найдена !!!`);
         console.log(`Следующее действие: action3();`);
-        action200(linksPosts[currentNumberPost]);
+        action220(numberGroups[currentNumberPost]);
       }
     }, smallInterval);
   }
@@ -383,5 +389,4 @@
 
   action100();
 
-  // Your code here...
 })();
