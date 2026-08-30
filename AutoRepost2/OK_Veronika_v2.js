@@ -44,6 +44,7 @@
   const intervalXL = 600000;
 
   const linksGroup = []; //массив со ссылками групп, в которых есть новые посты.
+  const GroupsRepeat = []; //группы, в которых уже не мои посты по приходу в них;
   let currentNumberPost = 0;
   let currentNumberGr = 0;
   let dateFinishDoing = new Date;
@@ -311,7 +312,19 @@
   const checkNewPosts = () => {
     for (let i = 0; i < currListGroups.length; i++) {
       const elemGroup = document.querySelector(`div[data-group-id='${currListGroups[i]}']`);
+      let isRepeat = false;
+      for (let j = 0; j < GroupsRepeat.length; j++) {
+        if (GroupsRepeat[j] === currListGroups[i]) {
+          isRepeat = true;
+        }
+      }
+      const markPost = elemGroup.querySelector(".counterText");
+      if (markPost || isRepeat) {
+        const currentLink = elemGroup.querySelector("a");
+        linksGroup.push(currentLink);
+      }
     }
+    addLogsInfo(`Количество групп для постинга: ${linksGroup.length}`);
 
   }
 
