@@ -42,13 +42,17 @@
   const intervalM = 5000;
   const intervalL = 10000;
   const intervalXL = 600000;
+  const intervalXXL = 1830000;
 
   const linksGroup = []; //массив со ссылками групп, в которых есть новые посты.
   const GroupsRepeat = []; //группы, в которых уже не мои посты по приходу в них;
+  let countMyPosts = 0; // количество предстоящих моих постов и уже опубликованных последние пол-часа;
   let currentNumberPost = 0;
   let currentNumberGr = 0;
   let dateFinishDoing = new Date;
   let isMinimize = false;
+  let scriptTimeOut = null;
+  let emStop = false; //аварийная остановка в случае превышения постов;
 
   const colors = {
     color01: '#816460',
@@ -257,7 +261,7 @@
 
   const delayAct = (callback, delay = intervalS) => {
     console.log(callback?.name);
-    setTimeout(() => {
+    scriptTimeOut = setTimeout(() => {
       callback();
     }, delay);
   };
@@ -276,7 +280,10 @@
   }
 
   bottonMenuAutoStart.addEventListener("click", () => {
-    startMonitoring()
+    startMonitoring();
+    bottonMenuAutoStart.disabled = true;
+    bottonMenuManualStart.disabled = true;
+    bottonMenuManualStop.disabled = true;
   });
 
   /**
@@ -325,7 +332,143 @@
       }
     }
     addLogsInfo(`Количество групп для постинга: ${linksGroup.length}`);
+    if (linksGroup.length <= 0) {
+      // action280();
+      return;
+    }
+    countMyPosts = countMyPosts + linksGroup.length * currListPosts.length;
+    // if (countMyPosts > 45) {
+    //   globalInterval = 1920000;
+    // }
+    delayAct(enterToBookMarks);
+  }
 
+  //Заходим в Закладки
+  const enterToBookMarks = () => {
+    const linkMyNotes = document.querySelector(`a[href='/bookmarks']`);
+    if (linkMyNotes) {
+      linkMyNotes.click();
+      delayAct(enterToTopics);
+    } else {
+      console.log('action110: не найдена ссылка на кнопку Закладки. Повторная попытка поиска...');
+      delayAct(enterToBookMarks, intervalM);
+    }
+  }
+
+  //Переходим в раздел Темы.
+  const enterToTopics = () => {
+    const linkMyTopics = document.querySelector(`a[href='/bookmarks/topics']`);
+    if (linkMyTopics) {
+      linkMyTopics.click();
+      delayAct(clickShareLink);
+    } else {
+      console.log('action110: не найдена ссылка на кнопку Темы. Повторная попытка поиска...');
+      delayAct(enterToTopics, intervalM);
+    }
+  }
+
+  const clickShareLink = () => {
+    const activePostP = currListPosts[currentNumberPost];
+    const linkSharePost = document.querySelector(`div[data-bookmark-ref-id="${activePostP}"]`);
+    if (!linkSharePost) {
+      console.log(`Контейнер ${activePostP} не найден !!!`);
+      delayAct(clickShareLink, intervalM);
+      return;
+    }
+    linkSharePost.click();
+    delayAct(clickSendToGroupLink, intervalM);
+  }
+
+  const clickSendToGroupLink = () => {
+    const linkSendToGroup = document.querySelector(`button[data-l="t,group"]`);
+    if (!linkSendToGroup) {
+      console.log(`Button в контейнере ${currListPosts[currentNumberPost]} не найден !!!`);
+      delayAct(clickSendToGroupLink, intervalM);
+      return;
+    }
+    linkSendToGroup.click();
+    delayAct(chooseGroupLink, intervalL);
+  }
+
+  const chooseGroupLink = () => {
+    const linkGroup = currListGroups[currentNumberGr];
+    const groupLink = document.getElementById(`reshare_XpostGroupSuggest_${linkGroup}`);
+    console.log("AAA:", groupLink);
+    if (!groupLink) {
+      console.log(`Кнопка группы ${linkGroup} не найдена !!!`);
+      delayAct(chooseGroupLink, intervalM);
+    }
+    groupLink.click();
+    delayAct(clickShareButton);
+  }
+
+  const clickShareButton = () => {
+    const shareButton = document.querySelector(`button[data-l="t,button.submit"]`);
+    if (!shareButton) {
+      console.log(`Кнопка ПОДЕЛИТСЯ В ГРУППЕ ${currListGroups[currentNumberGr]} не найдена !!!`);
+      delayAct(clickShareButton, intervalM);
+      return;
+    }
+    shareButton.click();
+    delayAct(checkErrorMessage);
+  }
+
+  const checkErrorMessage = () => {
+    const errorPost = document.querySelector(`span.js-submit-error-msg`);
+    let mesError = null;
+    if (errorPost) {
+      mesError = errorPost.innerText.slice(0, 8);
+    }
+    if (mesError === 'Вы слишк' || mesError === 'Извините') {
+      console.log('mesError: ', mesError);
+      const closeModal = document.querySelector('.modal-new_close_ico');
+      if (closeModal) {
+        closeModal.click();
+      }
+      delayAct(startBreak);
+    } else {
+      delayAct(prepareNewSmallCycle);
+    }
+  }
+
+  const startBreak = () => {
+    addLogsInfo("Перив пол-часа", colors.info03);
+    countMyPosts = 0;
+    currentNumberGr--;
+    addLogsInfo(`Текущее время: ${getNowDate()}`, colors.info03);
+    delayAct(prepareNewSmallCycle, intervalXXL);
+  }
+
+  const prepareNewSmallCycle = () => {
+    currentNumberGr++;
+    if (currentNumberGr >= currListGroups.length) {
+      currentNumberPost++;
+      currentNumberGr = 0;
+    }
+    if (currentNumberPost >= currListPosts.length || emStop) {
+      dateFinishDoing = new Date;
+      console.log("ЦИКЛ ЗАВЕРШЕН !!!");
+      GroupsRepeat.length = 0;
+      currentNumberPost = 0;
+      currentNumberGr = 0;
+      emStop = false;
+      dateFinishDoing = new Date;
+      delayAct(goToListFromMarks);
+    } else {
+      delayAct(clickShareLink);
+    }
+
+  }
+
+  const goToListFromMarks = () => {
+    const linkGroups = document.querySelector(`a[data-l="t,userAltGroup"]`);
+    if (linkGroups) {
+      linkGroups.click();
+      // action260();
+    } else {
+      console.log('Ссылка группы на найдена...');
+      delayAct(goToListFromMarks);
+    }
   }
 
 
