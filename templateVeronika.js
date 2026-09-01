@@ -72,12 +72,13 @@
   const listPostsMenu = {headName: "ПОСТЫ", headDom: null, domElems: {}}
 
   const getNowDate = (date) => {
+    if (!date) return "-";
     const hours = date.getHours();
     let minutes = date.getMinutes();
     minutes = minutes.length === 1 ? "0" + minutes : minutes;
     return `${hours}:${minutes}`;
   }
-  let dateFinishDoing = getNowDate(new Date);
+  let dateFinishDoing = 0;
 
   const currentInfoBlock = {
     posts: {
@@ -220,7 +221,7 @@
   logsHead.append(document.createTextNode("Logs Info"))
   logsInfo.append(logsHead);
   const logsInfoField = document.createElement("div");
-  logsInfoField.style.cssText = "text-align: left; height: 100px; overflow: auto;";
+  logsInfoField.style.cssText = "text-align: left; height: 200px; overflow: auto;";
   logsInfo.append(logsInfoField);
   menuOK.append(logsInfo);
 
@@ -278,6 +279,7 @@
       console.log("А что с колбэком?");
     }
     console.log(callback?.name);
+    console.log("delay: ", delay);
     scriptTimeOut = setTimeout(() => {
       callback();
     }, delay);
@@ -523,7 +525,7 @@
       currentNumberPost = 0;
       currentNumberGr = 0;
       emStop = false;
-      dateFinishDoing = getNowDate(new Date);
+      dateFinishDoing = new Date;
       delayAct(() => {
         goToListFromMarks(checkVisitingEachGroup);
       });
@@ -645,26 +647,44 @@
 
   const displayInfo = () => {
     console.log('action280');
+    console.log('dateFinishDoing: ', dateFinishDoing);
     addLogsInfo(`Время последнего поста: ${getNowDate(dateFinishDoing)}`);
     addLogsInfo(`Текущее время: ${getNowDate(new Date)}`);
     addLogsInfo(` globalInterval: ${globalInterval}`);
-    setTimeout(() => {
-      const currDate = getNowDate(new Date);
-      currListGroups = [];
-      addLogsInfo(`Текущее время: ${getNowDate(new Date)}`);
-      console.log('Текущее время: ', currDate);
-      if (currDate - dateFinishDoing > 1800000) {
-        countMyPosts = 0;
-      }
-      console.log('Накопленные посты ', countMyPosts);
-      if (currDate - dateFinishDoing > globalInterval) {
-        delayAct(() => {
-          goToListFromMarks(checkNewPosts);
-        });
-      } else {
-        delayAct(displayInfo);
-      }
-    }, refreshInterval);
+    delayAct(waitingAct, refreshInterval);
+    // setTimeout(() => {
+    //   const currDate = getNowDate(new Date);
+    //   currListGroups = [];
+    //   addLogsInfo(`Текущее время: ${getNowDate(new Date)}`);
+    //   console.log('Текущее время: ', currDate);
+    //   if (currDate - dateFinishDoing > 1800000) {
+    //     countMyPosts = 0;
+    //   }
+    //   console.log('Накопленные посты ', countMyPosts);
+    //   if (currDate - dateFinishDoing > globalInterval) {
+    //     delayAct(() => {
+    //       goToListFromMarks(checkNewPosts);
+    //     });
+    //   } else {
+    //     delayAct(displayInfo);
+    //   }
+    // }, refreshInterval);
+  }
+
+  const waitingAct = () => {
+    const currDate = getNowDate(new Date);
+    currListGroups = [];
+    addLogsInfo(`Текущее время: ${getNowDate(new Date)}`);
+    console.log('Текущее время: ', currDate);
+    if (currDate - dateFinishDoing > 1800000) {
+      countMyPosts = 0;
+    }
+    console.log('Накопленные посты ', countMyPosts);
+    if (currDate - dateFinishDoing > globalInterval) {
+      goToListFromMarks(checkNewPosts);
+    } else {
+      displayInfo();
+    }
   }
 
   // === PART END ===
