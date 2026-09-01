@@ -6,8 +6,6 @@
 // @author       KP
 // @match        https://ok.ru/profile/586178183434/groups
 // @run-at       document-end
-// @updateURL    https://raw.githubusercontent.com/kladweb/autoposting-scripts/refs/heads/main/build/VK0_fin.js
-// @downloadURL  https://raw.githubusercontent.com/kladweb/autoposting-scripts/refs/heads/main/build/VK0_fin.js
 // ==/UserScript==
 
 (function () {
@@ -76,8 +74,10 @@
   const listPostsMenu = {headName: "ПОСТЫ", headDom: null, domElems: {}}
 
   const getNowDate = (date) => {
-    // const date = new Date();
-    return `${date.getHours()}:${date.getMinutes()}`;
+    const hours = date.getHours();
+    let minutes = date.getMinutes();
+    minutes = minutes.length === 1 ? "0" + minutes : minutes;
+    return `${hours}:${minutes}`;
   }
   let dateFinishDoing = getNowDate(new Date);
 

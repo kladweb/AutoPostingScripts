@@ -6,8 +6,6 @@
 // @author       KP
 // @match        https://ok.ru/profile/575084661978/groups
 // @run-at       document-end
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=ok.ru
-// @grant        none
 // ==/UserScript==
 
 (function () {
@@ -76,8 +74,10 @@
   const listPostsMenu = {headName: "ПОСТЫ", headDom: null, domElems: {}}
 
   const getNowDate = (date) => {
-    // const date = new Date();
-    return `${date.getHours()}:${date.getMinutes()}`;
+    const hours = date.getHours();
+    let minutes = date.getMinutes();
+    minutes = minutes.length === 1 ? "0" + minutes : minutes;
+    return `${hours}:${minutes}`;
   }
   let dateFinishDoing = getNowDate(new Date);
 

@@ -6,8 +6,6 @@
 // @author       KP
 // @match        https://ok.ru/profile/575084661978/groups
 // @run-at       document-end
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=ok.ru
-// @grant        none
 // ==/UserScript==
 
 (function () {

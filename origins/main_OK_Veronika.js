@@ -7,5 +7,5 @@
 // @grant        none
 // @run-at       document-end
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=ok.ru
-// @require      https://raw.githubusercontent.com/kladweb/autoposting-scripts/refs/heads/main/build/VK0_fin.js
+// @require      https://raw.githubusercontent.com/kladweb/AutoPostingScripts/refs/heads/main/build/OK_Veronika_fin.js?token=
 // ==/UserScript==
