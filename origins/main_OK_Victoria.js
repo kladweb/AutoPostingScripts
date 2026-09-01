@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      0.2
 // @author       Paha
-// @match        https://ok.ru/profile/575084661978/groups
+// @match        https://ok.ru/profile/581088762021/groups
 // @grant        none
 // @run-at       document-end
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=ok.ru

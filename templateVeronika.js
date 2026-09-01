@@ -56,6 +56,8 @@
   let kolIter = 0; //количество раз зайти в группу (вместо цикла for);
   let globalInterval = 0;
   let isMonitoring = false;
+  let endTime = 0;
+  let uxInterval = null;
 
   const colors = {
     color01: '#816460',
@@ -71,11 +73,12 @@
   const listGroupsMenu = {headName: "ГРУППЫ", headDom: null, domElems: {}}
   const listPostsMenu = {headName: "ПОСТЫ", headDom: null, domElems: {}}
 
-  const getNowDate = (date) => {
+  const getNowDate = (date = new Date) => {
     if (!date) return "-";
-    const hours = date.getHours();
-    let minutes = date.getMinutes();
-    minutes = minutes.length === 1 ? "0" + minutes : minutes;
+    let hours = String(date.getHours());
+    let minutes = String(date.getMinutes());
+    hours = hours.length === 1 ? `0${hours}` : hours;
+    minutes = minutes.length === 1 ? `0${minutes}` : minutes;
     return `${hours}:${minutes}`;
   }
   let dateFinishDoing = 0;
@@ -98,7 +101,12 @@
     },
     lastCheckTime: {
       name: "Время последней проверки",
-      count: getNowDate(new Date),
+      count: "-",
+      domElem: null,
+    },
+    timer: {
+      name: "Время до следующего действия",
+      count: "00:00:00",
       domElem: null,
     }
   }
@@ -274,18 +282,44 @@
   listGroupsMenu.headDom.addEventListener('click', () => handlerAllChecked(listGroupsMenu.domElems));
   listPostsMenu.headDom.addEventListener('click', () => handlerAllChecked(listPostsMenu.domElems));
 
+  const getRemainingTime = () => {
+    const remaining = Math.max(0, endTime - Date.now());
+    const totalSeconds = Math.ceil(remaining / 1000);
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+    return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+  };
+
+  const startUpdateTime = () => {
+    if (!endTime) return;
+    uxInterval = setInterval(() => {
+      currentInfoBlock.timer.domElem.textContent = getRemainingTime();
+    }, 1000);
+  }
+
+  const stopUpdateTime = () => {
+    if (uxInterval) {
+      clearInterval(uxInterval);
+      currentInfoBlock.timer.domElem.textContent = "00:00:00";
+    }
+  }
+
   const delayAct = (callback, delay = intervalS) => {
     if (!callback) {
       console.log("А что с колбэком?");
     }
     console.log(callback?.name);
     console.log("delay: ", delay);
+    endTime = Date.now() + delay;
     scriptTimeOut = setTimeout(() => {
       callback();
     }, delay);
   };
 
   const getLists = () => {
+    currListGroupsChecked = [];
+    currListPosts = [];
     Object.entries(listGroupsMenu.domElems).forEach((item) => {
       if (item[1].checked) {
         currListGroupsChecked.push(item[0]);
@@ -298,7 +332,22 @@
     });
   }
 
+  const isChecked = () => {
+    getLists();
+    if (currListGroupsChecked.length === 0) {
+      alert("Не выбрано ни одной группы");
+      return false;
+    }
+    if (currListPosts.length === 0) {
+      alert("Не выбрано ни одного поста");
+      return false;
+    }
+    return true;
+  }
+
   bottonMenuAutoStart.addEventListener("click", () => {
+    if (!isChecked()) return;
+    logsInfoField.textContent = "";
     isMonitoring = true;
     bottonMenuAutoStart.disabled = true;
     bottonMenuAutoStop.disabled = false;
@@ -312,11 +361,14 @@
     bottonMenuAutoStop.disabled = true;
     bottonMenuManualStart.disabled = false;
     bottonMenuManualStop.disabled = true;
+    stopUpdateTime();
     addLogsInfo("Слежение и авто-рассылка прервана...", colors.info03);
     clearTimeout(scriptTimeOut);
   });
 
   bottonMenuManualStart.addEventListener("click", () => {
+    if (!isChecked()) return;
+    logsInfoField.textContent = "";
     isMonitoring = false;
     bottonMenuAutoStart.disabled = true;
     bottonMenuAutoStop.disabled = true;
@@ -326,11 +378,12 @@
   });
 
   bottonMenuManualStop.addEventListener("click", () => {
-    addLogsInfo("Принудительная рассылка прервана...", colors.info03);
     bottonMenuAutoStart.disabled = false;
     bottonMenuAutoStop.disabled = true;
     bottonMenuManualStart.disabled = false;
     bottonMenuManualStop.disabled = true;
+    stopUpdateTime();
+    addLogsInfo("Принудительная рассылка прервана...", colors.info03);
     clearTimeout(scriptTimeOut);
   });
 
@@ -341,7 +394,6 @@
     addLogsInfo("******************************");
     addLogsInfo("Слежение начато!");
     addLogsInfo(`Текущее время: ${getNowDate(new Date)}`);
-    getLists();
     checkIsGroupsPage();
   }
 
@@ -349,7 +401,6 @@
     addLogsInfo("******************************");
     addLogsInfo("Принудительный постинг начат!");
     addLogsInfo(`Текущее время: ${getNowDate(new Date)}`);
-    getLists();
     delayAct(nextStepPosting);
   }
 
@@ -396,7 +447,9 @@
         currListGroups.push(currListGroupsChecked[i]);
       }
     }
-    addLogsInfo(`Количество групп для постинга: ${linksGroup.length}`);
+    // addLogsInfo(`Количество групп для постинга: ${linksGroup.length}`);
+    currentInfoBlock.countGroupForPost.domElem.textContent = linksGroup.length;
+    currentInfoBlock.lastCheckTime.domElem.textContent = getNowDate();
     if (linksGroup.length <= 0) {
       globalInterval = 0;
       delayAct(displayInfo);
@@ -411,6 +464,7 @@
 
   //Заходим в Закладки
   const enterToBookMarks = () => {
+    currentInfoBlock.countGroupForPost.domElem.textContent = currListGroups;
     const linkMyNotes = document.querySelector(`a[href='/bookmarks']`);
     if (linkMyNotes) {
       linkMyNotes.click();
@@ -460,7 +514,7 @@
       return;
     }
     linkSendToGroup.click();
-    delayAct(chooseGroupLink, intervalL);
+    delayAct(chooseGroupLink, intervalM);
   }
 
   const chooseGroupLink = () => {
@@ -514,6 +568,7 @@
 
   const prepareNewSmallCycle = () => {
     console.log('action240');
+    currentInfoBlock.lastPostTime.domElem.textContent = getNowDate();
     currentNumberGr++;
     if (currentNumberGr >= currListGroups.length) {
       currentNumberPost++;
@@ -567,10 +622,9 @@
   }
 
   const finishManualPosting = () => {
-    const currDate = getNowDate(new Date);
     currListGroups = [];
     addLogsInfo("Принудительная рассылка постов завершена!");
-    addLogsInfo(`Текущее время: ${getNowDate(new Date)}`);
+    addLogsInfo(`Текущее время: ${getNowDate()}`);
     bottonMenuAutoStart.disabled = false;
     bottonMenuAutoStop.disabled = true;
     bottonMenuManualStart.disabled = false;
@@ -648,33 +702,18 @@
   const displayInfo = () => {
     console.log('action280');
     console.log('dateFinishDoing: ', dateFinishDoing);
-    addLogsInfo(`Время последнего поста: ${getNowDate(dateFinishDoing)}`);
-    addLogsInfo(`Текущее время: ${getNowDate(new Date)}`);
+    // addLogsInfo(`Время последнего поста: ${getNowDate(dateFinishDoing)}`);
+    // addLogsInfo(`Текущее время: ${getNowDate(new Date)}`);
     addLogsInfo(` globalInterval: ${globalInterval}`);
     delayAct(waitingAct, refreshInterval);
-    // setTimeout(() => {
-    //   const currDate = getNowDate(new Date);
-    //   currListGroups = [];
-    //   addLogsInfo(`Текущее время: ${getNowDate(new Date)}`);
-    //   console.log('Текущее время: ', currDate);
-    //   if (currDate - dateFinishDoing > 1800000) {
-    //     countMyPosts = 0;
-    //   }
-    //   console.log('Накопленные посты ', countMyPosts);
-    //   if (currDate - dateFinishDoing > globalInterval) {
-    //     delayAct(() => {
-    //       goToListFromMarks(checkNewPosts);
-    //     });
-    //   } else {
-    //     delayAct(displayInfo);
-    //   }
-    // }, refreshInterval);
+    startUpdateTime();
   }
 
   const waitingAct = () => {
+    stopUpdateTime();
     const currDate = getNowDate(new Date);
     currListGroups = [];
-    addLogsInfo(`Текущее время: ${getNowDate(new Date)}`);
+    // addLogsInfo(`Текущее время: ${getNowDate(new Date)}`);
     console.log('Текущее время: ', currDate);
     if (currDate - dateFinishDoing > 1800000) {
       countMyPosts = 0;
