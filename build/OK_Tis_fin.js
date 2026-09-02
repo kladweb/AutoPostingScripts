@@ -351,10 +351,15 @@
     return true;
   }
 
+  const resetParams = () => {
+    currListGroups = [];
+    linksGroup.length = 0;
+    logsInfoField.textContent = "";
+  }
+
   bottonMenuAutoStart.addEventListener("click", () => {
     if (!isChecked()) return;
-    currListGroups = [];
-    logsInfoField.textContent = "";
+    resetParams();
     isMonitoring = true;
     bottonMenuAutoStart.disabled = true;
     bottonMenuAutoStop.disabled = false;
@@ -377,8 +382,7 @@
 
   bottonMenuManualStart.addEventListener("click", () => {
     if (!isChecked()) return;
-    currListGroups = [];
-    logsInfoField.textContent = "";
+    resetParams();
     isMonitoring = false;
     bottonMenuAutoStart.disabled = true;
     bottonMenuAutoStop.disabled = true;
