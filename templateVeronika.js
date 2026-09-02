@@ -94,6 +94,11 @@
       count: 0,
       domElem: null,
     },
+    countRemainingPosts: {
+      name: "Осталось опубликовать постов",
+      count: 0,
+      domElem: null,
+    },
     lastPostTime: {
       name: "Время последнего поста",
       count: "-",
@@ -233,7 +238,6 @@
   logsInfo.append(logsInfoField);
   menuOK.append(logsInfo);
 
-
   const minimizeButton = document.createElement("button");
   minimizeButton.append(document.createTextNode("_"));
   minimizeButton.style.cssText = `
@@ -347,12 +351,14 @@
 
   bottonMenuAutoStart.addEventListener("click", () => {
     if (!isChecked()) return;
+    currListGroups = [];
     logsInfoField.textContent = "";
     isMonitoring = true;
     bottonMenuAutoStart.disabled = true;
     bottonMenuAutoStop.disabled = false;
     bottonMenuManualStart.disabled = true;
     bottonMenuManualStop.disabled = true;
+    menuAutoName.style.color = colors.info01;
     startMonitoring();
   });
 
@@ -364,16 +370,19 @@
     stopUpdateTime();
     addLogsInfo("Слежение и авто-рассылка прервана...", colors.info03);
     clearTimeout(scriptTimeOut);
+    menuAutoName.style.color = colors.color03;
   });
 
   bottonMenuManualStart.addEventListener("click", () => {
     if (!isChecked()) return;
+    currListGroups = [];
     logsInfoField.textContent = "";
     isMonitoring = false;
     bottonMenuAutoStart.disabled = true;
     bottonMenuAutoStop.disabled = true;
     bottonMenuManualStart.disabled = true;
     bottonMenuManualStop.disabled = false;
+    menuManualName.style.color = colors.info01;
     startPosting();
   });
 
@@ -385,6 +394,7 @@
     stopUpdateTime();
     addLogsInfo("Принудительная рассылка прервана...", colors.info03);
     clearTimeout(scriptTimeOut);
+    menuManualName.style.color = colors.color03;
   });
 
   /**
@@ -449,6 +459,8 @@
     }
     // addLogsInfo(`Количество групп для постинга: ${linksGroup.length}`);
     currentInfoBlock.countGroupForPost.domElem.textContent = linksGroup.length;
+    currentInfoBlock.countRemainingPosts.count = linksGroup.length * currListPosts.length;
+    currentInfoBlock.countRemainingPosts.domElem.textContent = currentInfoBlock.countRemainingPosts.count;
     currentInfoBlock.lastCheckTime.domElem.textContent = getNowDate();
     if (linksGroup.length <= 0) {
       globalInterval = 0;
@@ -464,7 +476,7 @@
 
   //Заходим в Закладки
   const enterToBookMarks = () => {
-    currentInfoBlock.countGroupForPost.domElem.textContent = currListGroups.length;
+    // currentInfoBlock.countGroupForPost.domElem.textContent = currListGroups.length;
     const linkMyNotes = document.querySelector(`a[href='/bookmarks']`);
     if (linkMyNotes) {
       linkMyNotes.click();
@@ -568,6 +580,8 @@
 
   const prepareNewSmallCycle = () => {
     console.log('action240');
+    currentInfoBlock.countRemainingPosts.count--;
+    currentInfoBlock.countRemainingPosts.domElem.textContent = currentInfoBlock.countRemainingPosts.count;
     currentInfoBlock.lastPostTime.domElem.textContent = getNowDate();
     currentNumberGr++;
     if (currentNumberGr >= currListGroups.length) {
@@ -612,6 +626,8 @@
       delayAct(enterToEachGroup);
     }
     if (kolIter >= currListGroups.length) {
+      const countPosts = linksGroup.length * currListPosts.length;
+      addLogsInfo(`Завершена публикация ${countPosts} постов.`, colors.info02);
       if (isMonitoring) {
         kolIter = 0;
         delayAct(displayInfo);
@@ -625,6 +641,7 @@
     currListGroups = [];
     addLogsInfo("Принудительная рассылка постов завершена!");
     addLogsInfo(`Текущее время: ${getNowDate()}`);
+    menuManualName.style.color = colors.color03;
     bottonMenuAutoStart.disabled = false;
     bottonMenuAutoStop.disabled = true;
     bottonMenuManualStart.disabled = false;
@@ -704,7 +721,7 @@
     console.log('dateFinishDoing: ', dateFinishDoing);
     // addLogsInfo(`Время последнего поста: ${getNowDate(dateFinishDoing)}`);
     // addLogsInfo(`Текущее время: ${getNowDate(new Date)}`);
-    addLogsInfo(` globalInterval: ${globalInterval}`);
+    // addLogsInfo(` globalInterval: ${globalInterval}`);
     delayAct(waitingAct, refreshInterval);
     startUpdateTime();
   }
@@ -718,6 +735,7 @@
     if (currDate - dateFinishDoing > 1800000) {
       countMyPosts = 0;
     }
+    currentInfoBlock.posts.domElem.textContent = countMyPosts;
     console.log('Накопленные посты ', countMyPosts);
     if (currDate - dateFinishDoing > globalInterval) {
       goToListFromMarks(checkNewPosts);
