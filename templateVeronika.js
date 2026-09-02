@@ -375,7 +375,7 @@
     stopUpdateTime();
     addLogsInfo("Слежение и авто-рассылка прервана...", colors.info03);
     clearTimeout(scriptTimeOut);
-    menuAutoName.style.color = colors.color03;
+    menuAutoName.style.color = colors.color01;
   });
 
   bottonMenuManualStart.addEventListener("click", () => {
@@ -398,7 +398,7 @@
     stopUpdateTime();
     addLogsInfo("Принудительная рассылка прервана...", colors.info03);
     clearTimeout(scriptTimeOut);
-    menuManualName.style.color = colors.color03;
+    menuManualName.style.color = colors.color01;
   });
 
   /**
@@ -529,7 +529,7 @@
     }
     if (!linkSendToGroup) {
       console.log(`Button в контейнере ${activePostP} не найден !!!`);
-      delayAct(clickSendToGroupLink, intervalM);
+      delayAct(clickShareLink, intervalM);
       return;
     }
     linkSendToGroup.click();
