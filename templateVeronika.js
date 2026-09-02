@@ -457,10 +457,6 @@
         currListGroups.push(currListGroupsChecked[i]);
       }
     }
-    // addLogsInfo(`Количество групп для постинга: ${linksGroup.length}`);
-    currentInfoBlock.countGroupForPost.domElem.textContent = linksGroup.length;
-    currentInfoBlock.countRemainingPosts.count = linksGroup.length * currListPosts.length;
-    currentInfoBlock.countRemainingPosts.domElem.textContent = currentInfoBlock.countRemainingPosts.count;
     currentInfoBlock.lastCheckTime.domElem.textContent = getNowDate();
     if (linksGroup.length <= 0) {
       globalInterval = 0;
@@ -477,6 +473,10 @@
   //Заходим в Закладки
   const enterToBookMarks = () => {
     // currentInfoBlock.countGroupForPost.domElem.textContent = currListGroups.length;
+    // addLogsInfo(`Количество групп для постинга: ${linksGroup.length}`);
+    currentInfoBlock.countGroupForPost.domElem.textContent = linksGroup.length;
+    currentInfoBlock.countRemainingPosts.count = linksGroup.length * currListPosts.length;
+    currentInfoBlock.countRemainingPosts.domElem.textContent = currentInfoBlock.countRemainingPosts.count;
     const linkMyNotes = document.querySelector(`a[href='/bookmarks']`);
     if (linkMyNotes) {
       linkMyNotes.click();
@@ -627,9 +627,11 @@
     }
     if (kolIter >= currListGroups.length) {
       const countPosts = linksGroup.length * currListPosts.length;
-      addLogsInfo(`Завершена публикация ${countPosts} постов.`, colors.info02);
+      addLogsInfo(`Завершена публикация постов в кол-ве ${countPosts} шт.`, colors.info02);
       if (isMonitoring) {
         kolIter = 0;
+        addLogsInfo(`Текущее время: ${getNowDate()}`, colors.info02);
+        addLogsInfo("Продолжаем мониторинг...", colors.info02);
         delayAct(displayInfo);
       } else {
         delayAct(finishManualPosting);
