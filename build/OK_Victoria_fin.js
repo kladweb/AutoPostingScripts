@@ -44,7 +44,7 @@
   const intervalM = 5000;
   const intervalL = 10000;
   const intervalXL = 600000;
-  const intervalXXL = 1830000;
+  const intervalXXL = 1800000;
   let refreshInterval = intervalXL;
 
   const linksGroup = []; //массив со ссылками групп, в которых есть новые посты.
@@ -465,7 +465,7 @@
       delayAct(displayInfo);
       return;
     }
-    countMyPosts = countMyPosts + linksGroup.length * currListPosts.length;
+    countMyPosts = countMyPosts + currListGroups.length * currListPosts.length;
     if (countMyPosts > 60) {
       globalInterval = 1920000;
     }
@@ -477,7 +477,10 @@
     // currentInfoBlock.countGroupForPost.domElem.textContent = currListGroups.length;
     // addLogsInfo(`Количество групп для постинга: ${linksGroup.length}`);
     currentInfoBlock.countGroupForPost.domElem.textContent = linksGroup.length;
-    currentInfoBlock.countRemainingPosts.count = linksGroup.length * currListPosts.length;
+    console.log("FFF01: ", currListGroups.length);
+    console.log("FFF02: ", currListPosts.length);
+
+    currentInfoBlock.countRemainingPosts.count = currListGroups.length * currListPosts.length;
     currentInfoBlock.countRemainingPosts.domElem.textContent = currentInfoBlock.countRemainingPosts.count;
     const linkMyNotes = document.querySelector(`a[href='/bookmarks']`);
     if (linkMyNotes) {
@@ -550,6 +553,9 @@
       return;
     }
     shareButton.click();
+    currentInfoBlock.countRemainingPosts.count--;
+    currentInfoBlock.countRemainingPosts.domElem.textContent = currentInfoBlock.countRemainingPosts.count;
+    currentInfoBlock.lastPostTime.domElem.textContent = getNowDate();
     delayAct(checkErrorMessage);
   }
 
@@ -582,9 +588,6 @@
 
   const prepareNewSmallCycle = () => {
     console.log('action240');
-    currentInfoBlock.countRemainingPosts.count--;
-    currentInfoBlock.countRemainingPosts.domElem.textContent = currentInfoBlock.countRemainingPosts.count;
-    currentInfoBlock.lastPostTime.domElem.textContent = getNowDate();
     currentNumberGr++;
     if (currentNumberGr >= currListGroups.length) {
       currentNumberPost++;
@@ -628,7 +631,7 @@
       delayAct(enterToEachGroup);
     }
     if (kolIter >= currListGroups.length) {
-      const countPosts = linksGroup.length * currListPosts.length;
+      const countPosts = currListGroups.length * currListPosts.length;
       addLogsInfo(`Завершена публикация постов в кол-ве ${countPosts} шт.`, colors.info02);
       if (isMonitoring) {
         kolIter = 0;
@@ -726,19 +729,19 @@
     // addLogsInfo(`Время последнего поста: ${getNowDate(dateFinishDoing)}`);
     // addLogsInfo(`Текущее время: ${getNowDate(new Date)}`);
     // addLogsInfo(` globalInterval: ${globalInterval}`);
-    delayAct(waitingAct, refreshInterval);
+    currentInfoBlock.posts.domElem.textContent = countMyPosts;
     startUpdateTime();
+    delayAct(waitingAct, refreshInterval);
   }
 
   const waitingAct = () => {
     stopUpdateTime();
-    const currDate = getNowDate(new Date);
+    const currDate = new Date;
     currListGroups = [];
-    // addLogsInfo(`Текущее время: ${getNowDate(new Date)}`);
-    console.log('Текущее время: ', currDate);
-    if (currDate - dateFinishDoing > 1800000) {
+    if (dateFinishDoing && (currDate - dateFinishDoing > intervalXXL)) {
       countMyPosts = 0;
     }
+    console.log('countMyPosts02: ', countMyPosts);
     currentInfoBlock.posts.domElem.textContent = countMyPosts;
     console.log('Накопленные посты ', countMyPosts);
     if (currDate - dateFinishDoing > globalInterval) {
