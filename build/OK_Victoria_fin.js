@@ -466,7 +466,7 @@
 
   //Заходим в Закладки
   const enterToBookMarks = () => {
-    currentInfoBlock.countGroupForPost.domElem.textContent = currListGroups;
+    currentInfoBlock.countGroupForPost.domElem.textContent = currListGroups.length;
     const linkMyNotes = document.querySelector(`a[href='/bookmarks']`);
     if (linkMyNotes) {
       linkMyNotes.click();
