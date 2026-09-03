@@ -13,6 +13,16 @@
 
   const userId = "575084661978";
 
+  const listPosts = {
+    153761735589948: "cbilling",
+    154501128273980: "Szarovoz",
+    159968378543029: "kineskop",
+    160051053714357: "russkoetv",
+    153761735917628: "VipLime",
+    153761736245308: "ILookTV",
+    153761736441916: "Сравнение",
+  }
+
   // === TEMPLATE START ===
   // insert here
   // === TEMPLATE END ===

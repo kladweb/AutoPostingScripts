@@ -10,9 +10,6 @@
 
   const userId = "575084661978";
 
-  // === PART START ===
-  // version 1.1.5
-
   const listPosts = {
     153761735589948: "cbilling",
     154501128273980: "Szarovoz",
@@ -22,6 +19,10 @@
     153761736245308: "ILookTV",
     153761736441916: "Сравнение",
   }
+
+  // === PART START ===
+  // version 1.1.5
+
   let currListPosts = [];
 
   const listGroups = {
