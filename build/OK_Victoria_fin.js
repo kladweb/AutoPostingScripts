@@ -492,8 +492,6 @@
     // currentInfoBlock.countGroupForPost.domElem.textContent = currListGroups.length;
     // addLogsInfo(`Количество групп для постинга: ${linksGroup.length}`);
     currentInfoBlock.countGroupForPost.domElem.textContent = linksGroup.length;
-    console.log("FFF01: ", currListGroups.length);
-    console.log("FFF02: ", currListPosts.length);
 
     currentInfoBlock.countRemainingPosts.count = currListGroups.length * currListPosts.length;
     currentInfoBlock.countRemainingPosts.domElem.textContent = currentInfoBlock.countRemainingPosts.count;
@@ -708,8 +706,6 @@
     if (feedWs[t + 1]) {
       identD[1] = feedWs[t + 1].querySelector('.feed-user-avatar');
     }
-    console.log('identD[0]: ', identD[0]);
-    console.log('identD[1]: ', identD[1]);
     if (identD[0]) {
       identImg[0] = identD[0].querySelector(`img`);
       console.log('identImg[0]: ', identImg[0]);
