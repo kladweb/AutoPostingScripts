@@ -366,6 +366,8 @@
     currListGroups = [];
     linksGroup.length = 0;
     logsInfoField.textContent = "";
+    currentNumberPost = 0;
+    currentNumberGr = 0
   }
 
   bottonMenuAutoStart.addEventListener("click", () => {
@@ -477,9 +479,11 @@
     currentInfoBlock.lastCheckTime.domElem.textContent = getNowDate();
     if (linksGroup.length <= 0) {
       globalInterval = 0;
+      addLogsInfo("Всё чисто! Продолжаем мониторить..." );
       delayAct(displayInfo);
       return;
     }
+    addLogsInfo("Опа... опа... опа... Работаем..." );
     countMyPosts = countMyPosts + currListGroups.length * currListPosts.length;
     if (countMyPosts > 60) {
       globalInterval = 1920000;
