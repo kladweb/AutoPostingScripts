@@ -602,6 +602,7 @@
     if (currentNumberPost >= currListPosts.length || emStop) {
       console.log("ЦИКЛ ЗАВЕРШЕН !!!");
       GroupsRepeat.length = 0;
+      linksGroup.length = 0;
       currentNumberPost = 0;
       currentNumberGr = 0;
       emStop = false;
