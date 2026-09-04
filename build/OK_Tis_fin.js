@@ -318,7 +318,7 @@
     }
     console.log(callback?.name);
     console.log("delay: ", delay);
-    endTime = Date.now() + delay;
+    // endTime = Date.now() + delay;
     scriptTimeOut = setTimeout(() => {
       callback();
     }, delay);
