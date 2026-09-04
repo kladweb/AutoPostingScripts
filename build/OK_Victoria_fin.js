@@ -69,7 +69,7 @@
   let kolIter = 0; //количество раз зайти в группу (вместо цикла for);
   let globalInterval = 0;
   let isMonitoring = false;
-  let endTime = 0;
+  // let endTime = 0;
   let uxInterval = null;
 
   const colors = {
@@ -299,7 +299,7 @@
   listGroupsMenu.headDom.addEventListener('click', () => handlerAllChecked(listGroupsMenu.domElems));
   listPostsMenu.headDom.addEventListener('click', () => handlerAllChecked(listPostsMenu.domElems));
 
-  const getRemainingTime = () => {
+  const getRemainingTime = (endTime) => {
     const remaining = Math.max(0, endTime - Date.now());
     const totalSeconds = Math.ceil(remaining / 1000);
     const hours = Math.floor(totalSeconds / 3600);
@@ -308,10 +308,10 @@
     return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
   };
 
-  const startUpdateTime = () => {
+  const startUpdateTime = (endTime) => {
     if (!endTime) return;
     uxInterval = setInterval(() => {
-      currentInfoBlock.timer.domElem.textContent = getRemainingTime();
+      currentInfoBlock.timer.domElem.textContent = getRemainingTime(endTime);
     }, 1000);
   }
 
@@ -479,11 +479,11 @@
     currentInfoBlock.lastCheckTime.domElem.textContent = getNowDate();
     if (linksGroup.length <= 0) {
       globalInterval = 0;
-      addLogsInfo("Всё чисто! Продолжаем мониторить..." );
+      addLogsInfo("Всё чисто! Продолжаем мониторить...");
       delayAct(displayInfo);
       return;
     }
-    addLogsInfo("Опа... опа... опа... Работаем..." );
+    addLogsInfo("Опа... опа... опа... Работаем...");
     countMyPosts = countMyPosts + currListGroups.length * currListPosts.length;
     if (countMyPosts > 60) {
       globalInterval = 1920000;
@@ -600,6 +600,7 @@
     globalInterval = 0;
     currentNumberGr--;
     addLogsInfo(`Текущее время: ${getNowDate(new Date)}`, colors.info03);
+    startUpdateTime(intervalXXL);
     delayAct(prepareNewSmallCycle, intervalXXL);
   }
 
@@ -745,7 +746,7 @@
     // addLogsInfo(`Текущее время: ${getNowDate(new Date)}`);
     // addLogsInfo(` globalInterval: ${globalInterval}`);
     currentInfoBlock.posts.domElem.textContent = countMyPosts;
-    startUpdateTime();
+    startUpdateTime(refreshInterval);
     delayAct(waitingAct, refreshInterval);
   }
 
