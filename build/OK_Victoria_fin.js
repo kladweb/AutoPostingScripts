@@ -600,12 +600,13 @@
     globalInterval = 0;
     currentNumberGr--;
     addLogsInfo(`Текущее время: ${getNowDate(new Date)}`, colors.info03);
-    startUpdateTime(intervalXXL);
+    startUpdateTime(Date.now() + intervalXXL);
     delayAct(prepareNewSmallCycle, intervalXXL);
   }
 
   const prepareNewSmallCycle = () => {
     console.log('action240');
+    stopUpdateTime();
     currentNumberGr++;
     if (currentNumberGr >= currListGroups.length) {
       currentNumberPost++;
@@ -747,7 +748,7 @@
     // addLogsInfo(`Текущее время: ${getNowDate(new Date)}`);
     // addLogsInfo(` globalInterval: ${globalInterval}`);
     currentInfoBlock.posts.domElem.textContent = countMyPosts;
-    startUpdateTime(refreshInterval);
+    startUpdateTime(Date.now() + refreshInterval);
     delayAct(waitingAct, refreshInterval);
   }
 
