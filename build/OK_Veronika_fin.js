@@ -355,6 +355,7 @@
   const resetParams = () => {
     currListGroups = [];
     linksGroup.length = 0;
+    currentInfoBlock.countGroupForPost.domElem.textContent = linksGroup.length;
     logsInfoField.textContent = "";
     currentNumberPost = 0;
     currentNumberGr = 0
@@ -450,6 +451,7 @@
 
   //Проверяем в каких группах новые посты
   const checkNewPosts = () => {
+    getLists();
     refreshInterval = intervalXL;
     for (let i = 0; i < currListGroupsChecked.length; i++) {
       const elemGroup = document.querySelector(`div[data-group-id='${currListGroupsChecked[i]}']`);
@@ -489,6 +491,7 @@
 
     currentInfoBlock.countRemainingPosts.count = currListGroups.length * currListPosts.length;
     currentInfoBlock.countRemainingPosts.domElem.textContent = currentInfoBlock.countRemainingPosts.count;
+
     const linkMyNotes = document.querySelector(`a[href='/bookmarks']`);
     if (linkMyNotes) {
       linkMyNotes.click();
@@ -606,6 +609,7 @@
       console.log("ЦИКЛ ЗАВЕРШЕН !!!");
       GroupsRepeat.length = 0;
       linksGroup.length = 0;
+      currentInfoBlock.countGroupForPost.domElem.textContent = linksGroup.length;
       currentNumberPost = 0;
       currentNumberGr = 0;
       emStop = false;
