@@ -270,6 +270,10 @@
     infoNode.style.cssText = `margin: 4px 0; color: ${color};`;
     infoNode.textContent = infoText;
     logsInfoField.append(infoNode);
+    infoNode.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest'
+    });
   }
 
   minimizeButton.onclick = minimizeMenu;
